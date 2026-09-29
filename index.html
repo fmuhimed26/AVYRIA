@@ -2077,7 +2077,11 @@ html[data-theme="dark"] .theme-toggle {
 
       /* Keep the header, but make every control compact enough to fit one row. */
       header {
-        overflow: hidden;
+        overflow: visible;
+      }
+
+      .nav {
+        overflow: visible;
       }
 
       .nav {
@@ -2114,7 +2118,9 @@ html[data-theme="dark"] .theme-toggle {
 
       .language-menu {
         width: 118px;
+        max-width: calc(100vw - 24px);
         top: calc(100% + 6px);
+        z-index: 1000;
       }
 
       .language-menu button {
@@ -2684,6 +2690,416 @@ html[data-theme="dark"] .theme-toggle {
         transition-duration: 0.001ms !important;
       }
     }
+
+    /* ==========================================================
+       FINAL MOBILE FIT
+       - no horizontal page movement
+       - smaller, compact headings
+       - compact two-column cards
+       - language menu always visible when opened
+    ========================================================== */
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 720px) {
+      *,
+      *::before,
+      *::after {
+        min-width: 0;
+      }
+
+      header {
+        overflow: visible !important;
+      }
+
+      .nav {
+        width: calc(100% - 12px) !important;
+        max-width: none !important;
+        padding-inline: 0;
+        gap: 4px !important;
+      }
+
+      .brand {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .brand-main {
+        font-size: 20px !important;
+        letter-spacing: .04em;
+      }
+
+      .brand-ar {
+        font-size: 9px !important;
+      }
+
+      .language-switcher {
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .language-toggle {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        font-size: 10px !important;
+      }
+
+      .language-menu {
+        position: fixed !important;
+        top: 59px !important;
+        inset-inline-end: 10px !important;
+        width: 128px !important;
+        max-width: calc(100vw - 20px) !important;
+        padding: 5px !important;
+        background: var(--paper) !important;
+        border: 1px solid var(--line) !important;
+        box-shadow: 0 16px 38px rgba(54, 43, 30, .14) !important;
+        z-index: 2000 !important;
+      }
+
+      .language-menu:not([hidden]),
+      .language-menu.is-open {
+        display: grid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      .language-menu[hidden] {
+        display: none !important;
+      }
+
+      .language-menu button {
+        padding: 9px 10px !important;
+        font-size: 12px !important;
+        white-space: nowrap;
+      }
+
+      .theme-toggle {
+        width: 30px !important;
+        min-width: 30px !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        padding: 0 !important;
+        font-size: 13px !important;
+      }
+
+      .nav-cta {
+        padding: 6px 8px !important;
+        font-size: 9px !important;
+        gap: 3px !important;
+        white-space: nowrap;
+      }
+
+      .container {
+        width: calc(100% - 18px) !important;
+        max-width: none !important;
+      }
+
+      .section {
+        padding: 38px 0 !important;
+      }
+
+      .section-head {
+        margin-bottom: 18px !important;
+        text-align: center !important;
+      }
+
+      .section-head h2,
+      .moment-copy h2,
+      .request-intro h3,
+      .cta-box h2 {
+        font-size: clamp(16px, 5.2vw, 23px) !important;
+        line-height: 1.15 !important;
+        letter-spacing: -.025em !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        text-align: center !important;
+      }
+
+      .section-head p,
+      .moment-copy p,
+      .request-intro p,
+      .cta-box p,
+      .brand-closing {
+        font-size: 11px !important;
+        line-height: 1.65 !important;
+        text-align: center !important;
+      }
+
+      .hero {
+        padding: 22px 0 30px !important;
+      }
+
+      .hero-grid {
+        width: 100% !important;
+        gap: 18px !important;
+        justify-items: center !important;
+        text-align: center !important;
+      }
+
+      .hero-copy {
+        width: 100%;
+        text-align: center !important;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(31px, 9.4vw, 42px) !important;
+        line-height: .95 !important;
+        white-space: nowrap !important;
+      }
+
+      .hero-copy h1 small {
+        margin-top: 8px !important;
+        font-size: 11px !important;
+        line-height: 1.35 !important;
+        white-space: nowrap !important;
+      }
+
+      .hero-copy > p {
+        max-width: 100% !important;
+        font-size: 11px !important;
+        line-height: 1.65 !important;
+        text-align: center !important;
+      }
+
+      .hero-actions {
+        gap: 6px !important;
+        margin-top: 13px !important;
+      }
+
+      .btn {
+        min-height: 38px !important;
+        padding-inline: 12px !important;
+        font-size: 10px !important;
+      }
+
+      .hero-card {
+        min-height: 280px !important;
+      }
+
+      .hero-invitation {
+        width: min(245px, 78vw) !important;
+        padding: 19px 12px !important;
+      }
+
+      .hero-invitation h3 {
+        font-size: 27px !important;
+      }
+
+      .category-grid,
+      .services-grid,
+      .steps,
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+      }
+
+      .category-card,
+      .service,
+      .step {
+        min-width: 0 !important;
+        padding: 11px !important;
+        border-radius: 15px !important;
+      }
+
+      .category-card {
+        min-height: 112px !important;
+      }
+
+      .category-card .num {
+        font-size: 11px !important;
+      }
+
+      .category-card h3,
+      .service h3,
+      .step h3 {
+        margin-top: 9px !important;
+        margin-bottom: 2px !important;
+        font-size: 15px !important;
+        line-height: 1.08 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+      }
+
+      .category-card p,
+      .service p,
+      .step p {
+        font-size: 9px !important;
+        line-height: 1.5 !important;
+      }
+
+      .service-icon {
+        width: 32px !important;
+        height: 32px !important;
+        margin-bottom: 8px !important;
+        font-size: 13px !important;
+      }
+
+      .moment-wrap {
+        display: block !important;
+      }
+
+      .moment-copy {
+        width: 100% !important;
+        max-width: none !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+      }
+
+      .moment-copy h2,
+      .moment-copy p,
+      .moment-copy .btn {
+        margin-inline: auto !important;
+        text-align: center !important;
+      }
+
+      .moment-copy h2 {
+        margin-top: 6px !important;
+      }
+
+      .moment-circle-wrap {
+        display: none !important;
+      }
+
+      .filter-row {
+        flex-wrap: wrap !important;
+        overflow: visible !important;
+        justify-content: center !important;
+      }
+
+      .filter-btn {
+        flex: 0 1 auto !important;
+        padding: 5px 8px !important;
+        font-size: 9px !important;
+      }
+
+      .portfolio-item,
+      .portfolio-item .media,
+      .portfolio-item iframe,
+      .portfolio-placeholder {
+        min-height: 145px !important;
+      }
+
+      .request-wrap {
+        gap: 12px !important;
+      }
+
+      .request-intro,
+      .request-form {
+        min-width: 0 !important;
+        padding: 13px !important;
+        border-radius: 18px !important;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .check-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 6px !important;
+      }
+
+      .check {
+        min-width: 0 !important;
+        padding: 7px 8px !important;
+        font-size: 10px !important;
+      }
+
+      .check span {
+        min-width: 0 !important;
+        white-space: nowrap;
+      }
+
+      .brand-story-shell {
+        padding: 14px !important;
+      }
+
+      .brand-wordmark {
+        font-size: clamp(36px, 11vw, 50px) !important;
+      }
+
+      .brand-meaning-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+      }
+
+      .brand-card {
+        min-height: 126px !important;
+        padding: 10px !important;
+      }
+
+      .brand-card-word {
+        font-size: 17px !important;
+        white-space: nowrap !important;
+      }
+
+      .brand-card-meaning {
+        font-size: 9px !important;
+      }
+
+      .brand-card-desc {
+        font-size: 9px !important;
+        line-height: 1.5 !important;
+      }
+
+      .cta-box {
+        padding: 23px 12px !important;
+      }
+
+      footer {
+        padding-top: 26px !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .nav {
+        width: calc(100% - 8px) !important;
+        gap: 3px !important;
+      }
+
+      .brand-main {
+        font-size: 18px !important;
+      }
+
+      .language-toggle,
+      .theme-toggle {
+        width: 27px !important;
+        min-width: 27px !important;
+        height: 27px !important;
+        min-height: 27px !important;
+      }
+
+      .nav-cta {
+        padding-inline: 6px !important;
+        font-size: 8px !important;
+      }
+
+      .section-head h2,
+      .moment-copy h2,
+      .request-intro h3,
+      .cta-box h2 {
+        font-size: 15px !important;
+      }
+
+      .category-card h3,
+      .service h3,
+      .step h3 {
+        font-size: 13px !important;
+      }
+
+      .hero-copy h1 {
+        font-size: 29px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -2735,6 +3151,7 @@ html[data-theme="dark"] .theme-toggle {
           aria-label="اختيار اللغة"
           aria-expanded="false"
           aria-haspopup="true"
+          aria-controls="languageMenu"
         >
           <span aria-hidden="true">文A</span>
         </button>
@@ -6075,15 +6492,36 @@ html[data-theme="dark"] .theme-toggle {
 
 
     /* ==========================================================
+       SAFE STORAGE
+    ========================================================== */
+
+    function safeStorageGet(key, fallback = null) {
+      try {
+        return window.localStorage.getItem(key) ?? fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function safeStorageSet(key, value) {
+      try {
+        window.localStorage.setItem(key, value);
+      } catch {
+        /* Storage can be blocked by privacy settings; the site still works. */
+      }
+    }
+
+
+    /* ==========================================================
        GLOBAL STATE
     ========================================================== */
 
     let currentLanguage =
-      localStorage.getItem("avyria-language") || "ar";
+      safeStorageGet("avyria-language", "ar") || "ar";
 
 
     let currentTheme =
-      localStorage.getItem("avyria-theme") ||
+      safeStorageGet("avyria-theme") ||
       (
         window.matchMedia(
           "(prefers-color-scheme: dark)"
@@ -6250,7 +6688,7 @@ html[data-theme="dark"] .theme-toggle {
           : "light";
 
 
-      localStorage.setItem(
+      safeStorageSet(
         "avyria-theme",
         currentTheme
       );
@@ -6350,7 +6788,7 @@ html[data-theme="dark"] .theme-toggle {
           : "ar";
 
 
-      localStorage.setItem(
+      safeStorageSet(
         "avyria-language",
         currentLanguage
       );
@@ -7496,6 +7934,54 @@ html[data-theme="dark"] .theme-toggle {
 
       renderPortfolio();
 
+      fitMobileHeadings();
+
+    }
+
+
+    /* ==========================================================
+       MOBILE HEADING FIT
+       Keeps mobile titles on one line without clipping letters.
+    ========================================================== */
+
+    function fitMobileHeadings() {
+      const isMobile = window.matchMedia("(max-width: 720px)").matches;
+      const selectors = [
+        ".hero-copy h1",
+        ".section-head h2",
+        ".moment-copy h2",
+        ".request-intro h3",
+        ".cta-box h2",
+        ".category-card h3",
+        ".service h3",
+        ".step h3",
+        ".brand-card-word"
+      ];
+
+      document.querySelectorAll(selectors.join(",")).forEach(el => {
+        if (!isMobile) {
+          el.style.removeProperty("font-size");
+          return;
+        }
+
+        const minSize = el.matches(".category-card h3, .service h3, .step h3, .brand-card-word") ? 10 : 12;
+        let size = parseFloat(getComputedStyle(el).fontSize) || 18;
+
+        // Reset a previous fitted value before measuring the current language.
+        el.style.setProperty("font-size", `${size}px`, "important");
+
+        let guard = 0;
+        while (el.scrollWidth > el.clientWidth + 1 && size > minSize && guard < 24) {
+          size -= 0.5;
+          el.style.setProperty("font-size", `${size}px`, "important");
+          guard += 1;
+        }
+      });
+    }
+
+    window.addEventListener("resize", fitMobileHeadings, { passive: true });
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(fitMobileHeadings).catch(() => {});
     }
 
 
@@ -7835,10 +8321,17 @@ html[data-theme="dark"] .theme-toggle {
       ? $$('[data-language]', languageMenu)
       : [];
 
-    function closeLanguageMenu() {
+    function setLanguageMenu(open) {
       if (!languageMenu || !languageToggle) return;
-      languageMenu.hidden = true;
-      languageToggle.setAttribute("aria-expanded", "false");
+      const shouldOpen = Boolean(open);
+      languageMenu.hidden = !shouldOpen;
+      languageMenu.classList.toggle("is-open", shouldOpen);
+      languageToggle.setAttribute("aria-expanded", String(shouldOpen));
+      if (shouldOpen) syncLanguageMenu();
+    }
+
+    function closeLanguageMenu() {
+      setLanguageMenu(false);
     }
 
     function syncLanguageMenu() {
@@ -7848,30 +8341,22 @@ html[data-theme="dark"] .theme-toggle {
       });
     }
 
-    languageSelect
-      ?.addEventListener(
-        "change",
-        event => {
-          applyLanguage(event.target.value);
-          syncLanguageMenu();
-        }
-      );
+    languageSelect?.addEventListener("change", event => {
+      applyLanguage(event.target.value);
+      syncLanguageMenu();
+    });
 
-    languageToggle
-      ?.addEventListener(
-        "click",
-        event => {
-          event.stopPropagation();
-          if (!languageMenu) return;
-          const opening = languageMenu.hidden;
-          languageMenu.hidden = !opening;
-          languageToggle.setAttribute("aria-expanded", String(opening));
-          if (opening) syncLanguageMenu();
-        }
-      );
+    languageToggle?.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (!languageMenu) return;
+      setLanguageMenu(languageMenu.hidden);
+    });
 
     languageOptions.forEach(btn => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", event => {
+        event.preventDefault();
+        event.stopPropagation();
         const lang = btn.dataset.language;
         if (languageSelect && lang) languageSelect.value = lang;
         if (lang) applyLanguage(lang);
@@ -7887,7 +8372,11 @@ html[data-theme="dark"] .theme-toggle {
       }
     });
 
-    syncLanguageMenu();
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeLanguageMenu();
+    });
+
+    setLanguageMenu(false);
 
 
     /* THEME */
