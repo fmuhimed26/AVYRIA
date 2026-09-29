@@ -74,6 +74,13 @@
       box-sizing: border-box;
     }
 
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -98,8 +105,17 @@
 
     img,
     video,
-    iframe {
+    iframe,
+    input,
+    select,
+    textarea,
+    button {
       max-width: 100%;
+    }
+
+    img,
+    video,
+    iframe {
       display: block;
     }
 
@@ -195,6 +211,10 @@
       gap: 18px;
     }
 
+    .nav > * {
+      min-width: 0;
+    }
+
     .brand {
       display: inline-flex;
       align-items: baseline;
@@ -242,6 +262,7 @@
       color: var(--ink);
       transition: 0.25s ease;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .nav-cta:hover {
@@ -267,6 +288,10 @@
       grid-template-columns: 1fr 0.9fr;
       gap: 55px;
       align-items: center;
+    }
+
+    .hero-grid > * {
+      min-width: 0;
     }
 
     .hero-copy {
@@ -354,6 +379,7 @@
       display: grid;
       place-items: center;
       isolation: isolate;
+      min-width: 0;
     }
 
     .hero-card::before {
@@ -530,6 +556,7 @@
       border: 1px solid var(--line);
       transition: 0.3s ease;
       cursor: pointer;
+      min-width: 0;
     }
 
     .category-card:hover {
@@ -581,6 +608,7 @@
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.38);
       border: 1px solid var(--line);
+      min-width: 0;
     }
 
     .service-icon {
@@ -617,6 +645,10 @@
       align-items: center;
     }
 
+    .moment-wrap > * {
+      min-width: 0;
+    }
+
     .moment-copy h2 {
       margin: 12px 0 15px;
       font-family: var(--serif);
@@ -634,6 +666,7 @@
       display: grid;
       place-items: center;
       min-height: 560px;
+      width: 100%;
     }
 
     .moment-circle {
@@ -694,6 +727,8 @@
       border-radius: 32px;
       padding: 26px;
       box-shadow: 0 12px 45px rgba(54, 43, 30, 0.04);
+      min-width: 0;
+      overflow: hidden;
     }
 
     .filter-row {
@@ -743,6 +778,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
+      min-width: 0;
     }
 
     .portfolio-item {
@@ -754,6 +790,7 @@
       background: #f8f5f0;
       cursor: pointer;
       contain: layout paint;
+      min-width: 0;
     }
 
     .portfolio-item .media,
@@ -816,6 +853,10 @@
       align-items: stretch;
     }
 
+    .request-wrap > * {
+      min-width: 0;
+    }
+
     .request-intro,
     .request-form {
       border: 1px solid var(--line);
@@ -856,7 +897,7 @@
 
     .request-point {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 11px;
       color: var(--muted);
       font-size: 13px;
@@ -873,6 +914,10 @@
       flex: 0 0 auto;
     }
 
+    .request-point span {
+      min-width: 0;
+    }
+
     .request-form {
       padding: 30px;
     }
@@ -886,6 +931,7 @@
     .field {
       display: grid;
       gap: 7px;
+      min-width: 0;
     }
 
     .field.full {
@@ -971,6 +1017,7 @@
       cursor: pointer;
       transition: 0.2s ease;
       text-align: right;
+      min-width: 0;
     }
 
     .check:hover {
@@ -989,6 +1036,7 @@
 
     .check span {
       flex: 1;
+      min-width: 0;
       text-align: right;
       line-height: 1.5;
     }
@@ -1054,6 +1102,7 @@
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.32);
       border: 1px solid var(--line);
+      min-width: 0;
     }
 
     .step-number {
@@ -1109,6 +1158,7 @@
       color: var(--gold);
       transition: 0.25s ease;
       font-size: 20px;
+      flex: 0 0 auto;
     }
 
     .faq-a {
@@ -1215,6 +1265,10 @@
       margin-bottom: 28px;
     }
 
+    .brand-story-top > * {
+      min-width: 0;
+    }
+
     .brand-wordmark {
       margin-top: 8px;
       font-family: var(--serif);
@@ -1253,6 +1307,7 @@
         transform 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease;
+      min-width: 0;
     }
 
     .brand-card:hover {
@@ -1288,6 +1343,7 @@
       font-size: 30px;
       line-height: 1;
       font-weight: 600;
+      overflow-wrap: anywhere;
     }
 
     .brand-card-meaning {
@@ -1467,6 +1523,7 @@
     .modal-box {
       position: relative;
       width: min(980px, 100%);
+      max-width: 100%;
       max-height: 92svh;
       overflow: auto;
       border-radius: 24px;
@@ -1502,6 +1559,7 @@
     .modal-media video,
     .modal-media iframe {
       width: 100%;
+      max-width: 100%;
       max-height: 76svh;
       min-height: 300px;
       object-fit: contain;
@@ -1530,6 +1588,8 @@
       font-size: 13px;
       transition: 0.3s ease;
       box-shadow: var(--shadow);
+      max-width: calc(100% - 24px);
+      text-align: center;
     }
 
     .toast.show {
@@ -1612,10 +1672,6 @@
       background: var(--paper);
     }
 
-    html[data-theme="dark"] .filter-btn.active {
-      background: #2b251e;
-    }
-
     html[data-theme="dark"] .portfolio-item,
     html[data-theme="dark"] .portfolio-placeholder {
       background: #211d18;
@@ -1671,13 +1727,65 @@
       color: #211d18;
     }
 
-    html[data-theme="dark"] .brand-card {
-      background: rgba(255, 255, 255, 0.025);
+    /* DARK MODE BUTTONS */
+
+    html[data-theme="dark"] .btn-primary {
+      background: #d4b477;
+      color: #171512;
+      border-color: #d4b477;
     }
 
-    html[data-theme="dark"] .brand-story-shell::before {
-      color: rgba(212, 180, 119, 0.04);
+    html[data-theme="dark"] .btn-primary:hover {
+      background: #e2c58e;
+      border-color: #e2c58e;
+      color: #171512;
     }
+
+    html[data-theme="dark"] .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: rgba(212, 180, 119, 0.32);
+    }
+
+    html[data-theme="dark"] .btn-ghost:hover {
+      background: rgba(212, 180, 119, 0.08);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    html[data-theme="dark"] .nav-cta {
+      background: rgba(212, 180, 119, 0.06);
+      color: var(--ink);
+      border-color: rgba(212, 180, 119, 0.38);
+    }
+
+    html[data-theme="dark"] .nav-cta:hover {
+      background: rgba(212, 180, 119, 0.1);
+      color: var(--gold);
+    }
+
+    html[data-theme="dark"] .filter-btn {
+      background: transparent;
+      color: var(--muted);
+      border-color: var(--line);
+    }
+
+    html[data-theme="dark"] .filter-btn:hover,
+    html[data-theme="dark"] .filter-btn.active {
+      background: #2b251e;
+      color: var(--ink);
+      border-color: rgba(212, 180, 119, 0.48);
+    }
+
+    html[data-theme="dark"] .language-switcher select {
+      background: #28231d;
+      color: var(--ink);
+      border-color: rgba(212, 180, 119, 0.3);
+    }
+
+    /* =========================
+       THEME TOGGLE
+    ========================= */
 
     .theme-toggle {
       min-height: 40px;
@@ -1694,71 +1802,8 @@
       font-size: 12px;
       white-space: nowrap;
       transition: 0.2s ease;
+      flex: 0 0 auto;
     }
-
-    /* =========================
-   DARK MODE BUTTONS FIX
-========================= */
-
-html[data-theme="dark"] .btn-primary {
-  background: #d4b477;
-  color: #171512;
-  border-color: #d4b477;
-}
-
-html[data-theme="dark"] .btn-primary:hover {
-  background: #e2c58e;
-  border-color: #e2c58e;
-  color: #171512;
-}
-
-html[data-theme="dark"] .btn-ghost {
-  background: transparent;
-  color: var(--ink);
-  border-color: rgba(212, 180, 119, 0.32);
-}
-
-html[data-theme="dark"] .btn-ghost:hover {
-  background: rgba(212, 180, 119, 0.08);
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-html[data-theme="dark"] .nav-cta {
-  background: rgba(212, 180, 119, 0.06);
-  color: var(--ink);
-  border-color: rgba(212, 180, 119, 0.38);
-}
-
-html[data-theme="dark"] .nav-cta:hover {
-  background: rgba(212, 180, 119, 0.1);
-  color: var(--gold);
-}
-
-html[data-theme="dark"] .filter-btn {
-  background: transparent;
-  color: var(--muted);
-  border-color: var(--line);
-}
-
-html[data-theme="dark"] .filter-btn:hover,
-html[data-theme="dark"] .filter-btn.active {
-  background: #2b251e;
-  color: var(--ink);
-  border-color: rgba(212, 180, 119, 0.48);
-}
-
-html[data-theme="dark"] .language-switcher select {
-  background: #28231d;
-  color: var(--ink);
-  border-color: rgba(212, 180, 119, 0.3);
-}
-
-html[data-theme="dark"] .theme-toggle {
-  background: #28231d;
-  color: var(--ink);
-  border-color: rgba(212, 180, 119, 0.3);
-}
 
     .theme-toggle:hover {
       border-color: rgba(184, 148, 90, 0.55);
@@ -1771,194 +1816,818 @@ html[data-theme="dark"] .theme-toggle {
     }
 
     html[data-theme="dark"] .theme-toggle {
-      background: rgba(33, 29, 24, 0.9);
+      background: #28231d;
+      color: var(--ink);
+      border-color: rgba(212, 180, 119, 0.3);
     }
 
     /* =========================
-       MOBILE
+       TABLET
     ========================= */
 
     @media (max-width: 980px) {
+
+      .container {
+        width: calc(100% - 24px);
+        max-width: 100%;
+      }
+
+      .nav {
+        min-height: 64px;
+        gap: 7px;
+      }
 
       .nav-links {
         display: none;
       }
 
-      .hero-grid,
-      .moment-wrap {
+      .brand {
+        gap: 5px;
+      }
+
+      .brand-main {
+        font-size: 27px;
+        letter-spacing: 0.05em;
+      }
+
+      .brand-ar {
+        font-size: 10px;
+      }
+
+      .language-switcher {
+        margin-inline-start: auto;
+      }
+
+      .language-switcher select {
+        min-height: 34px;
+        max-width: 82px;
+        padding: 5px 20px 5px 7px;
+        font-size: 10px;
+      }
+
+      .theme-toggle {
+        min-height: 34px;
+        width: 38px;
+        padding: 0;
+        gap: 0;
+      }
+
+      .theme-toggle .theme-icon {
+        font-size: 14px;
+      }
+
+      .theme-toggle #themeText {
+        display: none;
+      }
+
+      .nav-cta {
+        min-height: 34px;
+        padding: 7px 10px;
+        font-size: 10px;
+        gap: 4px;
+      }
+
+      .nav-cta span {
+        font-size: 10px;
+      }
+
+      /* HERO */
+
+      .hero {
+        min-height: auto;
+        padding: 35px 0 55px;
+      }
+
+      .hero-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
       }
 
       .hero-copy {
         text-align: center;
       }
 
+      .hero-copy h1 {
+        margin: 14px 0 16px;
+        font-size: clamp(52px, 15vw, 75px);
+        line-height: 0.88;
+      }
+
+      .hero-copy h1 small {
+        margin-top: 12px;
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
       .hero-copy p {
-        margin-inline: auto;
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.9;
       }
 
       .hero-actions {
         justify-content: center;
+        gap: 8px;
+        margin-top: 22px;
       }
+
+      .btn {
+        min-height: 44px;
+        padding: 0 16px;
+        font-size: 13px;
+      }
+
+      /* INVITATION */
 
       .hero-card {
-        min-height: 490px;
+        min-height: 385px;
+        width: 100%;
       }
 
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .brand-story-top {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        align-items: start;
-      }
-
-      .brand-meaning-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .theme-toggle {
-        padding-inline: 10px;
-      }
-    }
-
-    @media (max-width: 720px) {
-
-      .request-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .form-grid,
-      .check-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .field.full {
-        grid-column: auto;
-      }
-
-      .request-intro,
-      .request-form {
-        padding: 22px;
-      }
-
-      .container {
-        width: min(100% - 26px, 1180px);
-      }
-
-      .section {
-        padding: 76px 0;
-      }
-
-      .hero {
-        padding-top: 40px;
-      }
-
-      .hero-card {
-        min-height: 445px;
+      .hero-card::before {
+        width: 320px;
+        max-width: 80vw;
       }
 
       .hero-invitation {
-        width: min(350px, 84vw);
-        padding: 34px 22px;
+        width: min(315px, 82vw);
+        padding: 28px 18px;
+      }
+
+      .invitation-ring {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 13px;
+        font-size: 25px;
+      }
+
+      .invitation-bismillah {
+        font-size: 12px;
+      }
+
+      .invitation-line {
+        width: 65px;
+        margin: 14px auto;
       }
 
       .hero-invitation h3 {
-        font-size: 39px;
+        font-size: 34px;
+      }
+
+      .hero-invitation p {
+        font-size: 12px;
+        line-height: 1.9;
+        margin-top: 10px;
+      }
+
+      .invitation-date {
+        font-size: 16px !important;
       }
 
       .hero-note {
         display: none;
       }
 
-      .category-grid,
-      .services-grid,
-      .steps,
-      .portfolio-grid {
-        grid-template-columns: 1fr;
+      /* SECTIONS */
+
+      .section {
+        padding: 62px 0;
       }
 
-      .portfolio-shell {
+      .section-head {
+        max-width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .section-head h2 {
+        margin: 10px 0;
+        font-size: clamp(39px, 10vw, 56px);
+        line-height: 0.98;
+      }
+
+      .section-head p {
+        font-size: 13px;
+        line-height: 1.9;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+        gap: 7px;
+      }
+
+      .eyebrow::before,
+      .eyebrow::after {
+        width: 20px;
+      }
+
+      /* CATEGORIES */
+
+      .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .category-card {
+        min-height: 155px;
         padding: 17px;
+        border-radius: 18px;
       }
 
-      .portfolio-item,
-      .portfolio-item .media,
-      .portfolio-item iframe,
-      .portfolio-placeholder {
-        min-height: 250px;
+      .category-card .num {
+        font-size: 15px;
+      }
+
+      .category-card h3 {
+        margin: 18px 0 4px;
+        font-size: 27px;
+      }
+
+      .category-card p {
+        font-size: 11px;
+        line-height: 1.7;
+      }
+
+      /* SERVICES */
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .service {
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+      .service-icon {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 14px;
+        font-size: 14px;
+      }
+
+      .service h3 {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
+
+      .service p {
+        font-size: 11px;
+        line-height: 1.8;
+      }
+
+      /* MOMENT */
+
+      .moment-wrap {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .moment-copy h2 {
+        margin: 10px 0 13px;
+        font-size: clamp(42px, 11vw, 60px);
+      }
+
+      .moment-copy p {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.9;
       }
 
       .moment-circle-wrap {
         min-height: 0;
       }
 
+      .moment-circle {
+        width: min(330px, 82vw);
+        padding: 12px;
+      }
+
+      .moment-circle::before {
+        inset: 22px;
+      }
+
       .moment-inner {
-        padding: 52px 30px;
+        width: 88%;
+        border-width: 5px;
+        padding: 38px 22px;
       }
 
-      .footer-grid {
+      .moment-inner h3 {
+        font-size: clamp(35px, 9vw, 50px);
+        line-height: 0.95;
+      }
+
+      .moment-inner p {
+        margin-top: 11px;
+        font-size: 12px;
+        line-height: 1.8;
+      }
+
+      /* PORTFOLIO */
+
+      .portfolio-shell {
+        padding: 12px;
+        border-radius: 22px;
+      }
+
+      .filter-row {
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+
+      .filter-btn {
+        padding: 7px 11px;
+        font-size: 10px;
+      }
+
+      .portfolio-meta {
+        gap: 7px;
+        padding: 10px 2px 14px;
+      }
+
+      .portfolio-meta strong {
+        font-size: 12px;
+      }
+
+      .portfolio-meta span {
+        font-size: 10px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .portfolio-item,
+      .portfolio-item .media,
+      .portfolio-item iframe,
+      .portfolio-placeholder {
+        min-height: 195px;
+      }
+
+      .portfolio-item {
+        border-radius: 15px;
+      }
+
+      .portfolio-overlay {
+        padding: 34px 10px 10px;
+      }
+
+      .portfolio-overlay strong {
+        font-size: 11px;
+      }
+
+      .portfolio-overlay span {
+        font-size: 9px;
+      }
+
+      /* STEPS */
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .step {
+        padding: 17px;
+        border-radius: 18px;
+      }
+
+      .step-number {
+        font-size: 18px;
+      }
+
+      .step h3 {
+        margin: 11px 0 5px;
+        font-size: 17px;
+        line-height: 1.35;
+      }
+
+      .step p {
+        font-size: 11px;
+        line-height: 1.8;
+      }
+
+      /* REQUEST */
+
+      .request-wrap {
         grid-template-columns: 1fr;
+        gap: 12px;
       }
 
-      .footer-brand {
+      .request-intro,
+      .request-form {
+        border-radius: 21px;
+        padding: 18px;
+      }
+
+      .request-intro h3 {
+        margin: 10px 0 9px;
+        font-size: 44px;
+      }
+
+      .request-intro p {
+        font-size: 12px;
+        line-height: 1.85;
+      }
+
+      .request-points {
+        margin-top: 19px;
+        gap: 8px;
+      }
+
+      .request-point {
+        gap: 8px;
+        font-size: 11px;
+      }
+
+      .request-point b {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .field.full {
         grid-column: auto;
       }
 
+      .field {
+        gap: 5px;
+      }
+
+      .field label {
+        font-size: 10px;
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        padding: 10px 11px;
+        border-radius: 12px;
+        font-size: 12px;
+      }
+
+      .field textarea {
+        min-height: 95px;
+      }
+
+      .check-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+      }
+
+      .check {
+        gap: 7px;
+        padding: 8px 9px;
+        border-radius: 11px;
+        font-size: 10px;
+      }
+
+      .check input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+        flex-basis: 15px;
+      }
+
+      .check span {
+        line-height: 1.45;
+      }
+
+      .other-extra-wrap {
+        margin-top: 7px;
+      }
+
+      .other-extra-input {
+        padding: 10px 11px;
+        border-radius: 12px;
+        font-size: 12px;
+      }
+
+      .form-actions {
+        margin-top: 13px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .form-actions .btn {
+        width: 100%;
+      }
+
+      .form-note {
+        width: 100%;
+        max-width: 100%;
+        font-size: 9px;
+        line-height: 1.8;
+      }
+
+      /* FAQ */
+
+      .faq-q {
+        padding: 17px 0;
+        font-size: 12px;
+      }
+
+      .faq-q span {
+        font-size: 17px;
+      }
+
+      .faq-a {
+        font-size: 12px;
+        line-height: 1.85;
+      }
+
+      /* CTA */
+
+      .cta {
+        padding: 50px 0;
+      }
+
+      .cta-box {
+        padding: 38px 18px;
+        border-radius: 22px;
+      }
+
+      .cta-box h2 {
+        font-size: clamp(40px, 10vw, 55px);
+      }
+
+      .cta-box p {
+        font-size: 12px;
+        line-height: 1.85;
+        margin-bottom: 18px;
+      }
+
+      /* BRAND STORY */
+
+      .brand-story-shell {
+        padding: 17px;
+        border-radius: 22px;
+      }
+
+      .brand-story-top {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .brand-wordmark {
+        margin-top: 6px;
+        font-size: clamp(48px, 14vw, 70px);
+        letter-spacing: 0.08em;
+      }
+
+      .brand-closing {
+        font-size: 12px;
+        line-height: 1.9;
+      }
+
+      .brand-meaning-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .brand-card {
+        min-height: 175px;
+        padding: 15px;
+        border-radius: 16px;
+      }
+
+      .brand-card-letter {
+        top: 7px;
+        inset-inline-end: 10px;
+        font-size: 48px;
+      }
+
+      .brand-card-number {
+        font-size: 14px;
+      }
+
+      .brand-card-word {
+        margin: 18px 0 1px;
+        font-size: 22px;
+      }
+
+      .brand-card-meaning {
+        font-size: 9px;
+      }
+
+      .brand-card-desc {
+        margin-top: 8px;
+        font-size: 10px;
+        line-height: 1.7;
+      }
+
+      /* FOOTER */
+
+      footer {
+        padding: 32px 0 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-brand p {
+        font-size: 11px;
+        line-height: 1.8;
+      }
+
+      .footer-col h4 {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .footer-col a,
+      .footer-col div {
+        font-size: 10px;
+        margin: 5px 0;
+      }
+
+      .footer-bottom {
+        margin-top: 22px;
+        padding-top: 15px;
+        font-size: 9px;
+      }
+
+      /* FLOATING */
+
+      .floating-stack {
+        inset-inline-end: 9px;
+        bottom: 9px;
+      }
+
+      .wa-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+      }
+
+    }
+
+
+    /* =========================
+       SMALL PHONES
+    ========================= */
+
+    @media (max-width: 380px) {
+
+      .container {
+        width: calc(100% - 18px);
+      }
+
       .nav {
-        min-height: 68px;
+        gap: 5px;
       }
 
       .brand-main {
-        font-size: 28px;
+        font-size: 24px;
       }
 
       .brand-ar {
-        font-size: 12px;
-      }
-
-      .nav-cta {
-        padding: 9px 14px;
-        font-size: 12px;
+        display: none;
       }
 
       .language-switcher select {
-        min-height: 36px;
-        max-width: 104px;
+        max-width: 72px;
+        font-size: 9px;
+        padding-inline: 6px;
+      }
+
+      .theme-toggle {
+        width: 34px;
+      }
+
+      .nav-cta {
+        padding: 6px 8px;
+        font-size: 9px;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-copy h1 {
+        font-size: 50px;
+      }
+
+      .hero-copy h1 small {
+        font-size: 13px;
+      }
+
+      .hero-copy p {
+        font-size: 12px;
+      }
+
+      .btn {
+        min-height: 41px;
+        padding-inline: 13px;
         font-size: 11px;
-        padding: 6px 24px 6px 9px;
       }
 
-      .floating-stack {
-        inset-inline-end: 12px;
-        bottom: 12px;
+      .hero-card {
+        min-height: 345px;
       }
 
-      .brand-story-shell {
-        padding: 22px;
-        border-radius: 26px;
+      .hero-invitation {
+        width: min(285px, 84vw);
+        padding: 24px 15px;
+      }
+
+      .hero-invitation h3 {
+        font-size: 31px;
+      }
+
+      .invitation-bismillah {
+        font-size: 10px;
+      }
+
+      .hero-invitation p {
+        font-size: 11px;
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .section-head {
+        margin-bottom: 24px;
+      }
+
+      .section-head h2 {
+        font-size: 38px;
+      }
+
+      .section-head p {
+        font-size: 11px;
+      }
+
+      .category-card {
+        min-height: 142px;
+        padding: 14px;
+      }
+
+      .category-card h3 {
+        font-size: 24px;
+        margin-top: 15px;
+      }
+
+      .category-card p {
+        font-size: 10px;
+      }
+
+      .service {
+        padding: 14px;
+      }
+
+      .service h3 {
+        font-size: 21px;
+      }
+
+      .service p {
+        font-size: 10px;
+      }
+
+      .moment-circle {
+        width: 265px;
+      }
+
+      .moment-inner {
+        padding: 31px 18px;
+      }
+
+      .moment-inner h3 {
+        font-size: 34px;
+      }
+
+      .moment-inner p {
+        font-size: 10px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-item,
+      .portfolio-item .media,
+      .portfolio-item iframe,
+      .portfolio-placeholder {
+        min-height: 220px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
       }
 
       .brand-meaning-grid {
@@ -1966,25 +2635,30 @@ html[data-theme="dark"] .theme-toggle {
       }
 
       .brand-card {
-        min-height: 195px;
-        padding: 21px;
+        min-height: 155px;
       }
 
-      .brand-card-letter {
-        font-size: 62px;
+      .footer-grid {
+        grid-template-columns: 1fr;
       }
 
-      .brand-card-word {
-        margin-top: 22px;
-        font-size: 28px;
+      .footer-brand {
+        grid-column: auto;
       }
 
-      .form-note {
-        width: 100%;
+      .check-grid {
+        grid-template-columns: 1fr;
       }
+
     }
 
+
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
     @media (prefers-reduced-motion: reduce) {
+
       html {
         scroll-behavior: auto;
       }
@@ -1996,6 +2670,7 @@ html[data-theme="dark"] .theme-toggle {
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
       }
+
     }
   </style>
 </head>
@@ -2013,6 +2688,7 @@ html[data-theme="dark"] .theme-toggle {
     };
   </script>
 
+
   <!-- =========================
        HEADER
   ========================= -->
@@ -2021,20 +2697,27 @@ html[data-theme="dark"] .theme-toggle {
 
     <div class="container nav">
 
-      <a href="#top" class="brand" aria-label="AVYRIA">
+      <a
+        href="#top"
+        class="brand"
+        aria-label="AVYRIA"
+      >
         <span class="brand-main">AVYRIA</span>
         <span class="brand-ar">أڤيريا</span>
       </a>
 
-      <nav class="nav-links" aria-label="التنقل الرئيسي">
 
+      <nav
+        class="nav-links"
+        aria-label="التنقل الرئيسي"
+      >
         <a href="#home">الرئيسية</a>
         <a href="#categories">المناسبات</a>
         <a href="#services">الخدمات</a>
         <a href="#portfolio">الأعمال</a>
         <a href="#faq">الأسئلة</a>
-
       </nav>
+
 
       <div
         class="language-switcher"
@@ -2052,14 +2735,13 @@ html[data-theme="dark"] .theme-toggle {
           id="languageSelect"
           aria-label="اللغة"
         >
-
           <option value="ar">العربية</option>
           <option value="en">English</option>
           <option value="tr">Türkçe</option>
-
         </select>
 
       </div>
+
 
       <button
         class="theme-toggle"
@@ -2083,6 +2765,7 @@ html[data-theme="dark"] .theme-toggle {
 
       </button>
 
+
       <a
         class="nav-cta"
         href="#request-form"
@@ -2095,7 +2778,9 @@ html[data-theme="dark"] .theme-toggle {
 
   </header>
 
+
   <main id="top">
+
 
     <!-- =========================
          HERO
@@ -2108,21 +2793,22 @@ html[data-theme="dark"] .theme-toggle {
 
       <div class="container hero-grid">
 
+
         <div class="hero-copy reveal">
 
           <span class="eyebrow">
             Digital Invitations & Moments
           </span>
 
-          <h1>
 
+          <h1>
             AVYRIA
 
             <small>
               دعوتك تبدأ من لحظة… وتنطق بذوقك.
             </small>
-
           </h1>
+
 
           <p>
             الدعوة هي أول حكاية عن المناسبة 🤍
@@ -2131,6 +2817,7 @@ html[data-theme="dark"] .theme-toggle {
             من الزفاف والخطبة إلى التخرج وأعياد الميلاد
             والمولود والمناسبات الخاصة.
           </p>
+
 
           <div class="hero-actions">
 
@@ -2152,11 +2839,13 @@ html[data-theme="dark"] .theme-toggle {
 
         </div>
 
+
         <div class="hero-card reveal">
 
           <div class="hero-note one">
             أنيقة · هادئة · خاصة بك
           </div>
+
 
           <div class="hero-invitation">
 
@@ -2164,15 +2853,19 @@ html[data-theme="dark"] .theme-toggle {
               💍
             </div>
 
+
             <div class="invitation-bismillah">
               بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
             </div>
 
+
             <div class="invitation-line"></div>
+
 
             <h3>
               محمد & سارة
             </h3>
+
 
             <p>
               بكل الحب والفرح<br />
@@ -2180,13 +2873,16 @@ html[data-theme="dark"] .theme-toggle {
               أجمل ليلة في حياتنا
             </p>
 
+
             <div class="invitation-line"></div>
+
 
             <p class="invitation-date">
               25 نوفمبر 2026
             </p>
 
           </div>
+
 
           <div class="hero-note two">
             Digital Invitations
@@ -2210,6 +2906,7 @@ html[data-theme="dark"] .theme-toggle {
 
       <div class="container">
 
+
         <div class="section-head reveal">
 
           <span class="eyebrow">
@@ -2226,14 +2923,18 @@ html[data-theme="dark"] .theme-toggle {
 
         </div>
 
+
         <div class="category-grid">
+
 
           <article
             class="category-card reveal"
             data-go-category="wedding"
           >
 
-            <span class="num">01</span>
+            <span class="num">
+              01
+            </span>
 
             <h3>
               زفاف
@@ -2251,7 +2952,9 @@ html[data-theme="dark"] .theme-toggle {
             data-go-category="engagement"
           >
 
-            <span class="num">02</span>
+            <span class="num">
+              02
+            </span>
 
             <h3>
               خطبة
@@ -2269,7 +2972,9 @@ html[data-theme="dark"] .theme-toggle {
             data-go-category="graduation"
           >
 
-            <span class="num">03</span>
+            <span class="num">
+              03
+            </span>
 
             <h3>
               تخرج
@@ -2287,7 +2992,9 @@ html[data-theme="dark"] .theme-toggle {
             data-go-category="birthday"
           >
 
-            <span class="num">04</span>
+            <span class="num">
+              04
+            </span>
 
             <h3>
               عيد ميلاد
@@ -2305,7 +3012,9 @@ html[data-theme="dark"] .theme-toggle {
             data-go-category="newborn"
           >
 
-            <span class="num">05</span>
+            <span class="num">
+              05
+            </span>
 
             <h3>
               مولود
@@ -2323,7 +3032,9 @@ html[data-theme="dark"] .theme-toggle {
             data-go-category="special"
           >
 
-            <span class="num">06</span>
+            <span class="num">
+              06
+            </span>
 
             <h3>
               مناسبات خاصة
@@ -2334,6 +3045,7 @@ html[data-theme="dark"] .theme-toggle {
             </p>
 
           </article>
+
 
         </div>
 
@@ -2353,6 +3065,7 @@ html[data-theme="dark"] .theme-toggle {
 
       <div class="container">
 
+
         <div class="section-head reveal">
 
           <span class="eyebrow">
@@ -2369,7 +3082,9 @@ html[data-theme="dark"] .theme-toggle {
 
         </div>
 
+
         <div class="services-grid">
+
 
           <article class="service reveal">
 
@@ -2472,6 +3187,7 @@ html[data-theme="dark"] .theme-toggle {
 
           </article>
 
+
         </div>
 
       </div>
@@ -2486,6 +3202,7 @@ html[data-theme="dark"] .theme-toggle {
     <section class="section">
 
       <div class="container moment-wrap">
+
 
         <div class="moment-copy reveal">
 
@@ -2559,6 +3276,7 @@ html[data-theme="dark"] .theme-toggle {
 
       <div class="container">
 
+
         <div class="section-head reveal">
 
           <span class="eyebrow">
@@ -2578,6 +3296,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
         <div class="portfolio-shell reveal">
+
 
           <div
             class="filter-row"
@@ -2635,6 +3354,7 @@ html[data-theme="dark"] .theme-toggle {
             id="portfolioGrid"
           ></div>
 
+
         </div>
 
       </div>
@@ -2649,6 +3369,7 @@ html[data-theme="dark"] .theme-toggle {
     <section class="section">
 
       <div class="container">
+
 
         <div class="section-head reveal">
 
@@ -2668,6 +3389,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
         <div class="steps">
+
 
           <article class="step reveal">
 
@@ -2755,6 +3477,7 @@ html[data-theme="dark"] .theme-toggle {
 
           </article>
 
+
         </div>
 
       </div>
@@ -2772,6 +3495,7 @@ html[data-theme="dark"] .theme-toggle {
     >
 
       <div class="container">
+
 
         <div class="section-head reveal">
 
@@ -2812,6 +3536,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
             <div class="request-points">
+
 
               <div class="request-point">
 
@@ -2890,12 +3615,14 @@ html[data-theme="dark"] .theme-toggle {
 
               </div>
 
+
             </div>
 
           </aside>
 
 
           <div class="request-form reveal">
+
 
             <form id="invitationForm">
 
@@ -2905,7 +3632,9 @@ html[data-theme="dark"] .theme-toggle {
                 aria-hidden="true"
               >
 
-                <label for="websiteField">
+                <label
+                  for="websiteField"
+                >
                   Website
                 </label>
 
@@ -3130,6 +3859,7 @@ html[data-theme="dark"] .theme-toggle {
 
                   </div>
 
+
                 </div>
 
 
@@ -3195,6 +3925,7 @@ html[data-theme="dark"] .theme-toggle {
     >
 
       <div class="container">
+
 
         <div class="section-head reveal">
 
@@ -3360,6 +4091,7 @@ html[data-theme="dark"] .theme-toggle {
     >
 
       <div class="container">
+
 
         <div class="cta-box reveal">
 
@@ -3618,6 +4350,7 @@ html[data-theme="dark"] .theme-toggle {
 
     </section>
 
+
   </main>
 
 
@@ -3628,6 +4361,7 @@ html[data-theme="dark"] .theme-toggle {
   <footer>
 
     <div class="container">
+
 
       <div class="footer-grid">
 
@@ -3722,6 +4456,7 @@ html[data-theme="dark"] .theme-toggle {
 
       </div>
 
+
     </div>
 
   </footer>
@@ -3767,10 +4502,12 @@ html[data-theme="dark"] .theme-toggle {
         ×
       </button>
 
+
       <div
         class="modal-media"
         id="modalMedia"
       ></div>
+
 
       <div
         class="website-actions"
@@ -3848,6 +4585,7 @@ html[data-theme="dark"] .theme-toggle {
 
           note2:
             "دعوات رقمية"
+
         },
 
         sections: {
@@ -3923,6 +4661,7 @@ html[data-theme="dark"] .theme-toggle {
 
           ctaButton:
             "التواصل والاستفسار"
+
         },
 
         brand: {
@@ -4000,6 +4739,7 @@ html[data-theme="dark"] .theme-toggle {
 
           date:
             "25 نوفمبر 2026"
+
         },
 
         categories: {
@@ -4329,25 +5069,12 @@ html[data-theme="dark"] .theme-toggle {
           "AVYRIA — Elegant digital invitations for weddings, engagements, graduations, birthdays, newborns and special occasions.",
 
         nav: {
-
-          home:
-            "Home",
-
-          occasions:
-            "Occasions",
-
-          services:
-            "Services",
-
-          portfolio:
-            "Portfolio",
-
-          faq:
-            "FAQ",
-
-          request:
-            "Start a Request"
-
+          home: "Home",
+          occasions: "Occasions",
+          services: "Services",
+          portfolio: "Portfolio",
+          faq: "FAQ",
+          request: "Start a Request"
         },
 
         hero: {
@@ -5377,7 +6104,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
     /* ==========================================================
-       GLOBAL STATE
+       HELPERS
     ========================================================== */
 
     let currentLanguage =
@@ -5394,10 +6121,6 @@ html[data-theme="dark"] .theme-toggle {
           : "light"
       );
 
-
-    /* ==========================================================
-       HELPERS
-    ========================================================== */
 
     function T(key, ...args) {
 
@@ -5477,7 +6200,10 @@ html[data-theme="dark"] .theme-toggle {
           .padStart(2, "0");
 
 
-      if (type === "images") {
+      if (
+        type ===
+        "images"
+      ) {
 
         return T(
           "portfolio.design",
@@ -5487,7 +6213,10 @@ html[data-theme="dark"] .theme-toggle {
       }
 
 
-      if (type === "videos") {
+      if (
+        type ===
+        "videos"
+      ) {
 
         return T(
           "portfolio.videoTitle",
@@ -6576,7 +7305,7 @@ html[data-theme="dark"] .theme-toggle {
       );
 
 
-      /* BRAND MEANING */
+      /* BRAND */
 
       const brandSection =
         $("#brand-meaning");
@@ -6718,7 +7447,7 @@ html[data-theme="dark"] .theme-toggle {
       }
 
 
-      /* FOOTER / MODAL */
+      /* FOOTER */
 
       setMultiline(
         $(".footer-brand p"),
@@ -6752,7 +7481,9 @@ html[data-theme="dark"] .theme-toggle {
         );
 
 
-      if ($("#waButton")) {
+      if (
+        $("#waButton")
+      ) {
 
         $("#waButton").title =
           T("footer.whatsapp");
@@ -6769,6 +7500,7 @@ html[data-theme="dark"] .theme-toggle {
       $(".modal-close")
         ?.setAttribute(
           "aria-label",
+
           currentLanguage === "ar"
             ? "إغلاق"
 
@@ -7037,8 +7769,7 @@ html[data-theme="dark"] .theme-toggle {
       folder => {
 
         return (
-          websiteLinks[folder] ||
-          []
+          websiteLinks[folder] || []
         ).map(
           (url, i) => {
 
@@ -7060,10 +7791,7 @@ html[data-theme="dark"] .theme-toggle {
     const portfolioData =
       Object.fromEntries(
 
-        Object.entries(
-          categories
-        )
-
+        Object.entries(categories)
           .map(
             ([key, meta]) => [
 
@@ -7124,8 +7852,6 @@ html[data-theme="dark"] .theme-toggle {
         ];
 
 
-    /* LANGUAGE */
-
     $("#languageSelect")
       ?.addEventListener(
         "change",
@@ -7135,8 +7861,6 @@ html[data-theme="dark"] .theme-toggle {
           )
       );
 
-
-    /* THEME */
 
     $("#themeToggle")
       ?.addEventListener(
@@ -7168,7 +7892,7 @@ html[data-theme="dark"] .theme-toggle {
 
     Object.entries(categories)
       .forEach(
-        ([key, meta], index) => {
+        ([key], index) => {
 
           const btn =
             document.createElement(
@@ -7705,7 +8429,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
     /* ==========================================================
-       LAZY PORTFOLIO LOADING
+       LAZY PORTFOLIO
     ========================================================== */
 
     let portfolioMediaObserver =
@@ -7776,7 +8500,6 @@ html[data-theme="dark"] .theme-toggle {
                   element.src =
                     element.dataset.src;
 
-
                   delete element.dataset.src;
 
                 }
@@ -7788,8 +8511,7 @@ html[data-theme="dark"] .theme-toggle {
                   window.innerWidth <= 720
                 ) {
 
-                  /* الفيديو لا يتحمل تلقائياً
-                     على الموبايل */
+                  /* الفيديو لا يتم تحميله تلقائياً */
 
                 }
 
@@ -8038,6 +8760,7 @@ html[data-theme="dark"] .theme-toggle {
     ) {
 
       openModal(
+
         `
 
           <img
@@ -8046,6 +8769,7 @@ html[data-theme="dark"] .theme-toggle {
           />
 
         `
+
       );
 
     }
@@ -8057,6 +8781,7 @@ html[data-theme="dark"] .theme-toggle {
     ) {
 
       openModal(
+
         `
 
           <video
@@ -8069,6 +8794,7 @@ html[data-theme="dark"] .theme-toggle {
           ></video>
 
         `
+
       );
 
     }
@@ -8267,7 +8993,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
     /* ==========================================================
-       FOOTER / CONTACT
+       CONTACT
     ========================================================== */
 
     $("#year").textContent =
@@ -8291,7 +9017,7 @@ html[data-theme="dark"] .theme-toggle {
       `https://wa.me/${AVYRIA_SETTINGS.whatsappInternational}`;
 
 
-    /* WhatsApp button */
+    /* FLOATING WHATSAPP */
 
     waButton.href =
       `${waUrlBase}?text=${encodeURIComponent(
@@ -8307,7 +9033,7 @@ html[data-theme="dark"] .theme-toggle {
       "noopener";
 
 
-    /* Request button */
+    /* REQUEST BUTTON */
 
     requestButton.href =
       `${waUrlBase}?text=${encodeURIComponent(
@@ -8381,7 +9107,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
     /* ==========================================================
-       FORM SAFETY / VALIDATION
+       FORM VALIDATION
     ========================================================== */
 
     const VALIDATION_LIMITS = {
@@ -8830,7 +9556,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
     /* ==========================================================
-       REQUEST FORM → WHATSAPP
+       FORM → WHATSAPP
     ========================================================== */
 
     const invitationForm =
@@ -8964,7 +9690,9 @@ html[data-theme="dark"] .theme-toggle {
 
 
         const dateText =
-          eventDateRaw === "—"
+
+          eventDateRaw ===
+            "—"
 
             ? eventDateRaw
 
@@ -8987,7 +9715,6 @@ html[data-theme="dark"] .theme-toggle {
                       : "en-US",
 
                   {
-
                     year:
                       "numeric",
 
