@@ -1,0 +1,9227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f3ed" />
+
+  <meta
+    name="description"
+    content="AVYRIA — تصميم دعوات رقمية أنيقة للزفاف والخطبة والتخرج وأعياد الميلاد والمولود والمناسبات الخاصة."
+  />
+
+  <meta
+    name="keywords"
+    content="AVYRIA, دعوات رقمية, دعوات زفاف, دعوات خطبة, دعوات تخرج, دعوات مولود, دعوات أعياد ميلاد"
+  />
+
+  <meta property="og:title" content="AVYRIA — Digital Invitations & Moments" />
+  <meta
+    property="og:description"
+    content="دعوات رقمية أنيقة تعبّر عن خصوصية لحظتك المميزة."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-cover.jpg" />
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23c8a46c'/%3E%3Cpath d='M25 33h50v9H25zM25 55h35v9H25z' fill='white'/%3E%3C/svg%3E"
+  />
+
+  <title>AVYRIA — Digital Invitations & Moments</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f7f3ed;
+      --paper: #fffdf9;
+      --ink: #2c2925;
+      --muted: #746e66;
+      --gold: #b8945a;
+      --gold-soft: #d9c49f;
+      --line: rgba(44, 41, 37, 0.1);
+      --shadow: 0 18px 55px rgba(54, 43, 30, 0.08);
+      --input-bg: #fbf8f3;
+      --placeholder: #8b847b;
+      --radius: 24px;
+
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Cairo", Arial, sans-serif;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #171512;
+      --paper: #211d18;
+      --ink: #f3eee6;
+      --muted: #b9afa2;
+      --gold: #d4b477;
+      --gold-soft: #8f7850;
+      --line: rgba(255, 255, 255, 0.11);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --input-bg: #28231d;
+      --placeholder: #9f9588;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    body.locked {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    section {
+      content-visibility: auto;
+      contain-intrinsic-size: 700px;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold-soft);
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      margin: 12px 0;
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 600;
+      line-height: 0.95;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 243, 237, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease;
+    }
+
+    header.scrolled {
+      border-bottom-color: var(--line);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .brand-main {
+      font-family: var(--serif);
+      font-size: 33px;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .brand-ar {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border: 1px solid rgba(184, 148, 90, 0.34);
+      border-radius: 999px;
+      color: var(--ink);
+      transition: 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: calc(100svh - 78px);
+      display: grid;
+      align-items: center;
+      padding: 65px 0 85px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy h1 {
+      margin: 18px 0 20px;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(62px, 9vw, 112px);
+      line-height: 0.83;
+      letter-spacing: 0.015em;
+    }
+
+    .hero-copy h1 small {
+      display: block;
+      margin-top: 18px;
+      font-family: var(--sans);
+      color: var(--gold);
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+
+    .hero-copy p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 0 21px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    /* =========================
+       INVITATION CARD
+    ========================= */
+
+    .hero-card {
+      position: relative;
+      min-height: 540px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 430px;
+      max-width: 78vw;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(217, 196, 159, 0.24),
+        rgba(217, 196, 159, 0) 68%
+      );
+      z-index: -1;
+    }
+
+    .hero-invitation {
+      position: relative;
+      width: min(370px, 82vw);
+      padding: 40px 28px;
+      background: #fffdf9;
+      border: 1px solid #ddcfb8;
+      text-align: center;
+      box-shadow: 0 28px 65px rgba(80, 60, 30, 0.13);
+      transform: rotate(2deg);
+      animation: invitationFloat 5.8s ease-in-out infinite;
+    }
+
+    .hero-invitation::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid #d9c29a;
+      pointer-events: none;
+    }
+
+    .hero-invitation::after {
+      content: "AVYRIA";
+      position: absolute;
+      left: 50%;
+      bottom: -18px;
+      transform: translateX(-50%);
+      background: var(--paper);
+      border: 1px solid rgba(184, 148, 90, 0.25);
+      border-radius: 999px;
+      padding: 5px 14px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      box-shadow: 0 8px 20px rgba(54, 43, 30, 0.06);
+    }
+
+    .invitation-ring {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 17px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-soft);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 31px;
+      background: #fffdfa;
+    }
+
+    .invitation-bismillah {
+      font-size: 14px;
+      color: #655d52;
+      position: relative;
+      z-index: 2;
+    }
+
+    .invitation-line {
+      width: 82px;
+      height: 1px;
+      background: #c6a66d;
+      margin: 20px auto;
+    }
+
+    .hero-invitation h3 {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 46px;
+      line-height: 1;
+      color: #9b7845;
+      font-weight: 600;
+    }
+
+    .hero-invitation p {
+      position: relative;
+      z-index: 2;
+      color: #71695d;
+      line-height: 2;
+      margin: 14px 0 0;
+      font-size: 14px;
+    }
+
+    .invitation-date {
+      font-family: var(--serif);
+      color: #4e473f !important;
+      font-size: 19px !important;
+      letter-spacing: 0.04em;
+    }
+
+    @keyframes invitationFloat {
+      0%,
+      100% {
+        transform: rotate(2deg) translateY(0);
+      }
+
+      50% {
+        transform: rotate(1.1deg) translateY(-9px);
+      }
+    }
+
+    .hero-note {
+      position: absolute;
+      padding: 11px 15px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      box-shadow: 0 10px 28px rgba(54, 43, 30, 0.06);
+      font-size: 12px;
+      color: var(--muted);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 4;
+      animation: noteFloat 5s ease-in-out infinite;
+    }
+
+    .hero-note.one {
+      top: 14%;
+      right: 0;
+    }
+
+    .hero-note.two {
+      bottom: 13%;
+      left: 0;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes noteFloat {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .category-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 190px;
+      border-radius: var(--radius);
+      padding: 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .category-card .num {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--gold);
+    }
+
+    .category-card h3 {
+      margin: 26px 0 4px;
+      font-family: var(--serif);
+      font-size: 34px;
+    }
+
+    .category-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .category-card::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 1px solid rgba(184, 148, 90, 0.18);
+      left: -45px;
+      bottom: -50px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.38);
+      border: 1px solid var(--line);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(184, 148, 90, 0.25);
+      color: var(--gold);
+      margin-bottom: 21px;
+    }
+
+    .service h3 {
+      margin: 0 0 6px;
+      font-family: var(--serif);
+      font-size: 29px;
+    }
+
+    .service p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       MOMENT
+    ========================= */
+
+    .moment-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .moment-copy h2 {
+      margin: 12px 0 15px;
+      font-family: var(--serif);
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 0.92;
+      font-weight: 600;
+    }
+
+    .moment-copy p {
+      color: var(--muted);
+      max-width: 570px;
+    }
+
+    .moment-circle-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 560px;
+    }
+
+    .moment-circle {
+      width: min(540px, 87vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(184, 148, 90, 0.42);
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .moment-circle::before {
+      content: "";
+      position: absolute;
+      inset: 34px;
+      border: 1px dashed rgba(184, 148, 90, 0.2);
+      border-radius: 50%;
+    }
+
+    .moment-inner {
+      position: relative;
+      z-index: 1;
+      width: 88%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #fbf8f3, #ece4d9);
+      border: 7px solid rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 70px 48px;
+    }
+
+    .moment-inner h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(44px, 5.5vw, 69px);
+      line-height: 0.92;
+    }
+
+    .moment-inner p {
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 360px;
+    }
+
+    /* =========================
+       PORTFOLIO
+    ========================= */
+
+    .portfolio-shell {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 26px;
+      box-shadow: 0 12px 45px rgba(54, 43, 30, 0.04);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 9px 15px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: var(--ink);
+      border-color: rgba(184, 148, 90, 0.46);
+      background: #faf4ea;
+    }
+
+    .portfolio-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 15px 4px 21px;
+    }
+
+    .portfolio-meta strong {
+      font-size: 15px;
+    }
+
+    .portfolio-meta span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      min-height: 275px;
+      border: 1px solid var(--line);
+      background: #f8f5f0;
+      cursor: pointer;
+      contain: layout paint;
+    }
+
+    .portfolio-item .media,
+    .portfolio-item iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 275px;
+      object-fit: cover;
+      border: 0;
+    }
+
+    .portfolio-placeholder {
+      width: 100%;
+      min-height: 275px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 22px;
+      color: #8b847b;
+      background: linear-gradient(145deg, #f8f5f0, #eee7dc);
+    }
+
+    .portfolio-placeholder strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 25px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 48px 17px 16px;
+      background: linear-gradient(transparent, rgba(24, 21, 18, 0.82));
+      color: white;
+      pointer-events: none;
+    }
+
+    .portfolio-overlay strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .portfolio-overlay span {
+      display: block;
+      font-size: 11px;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
+    /* =========================
+       REQUEST FORM
+    ========================= */
+
+    .request-wrap {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .request-intro,
+    .request-form {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--paper);
+      box-shadow: 0 12px 50px rgba(54, 43, 30, 0.04);
+    }
+
+    .request-intro {
+      padding: 36px;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(217, 196, 159, 0.16),
+          transparent 55%
+        ),
+        var(--paper);
+    }
+
+    .request-intro h3 {
+      margin: 12px 0 10px;
+      font-family: var(--serif);
+      font-size: clamp(42px, 5vw, 66px);
+      line-height: 0.95;
+    }
+
+    .request-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .request-points {
+      margin-top: 26px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .request-point {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .request-point b {
+      width: 29px;
+      height: 29px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(184, 148, 90, 0.3);
+      color: var(--gold);
+      flex: 0 0 auto;
+    }
+
+    .request-form {
+      padding: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fbf8f3;
+      color: var(--ink);
+      border-radius: 15px;
+      padding: 12px 14px;
+      outline: none;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      direction: rtl;
+      text-align: right;
+      color: #8b847b;
+    }
+
+    #clientPhone {
+      direction: ltr;
+      text-align: left;
+    }
+
+    html[dir="rtl"] #clientPhone {
+      direction: rtl;
+      text-align: right;
+    }
+
+    .field textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(184, 148, 90, 0.52);
+      box-shadow: 0 0 0 4px rgba(184, 148, 90, 0.08);
+    }
+
+    /* =========================
+       CHECKBOXES
+    ========================= */
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+      margin-top: 4px;
+      width: 100%;
+    }
+
+    .check {
+      direction: rtl;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: #fbf8f3;
+      color: var(--muted);
+      font-size: 12px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      text-align: right;
+    }
+
+    .check:hover {
+      border-color: rgba(184, 148, 90, 0.35);
+    }
+
+    .check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      padding: 0;
+      flex: 0 0 18px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .check span {
+      flex: 1;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .other-extra-wrap {
+      margin-top: 10px;
+    }
+
+    .other-extra-wrap[hidden] {
+      display: none;
+    }
+
+    .other-extra-input {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fbf8f3;
+      color: var(--ink);
+      border-radius: 15px;
+      padding: 12px 14px;
+      outline: none;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .other-extra-input::placeholder {
+      text-align: right;
+      direction: rtl;
+    }
+
+    .other-extra-input:focus {
+      border-color: rgba(184, 148, 90, 0.52);
+      box-shadow: 0 0 0 4px rgba(184, 148, 90, 0.08);
+    }
+
+    .form-actions {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .form-note {
+      margin: 0;
+      color: #958e85;
+      font-size: 11px;
+      max-width: 430px;
+    }
+
+    /* =========================
+       STEPS
+    ========================= */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .step {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.32);
+      border: 1px solid var(--line);
+    }
+
+    .step-number {
+      font-family: var(--serif);
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .step h3 {
+      margin: 16px 0 6px;
+      font-size: 19px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq {
+      max-width: 860px;
+      margin-inline: auto;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq-q {
+      width: 100%;
+      padding: 22px 0;
+      background: none;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      cursor: pointer;
+      text-align: right;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .faq-q span {
+      color: var(--gold);
+      transition: 0.25s ease;
+      font-size: 20px;
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .faq-a p {
+      margin: 0 0 20px;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+
+    .faq-item.open .faq-q span {
+      transform: rotate(45deg);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 75px 0;
+    }
+
+    .cta-box {
+      border: 1px solid rgba(184, 148, 90, 0.25);
+      border-radius: 30px;
+      padding: 55px 30px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(217, 196, 159, 0.17),
+          transparent 50%
+        ),
+        var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      margin: 10px 0 12px;
+      font-family: var(--serif);
+      font-size: clamp(47px, 6vw, 78px);
+      line-height: 0.95;
+    }
+
+    .cta-box p {
+      margin: 0 auto 24px;
+      max-width: 680px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       BRAND MEANING
+    ========================= */
+
+    .brand-story {
+      overflow: hidden;
+    }
+
+    .brand-story-shell {
+      position: relative;
+      padding: 34px;
+      border-radius: 32px;
+      background:
+        radial-gradient(
+          circle at 90% 0%,
+          rgba(217, 196, 159, 0.14),
+          transparent 34%
+        ),
+        var(--paper);
+      border: 1px solid rgba(184, 148, 90, 0.2);
+      box-shadow: 0 15px 55px rgba(54, 43, 30, 0.05);
+      overflow: hidden;
+    }
+
+    .brand-story-shell::before {
+      content: "AVYRIA";
+      position: absolute;
+      left: -22px;
+      bottom: -38px;
+      font-family: var(--serif);
+      font-size: clamp(100px, 18vw, 220px);
+      line-height: 0.8;
+      letter-spacing: 0.08em;
+      color: rgba(184, 148, 90, 0.045);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .brand-story-top {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .brand-wordmark {
+      margin-top: 8px;
+      font-family: var(--serif);
+      font-size: clamp(58px, 8vw, 96px);
+      line-height: 0.85;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .brand-closing {
+      margin: 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 2;
+    }
+
+    .brand-meaning-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+
+    .brand-card {
+      position: relative;
+      min-height: 215px;
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.42);
+      overflow: hidden;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .brand-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(184, 148, 90, 0.34);
+      box-shadow: var(--shadow);
+    }
+
+    .brand-card-letter {
+      position: absolute;
+      top: 12px;
+      inset-inline-end: 17px;
+      font-family: var(--serif);
+      font-size: 72px;
+      line-height: 1;
+      font-weight: 600;
+      color: rgba(184, 148, 90, 0.13);
+    }
+
+    .brand-card-number {
+      position: relative;
+      z-index: 1;
+      font-family: var(--serif);
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .brand-card-word {
+      position: relative;
+      z-index: 1;
+      margin: 24px 0 2px;
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .brand-card-meaning {
+      position: relative;
+      z-index: 1;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .brand-card-desc {
+      position: relative;
+      z-index: 1;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+      max-width: 320px;
+    }
+
+    /* =========================
+       LANGUAGE
+    ========================= */
+
+    .language-switcher {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+
+    .language-switcher select {
+      min-height: 40px;
+      border: 1px solid rgba(184, 148, 90, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.86);
+      color: var(--ink);
+      padding: 7px 30px 7px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .language-switcher select:focus {
+      border-color: rgba(184, 148, 90, 0.55);
+      box-shadow: 0 0 0 4px rgba(184, 148, 90, 0.08);
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    .field.invalid input,
+    .field.invalid select,
+    .field.invalid textarea,
+    .other-extra-input.invalid {
+      border-color: rgba(176, 58, 58, 0.6) !important;
+      box-shadow: 0 0 0 4px rgba(176, 58, 58, 0.08) !important;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 42px 0 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 25px;
+      align-items: start;
+    }
+
+    .footer-brand p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      max-width: 420px;
+      font-size: 13px;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 12px;
+      font-size: 14px;
+    }
+
+    .footer-col a,
+    .footer-col div {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 7px 0;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: #928b82;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* =========================
+       FLOATING + WHATSAPP
+    ========================= */
+
+    .floating-stack {
+      position: fixed;
+      inset-inline-end: 18px;
+      bottom: 18px;
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 9px;
+    }
+
+    .float-btn {
+      border: 1px solid rgba(44, 41, 37, 0.12);
+      background: rgba(255, 253, 249, 0.94);
+      box-shadow: 0 12px 34px rgba(54, 43, 30, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      cursor: pointer;
+    }
+
+    .wa-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: #1f2a22;
+      font-size: 22px;
+      border-color: rgba(31, 42, 34, 0.35);
+    }
+
+    /* =========================
+       MODALS
+    ========================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      padding: 22px;
+      display: grid;
+      place-items: center;
+      background: rgba(24, 21, 18, 0.66);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      position: relative;
+      width: min(980px, 100%);
+      max-height: 92svh;
+      overflow: auto;
+      border-radius: 24px;
+      background: var(--paper);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 25px 90px rgba(0, 0, 0, 0.25);
+      padding: 15px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      inset-inline-end: 12px;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 249, 0.92);
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .modal-media {
+      min-height: 300px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #eee7dc;
+    }
+
+    .modal-media img,
+    .modal-media video,
+    .modal-media iframe {
+      width: 100%;
+      max-height: 76svh;
+      min-height: 300px;
+      object-fit: contain;
+      background: #eee7dc;
+      border: 0;
+    }
+
+    .website-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .toast {
+      position: fixed;
+      inset-inline-start: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 120px);
+      z-index: 700;
+      background: #292621;
+      color: white;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      transition: 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+    }
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* =========================
+       DARK THEME
+    ========================= */
+
+    html[data-theme="dark"] body {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    html[data-theme="dark"] header {
+      background: rgba(23, 21, 18, 0.9);
+    }
+
+    html[data-theme="dark"] .hero-invitation {
+      background: var(--paper);
+      border-color: #6f5a38;
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.36);
+    }
+
+    html[data-theme="dark"] .hero-invitation::before {
+      border-color: #8f7850;
+    }
+
+    html[data-theme="dark"] .invitation-ring {
+      background: #27221c;
+      border-color: var(--gold-soft);
+    }
+
+    html[data-theme="dark"] .invitation-bismillah,
+    html[data-theme="dark"] .hero-invitation p {
+      color: #c6bbae;
+    }
+
+    html[data-theme="dark"] .invitation-date {
+      color: #ede5da !important;
+    }
+
+    html[data-theme="dark"] .hero-note {
+      background: rgba(33, 29, 24, 0.88);
+      border-color: var(--line);
+    }
+
+    html[data-theme="dark"] .service,
+    html[data-theme="dark"] .step {
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    html[data-theme="dark"] .moment-inner {
+      background: linear-gradient(145deg, #25211c, #1d1915);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    html[data-theme="dark"] .portfolio-shell,
+    html[data-theme="dark"] .category-card,
+    html[data-theme="dark"] .request-intro,
+    html[data-theme="dark"] .request-form,
+    html[data-theme="dark"] .cta-box,
+    html[data-theme="dark"] .brand-story-shell {
+      background: var(--paper);
+    }
+
+    html[data-theme="dark"] .filter-btn.active {
+      background: #2b251e;
+    }
+
+    html[data-theme="dark"] .portfolio-item,
+    html[data-theme="dark"] .portfolio-placeholder {
+      background: #211d18;
+    }
+
+    html[data-theme="dark"] .portfolio-placeholder {
+      background: linear-gradient(145deg, #211d18, #2a251f);
+      color: #a69c90;
+    }
+
+    html[data-theme="dark"] .field input,
+    html[data-theme="dark"] .field select,
+    html[data-theme="dark"] .field textarea,
+    html[data-theme="dark"] .check,
+    html[data-theme="dark"] .other-extra-input,
+    html[data-theme="dark"] .language-switcher select {
+      background: var(--input-bg);
+      color: var(--ink);
+    }
+
+    html[data-theme="dark"] .field input::placeholder,
+    html[data-theme="dark"] .field textarea::placeholder,
+    html[data-theme="dark"] .other-extra-input::placeholder {
+      color: var(--placeholder);
+    }
+
+    html[data-theme="dark"] .float-btn,
+    html[data-theme="dark"] .modal-close {
+      background: rgba(33, 29, 24, 0.94);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    html[data-theme="dark"] .modal-media,
+    html[data-theme="dark"] .modal-media img,
+    html[data-theme="dark"] .modal-media video,
+    html[data-theme="dark"] .modal-media iframe {
+      background: #171512;
+    }
+
+    html[data-theme="dark"] .request-intro {
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(212, 180, 119, 0.1),
+          transparent 55%
+        ),
+        var(--paper);
+    }
+
+    html[data-theme="dark"] .toast {
+      background: #f0e8dd;
+      color: #211d18;
+    }
+
+    html[data-theme="dark"] .brand-card {
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    html[data-theme="dark"] .brand-story-shell::before {
+      color: rgba(212, 180, 119, 0.04);
+    }
+
+    .theme-toggle {
+      min-height: 40px;
+      border: 1px solid rgba(184, 148, 90, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.86);
+      color: var(--ink);
+      padding: 7px 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      cursor: pointer;
+      font-size: 12px;
+      white-space: nowrap;
+      transition: 0.2s ease;
+    }
+
+    /* =========================
+   DARK MODE BUTTONS FIX
+========================= */
+
+html[data-theme="dark"] .btn-primary {
+  background: #d4b477;
+  color: #171512;
+  border-color: #d4b477;
+}
+
+html[data-theme="dark"] .btn-primary:hover {
+  background: #e2c58e;
+  border-color: #e2c58e;
+  color: #171512;
+}
+
+html[data-theme="dark"] .btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: rgba(212, 180, 119, 0.32);
+}
+
+html[data-theme="dark"] .btn-ghost:hover {
+  background: rgba(212, 180, 119, 0.08);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+html[data-theme="dark"] .nav-cta {
+  background: rgba(212, 180, 119, 0.06);
+  color: var(--ink);
+  border-color: rgba(212, 180, 119, 0.38);
+}
+
+html[data-theme="dark"] .nav-cta:hover {
+  background: rgba(212, 180, 119, 0.1);
+  color: var(--gold);
+}
+
+html[data-theme="dark"] .filter-btn {
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .filter-btn:hover,
+html[data-theme="dark"] .filter-btn.active {
+  background: #2b251e;
+  color: var(--ink);
+  border-color: rgba(212, 180, 119, 0.48);
+}
+
+html[data-theme="dark"] .language-switcher select {
+  background: #28231d;
+  color: var(--ink);
+  border-color: rgba(212, 180, 119, 0.3);
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: #28231d;
+  color: var(--ink);
+  border-color: rgba(212, 180, 119, 0.3);
+}
+
+    .theme-toggle:hover {
+      border-color: rgba(184, 148, 90, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .theme-toggle .theme-icon {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    html[data-theme="dark"] .theme-toggle {
+      background: rgba(33, 29, 24, 0.9);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 980px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .moment-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero-copy p {
+        margin-inline: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-card {
+        min-height: 490px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .brand-story-top {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .brand-meaning-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .theme-toggle {
+        padding-inline: 10px;
+      }
+    }
+
+    @media (max-width: 720px) {
+
+      .request-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid,
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .request-intro,
+      .request-form {
+        padding: 22px;
+      }
+
+      .container {
+        width: min(100% - 26px, 1180px);
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero-card {
+        min-height: 445px;
+      }
+
+      .hero-invitation {
+        width: min(350px, 84vw);
+        padding: 34px 22px;
+      }
+
+      .hero-invitation h3 {
+        font-size: 39px;
+      }
+
+      .hero-note {
+        display: none;
+      }
+
+      .category-grid,
+      .services-grid,
+      .steps,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-shell {
+        padding: 17px;
+      }
+
+      .portfolio-item,
+      .portfolio-item .media,
+      .portfolio-item iframe,
+      .portfolio-placeholder {
+        min-height: 250px;
+      }
+
+      .moment-circle-wrap {
+        min-height: 0;
+      }
+
+      .moment-inner {
+        padding: 52px 30px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .brand-main {
+        font-size: 28px;
+      }
+
+      .brand-ar {
+        font-size: 12px;
+      }
+
+      .nav-cta {
+        padding: 9px 14px;
+        font-size: 12px;
+      }
+
+      .language-switcher select {
+        min-height: 36px;
+        max-width: 104px;
+        font-size: 11px;
+        padding: 6px 24px 6px 9px;
+      }
+
+      .floating-stack {
+        inset-inline-end: 12px;
+        bottom: 12px;
+      }
+
+      .brand-story-shell {
+        padding: 22px;
+        border-radius: 26px;
+      }
+
+      .brand-meaning-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-card {
+        min-height: 195px;
+        padding: 21px;
+      }
+
+      .brand-card-letter {
+        font-size: 62px;
+      }
+
+      .brand-card-word {
+        margin-top: 22px;
+        font-size: 28px;
+      }
+
+      .form-note {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="locked">
+
+  <!-- =========================
+       GLOBAL SETTINGS
+  ========================= -->
+
+  <script>
+    const AVYRIA_SETTINGS = {
+      phone: "0984123234",
+      whatsappInternational: "963984123234"
+    };
+  </script>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header id="siteHeader">
+
+    <div class="container nav">
+
+      <a href="#top" class="brand" aria-label="AVYRIA">
+        <span class="brand-main">AVYRIA</span>
+        <span class="brand-ar">أڤيريا</span>
+      </a>
+
+      <nav class="nav-links" aria-label="التنقل الرئيسي">
+
+        <a href="#home">الرئيسية</a>
+        <a href="#categories">المناسبات</a>
+        <a href="#services">الخدمات</a>
+        <a href="#portfolio">الأعمال</a>
+        <a href="#faq">الأسئلة</a>
+
+      </nav>
+
+      <div
+        class="language-switcher"
+        aria-label="اختيار اللغة"
+      >
+
+        <label
+          class="sr-only"
+          for="languageSelect"
+        >
+          اللغة
+        </label>
+
+        <select
+          id="languageSelect"
+          aria-label="اللغة"
+        >
+
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+          <option value="tr">Türkçe</option>
+
+        </select>
+
+      </div>
+
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="التبديل للوضع الداكن"
+        title="التبديل للوضع الداكن"
+      >
+
+        <span
+          class="theme-icon"
+          id="themeIcon"
+          aria-hidden="true"
+        >
+          ☾
+        </span>
+
+        <span id="themeText">
+          داكن
+        </span>
+
+      </button>
+
+      <a
+        class="nav-cta"
+        href="#request-form"
+      >
+        بدء الطلب
+        <span>↗</span>
+      </a>
+
+    </div>
+
+  </header>
+
+  <main id="top">
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
+      <div class="container hero-grid">
+
+        <div class="hero-copy reveal">
+
+          <span class="eyebrow">
+            Digital Invitations & Moments
+          </span>
+
+          <h1>
+
+            AVYRIA
+
+            <small>
+              دعوتك تبدأ من لحظة… وتنطق بذوقك.
+            </small>
+
+          </h1>
+
+          <p>
+            الدعوة هي أول حكاية عن المناسبة 🤍
+            خلّينا نخليها تحكي بذوقها، مع تصاميم رقمية أنيقة
+            تعبّر عن خصوصية اللحظة،
+            من الزفاف والخطبة إلى التخرج وأعياد الميلاد
+            والمولود والمناسبات الخاصة.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn btn-primary"
+              href="#portfolio"
+            >
+              استعرض الأعمال
+            </a>
+
+            <a
+              class="btn btn-ghost"
+              href="#request-form"
+            >
+              بدء الطلب
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="hero-card reveal">
+
+          <div class="hero-note one">
+            أنيقة · هادئة · خاصة بك
+          </div>
+
+          <div class="hero-invitation">
+
+            <div class="invitation-ring">
+              💍
+            </div>
+
+            <div class="invitation-bismillah">
+              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </div>
+
+            <div class="invitation-line"></div>
+
+            <h3>
+              محمد & سارة
+            </h3>
+
+            <p>
+              بكل الحب والفرح<br />
+              ندعوكم لمشاركتنا<br />
+              أجمل ليلة في حياتنا
+            </p>
+
+            <div class="invitation-line"></div>
+
+            <p class="invitation-date">
+              25 نوفمبر 2026
+            </p>
+
+          </div>
+
+          <div class="hero-note two">
+            Digital Invitations
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================= -->
+
+    <section
+      class="section"
+      id="categories"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="eyebrow">
+            Occasions
+          </span>
+
+          <h2>
+            لكل لحظة أسلوبها
+          </h2>
+
+          <p>
+            نوع المناسبة هو البداية، ومن هون بتحوّل AVYRIA الفكرة لدعوة بتشبه اللحظة.
+          </p>
+
+        </div>
+
+        <div class="category-grid">
+
+          <article
+            class="category-card reveal"
+            data-go-category="wedding"
+          >
+
+            <span class="num">01</span>
+
+            <h3>
+              زفاف
+            </h3>
+
+            <p>
+              دعوات رقيقة، فخمة، ومصممة حول قصتك.
+            </p>
+
+          </article>
+
+
+          <article
+            class="category-card reveal"
+            data-go-category="engagement"
+          >
+
+            <span class="num">02</span>
+
+            <h3>
+              خطبة
+            </h3>
+
+            <p>
+              تفاصيل ناعمة لأول فصل من حكايتكما.
+            </p>
+
+          </article>
+
+
+          <article
+            class="category-card reveal"
+            data-go-category="graduation"
+          >
+
+            <span class="num">03</span>
+
+            <h3>
+              تخرج
+            </h3>
+
+            <p>
+              احتفال بإنجاز يستحق دعوة مختلفة.
+            </p>
+
+          </article>
+
+
+          <article
+            class="category-card reveal"
+            data-go-category="birthday"
+          >
+
+            <span class="num">04</span>
+
+            <h3>
+              عيد ميلاد
+            </h3>
+
+            <p>
+              دعوة مرحة أو أنيقة، حسب شخصية صاحب المناسبة.
+            </p>
+
+          </article>
+
+
+          <article
+            class="category-card reveal"
+            data-go-category="newborn"
+          >
+
+            <span class="num">05</span>
+
+            <h3>
+              مولود
+            </h3>
+
+            <p>
+              استقبال المولود بتفاصيل تليق بهذه اللحظة.
+            </p>
+
+          </article>
+
+
+          <article
+            class="category-card reveal"
+            data-go-category="special"
+          >
+
+            <span class="num">06</span>
+
+            <h3>
+              مناسبات خاصة
+            </h3>
+
+            <p>
+              أي لحظة تستحق أن تُصمّم بطريقتها الخاصة.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
+    <section
+      class="section"
+      id="services"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="eyebrow">
+            What We Create
+          </span>
+
+          <h2>
+            أكثر من مجرد بطاقة
+          </h2>
+
+          <p>
+            نصمم تجربة الدعوة كاملة، من أول نظرة حتى لحظة المشاركة.
+          </p>
+
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service reveal">
+
+            <div class="service-icon">
+              ✦
+            </div>
+
+            <h3>
+              دعوة رقمية
+            </h3>
+
+            <p>
+              صفحة دعوة أنيقة وسريعة، جاهزة للمشاركة على الهاتف ووسائل التواصل.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <div class="service-icon">
+              ◌
+            </div>
+
+            <h3>
+              هوية المناسبة
+            </h3>
+
+            <p>
+              ألوان وخطوط وتفاصيل بصرية متناغمة تعكس طابع المناسبة.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <div class="service-icon">
+              ⌁
+            </div>
+
+            <h3>
+              محتوى تفاعلي
+            </h3>
+
+            <p>
+              خرائط، أزرار تواصل، عدّ تنازلي وغيرها.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <div class="service-icon">
+              ∞
+            </div>
+
+            <h3>
+              تعديلات خاصة
+            </h3>
+
+            <p>
+              نعدّل التصميم والتفاصيل حسب الذوق المطلوب بدل القوالب الجامدة.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <div class="service-icon">
+              ◇
+            </div>
+
+            <h3>
+              معاينة الموقع
+            </h3>
+
+            <p>
+              معاينة مريحة للدعوة على الهاتف قبل اعتماد النسخة النهائية.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <div class="service-icon">
+              ↗
+            </div>
+
+            <h3>
+              مشاركة سهلة
+            </h3>
+
+            <p>
+              رابط واحد يمكن مشاركته مباشرة مع المدعوين أينما كانوا.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MOMENT
+    ========================= -->
+
+    <section class="section">
+
+      <div class="container moment-wrap">
+
+        <div class="moment-copy reveal">
+
+          <span class="eyebrow">
+            A Moment Made Yours
+          </span>
+
+          <h2>
+            لحظتك<br />
+            تستحق الأفضل
+          </h2>
+
+          <p>
+            لأن التفاصيل الصغيرة هي التي تصنع الانطباع الكبير،
+            نصمم دعوتك لتكون أول إحساس يصل إلى ضيوفك
+            قبل أن تبدأ المناسبة.
+          </p>
+
+          <a
+            href="#request-form"
+            class="btn btn-primary"
+          >
+            خلّيها تحكي عنك
+          </a>
+
+        </div>
+
+
+        <div class="moment-circle-wrap reveal">
+
+          <div
+            class="moment-circle"
+            aria-label="AVYRIA لحظتك تستحق الأفضل"
+          >
+
+            <div class="moment-inner">
+
+              <div>
+
+                <h3>
+                  لحظتك<br />
+                  تستحق الأفضل
+                </h3>
+
+                <p>
+                  تصميم أنيق، تفاصيل خاصة،
+                  وتجربة رقمية تُشبه مناسبتك.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PORTFOLIO
+    ========================= -->
+
+    <section
+      class="section"
+      id="portfolio"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="eyebrow">
+            Portfolio
+          </span>
+
+          <h2>
+            أعمال AVYRIA
+          </h2>
+
+          <p>
+            كل مناسبة إلها أسلوب.
+            اختيار الفئة ونوع العمل بيوصل للتفاصيل.
+          </p>
+
+        </div>
+
+
+        <div class="portfolio-shell reveal">
+
+          <div
+            class="filter-row"
+            id="categoryFilters"
+          ></div>
+
+
+          <div
+            class="filter-row"
+            id="typeFilters"
+          >
+
+            <button
+              class="filter-btn active"
+              data-type="images"
+              type="button"
+            >
+              صور
+            </button>
+
+            <button
+              class="filter-btn"
+              data-type="videos"
+              type="button"
+            >
+              فيديو
+            </button>
+
+            <button
+              class="filter-btn"
+              data-type="websites"
+              type="button"
+            >
+              مواقع
+            </button>
+
+          </div>
+
+
+          <div class="portfolio-meta">
+
+            <strong id="portfolioTitle">
+              زفاف · صور
+            </strong>
+
+            <span>
+              15 مساحة جاهزة في كل فئة ونوع
+            </span>
+
+          </div>
+
+
+          <div
+            class="portfolio-grid"
+            id="portfolioGrid"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================= -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="eyebrow">
+            The Process
+          </span>
+
+          <h2>
+            كيف نمشي سوا؟
+          </h2>
+
+          <p>
+            من الفكرة إلى الرابط النهائي، بطريقة بسيطة وواضحة.
+          </p>
+
+        </div>
+
+
+        <div class="steps">
+
+          <article class="step reveal">
+
+            <span class="step-number">
+              01
+            </span>
+
+            <h3>
+              تفاصيل المناسبة
+            </h3>
+
+            <p>
+              النوع، التاريخ، الألوان، الأسلوب،
+              وأي تفاصيل مهمة.
+            </p>
+
+          </article>
+
+
+          <article class="step reveal">
+
+            <span class="step-number">
+              02
+            </span>
+
+            <h3>
+              اختيار التصميم
+            </h3>
+
+            <p>
+              نحدد الاتجاه البصري الذي يليق بالمناسبة والذوق المطلوب.
+            </p>
+
+          </article>
+
+
+          <article class="step reveal">
+
+            <span class="step-number">
+              03
+            </span>
+
+            <h3>
+              التنفيذ والتعديلات
+            </h3>
+
+            <p>
+              نرتب النصوص وباقي التفاصيل التفاعلية.
+            </p>
+
+          </article>
+
+
+          <article class="step reveal">
+
+            <span class="step-number">
+              04
+            </span>
+
+            <h3>
+              الرابط جاهز
+            </h3>
+
+            <p>
+              الرابط بيكون جاهز للمشاركة مباشرة.
+            </p>
+
+          </article>
+
+
+          <article class="step reveal">
+
+            <span class="step-number">
+              05
+            </span>
+
+            <h3>
+              الدفع والاستلام
+            </h3>
+
+            <p>
+              يتم دفع عربون بنسبة 50% عند بدء العمل،
+              ويُستكمل المبلغ المتبقي عند تسليم الدعوة النهائية.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REQUEST FORM
+    ========================= -->
+
+    <section
+      class="section"
+      id="request-form"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="eyebrow">
+            Your Invitation
+          </span>
+
+          <h2>
+            تفاصيل الطلب
+          </h2>
+
+          <p>
+            نوع المناسبة والتاريخ والإضافات والملاحظات،
+            وبعدها التفاصيل بتوصل مباشرة على واتساب.
+          </p>
+
+        </div>
+
+
+        <div class="request-wrap">
+
+
+          <aside class="request-intro reveal">
+
+            <span class="eyebrow">
+              AVYRIA
+            </span>
+
+            <h3>
+              من فكرتك<br />
+              للدعوة.
+            </h3>
+
+            <p>
+              النموذج يساعدنا نفهم طلبك من البداية حتى تكون
+              المعاينة أقرب لذوقك ومناسبتك.
+            </p>
+
+
+            <div class="request-points">
+
+              <div class="request-point">
+
+                <b>
+                  01
+                </b>
+
+                <span>
+                  نوع المناسبة
+                </span>
+
+              </div>
+
+
+              <div class="request-point">
+
+                <b>
+                  02
+                </b>
+
+                <span>
+                  تاريخ المناسبة
+                </span>
+
+              </div>
+
+
+              <div class="request-point">
+
+                <b>
+                  03
+                </b>
+
+                <span>
+                  الإضافات المطلوبة
+                </span>
+
+              </div>
+
+
+              <div class="request-point">
+
+                <b>
+                  04
+                </b>
+
+                <span>
+                  الملاحظات الخاصة
+                </span>
+
+              </div>
+
+
+              <div class="request-point">
+
+                <b>
+                  05
+                </b>
+
+                <span>
+                  إرسال التفاصيل على واتساب
+                </span>
+
+              </div>
+
+
+              <div class="request-point">
+
+                <b>
+                  06
+                </b>
+
+                <span>
+                  عربون 50% عند بدء العمل، وإكمال المبلغ عند الاستلام
+                </span>
+
+              </div>
+
+            </div>
+
+          </aside>
+
+
+          <div class="request-form reveal">
+
+            <form id="invitationForm">
+
+
+              <div
+                class="sr-only"
+                aria-hidden="true"
+              >
+
+                <label for="websiteField">
+                  Website
+                </label>
+
+                <input
+                  id="websiteField"
+                  name="websiteField"
+                  type="text"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+
+              </div>
+
+
+              <div class="form-grid">
+
+
+                <div class="field">
+
+                  <label
+                    for="clientName"
+                    data-i18n="form.name"
+                  >
+                    الاسم
+                  </label>
+
+                  <input
+                    id="clientName"
+                    name="clientName"
+                    type="text"
+                    placeholder="الاسم"
+                    autocomplete="name"
+                    minlength="2"
+                    maxlength="80"
+                    pattern="[^<>]{2,80}"
+                    inputmode="text"
+                  />
+
+                </div>
+
+
+                <div class="field">
+
+                  <label
+                    for="clientPhone"
+                    data-i18n="form.phone"
+                  >
+                    رقم التواصل
+                  </label>
+
+                  <input
+                    id="clientPhone"
+                    name="clientPhone"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    placeholder="رقم التواصل"
+                    maxlength="20"
+                    pattern="[0-9٠-٩+()\- ]{7,20}"
+                  />
+
+                </div>
+
+
+                <div class="field">
+
+                  <label
+                    for="occasion"
+                    data-i18n="form.occasion"
+                  >
+                    المناسبة *
+                  </label>
+
+                  <select
+                    id="occasion"
+                    name="occasion"
+                    required
+                  >
+
+                    <option value="">
+                      اختيار المناسبة
+                    </option>
+
+                    <option>
+                      زفاف
+                    </option>
+
+                    <option>
+                      خطبة
+                    </option>
+
+                    <option>
+                      تخرج
+                    </option>
+
+                    <option>
+                      عيد ميلاد
+                    </option>
+
+                    <option>
+                      مولود
+                    </option>
+
+                    <option>
+                      مناسبة خاصة
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="field">
+
+                  <label
+                    for="eventDate"
+                    data-i18n="form.date"
+                  >
+                    تاريخ المناسبة
+                  </label>
+
+                  <input
+                    id="eventDate"
+                    name="eventDate"
+                    type="date"
+                  />
+
+                </div>
+
+
+                <div class="field full">
+
+                  <label
+                    data-i18n="form.extras"
+                  >
+                    الإضافات المطلوبة
+                  </label>
+
+
+                  <div class="check-grid">
+
+
+                    <label class="check">
+
+                      <input
+                        type="checkbox"
+                        name="extras"
+                        value="خريطة وموقع"
+                      />
+
+                      <span>
+                        خريطة وموقع
+                      </span>
+
+                    </label>
+
+
+                    <label class="check">
+
+                      <input
+                        type="checkbox"
+                        name="extras"
+                        value="عدّ تنازلي"
+                      />
+
+                      <span>
+                        عدّ تنازلي
+                      </span>
+
+                    </label>
+
+
+                    <label class="check">
+
+                      <input
+                        type="checkbox"
+                        name="extras"
+                        value="RSVP"
+                      />
+
+                      <span>
+                        تأكيد حضور
+                      </span>
+
+                    </label>
+
+
+                    <label class="check">
+
+                      <input
+                        id="otherExtraCheck"
+                        type="checkbox"
+                        name="extras"
+                        value="شيء آخر"
+                      />
+
+                      <span>
+                        شيء آخر
+                      </span>
+
+                    </label>
+
+
+                  </div>
+
+
+                  <div
+                    class="other-extra-wrap"
+                    id="otherExtraWrap"
+                    hidden
+                  >
+
+                    <input
+                      class="other-extra-input"
+                      id="otherExtraText"
+                      type="text"
+                      maxlength="300"
+                      minlength="2"
+                      autocomplete="off"
+                      placeholder="وصف الإضافة المطلوبة"
+                    />
+
+                  </div>
+
+                </div>
+
+
+                <div class="field full">
+
+                  <label
+                    for="notes"
+                    data-i18n="form.notes"
+                  >
+                    ملاحظات وتفاصيل إضافية
+                  </label>
+
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    maxlength="1000"
+                    autocomplete="off"
+                    placeholder="مثلاً: أسماء الأشخاص، عدد الضيوف، النص المطلوب، الألوان، موعد التسليم، أو أي تفاصيل إضافية..."
+                  ></textarea>
+
+                </div>
+
+
+              </div>
+
+
+              <div class="form-actions">
+
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  إرسال التفاصيل على واتساب ↗
+                </button>
+
+                <p class="form-note">
+                  التفاصيل بتوصل كطلب حتى نجهّز المعاينة.
+                  يبدأ العمل بعد دفع عربون 50%،
+                  ويُستكمل المبلغ المتبقي عند استلام الدعوة النهائية.
+                </p>
+
+              </div>
+
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================= -->
+
+    <section
+      class="section"
+      id="faq"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <span class="eyebrow">
+            FAQ
+          </span>
+
+          <h2>
+            أسئلة بتوصلنا كثير
+          </h2>
+
+        </div>
+
+
+        <div class="faq">
+
+
+          <div class="faq-item reveal">
+
+            <button
+              class="faq-q"
+              type="button"
+            >
+              كيف أستلم الدعوة؟
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-a">
+
+              <p>
+                بعد اعتماد التصميم والتعديلات،
+                يتم تجهيز رابط الدعوة ومشاركته مباشرة.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item reveal">
+
+            <button
+              class="faq-q"
+              type="button"
+            >
+              هل الدعوة تشتغل على الهاتف؟
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-a">
+
+              <p>
+                نعم، التصميم متجاوب مع الهاتف والكمبيوتر
+                ومناسب للمشاركة كرابط.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item reveal">
+
+            <button
+              class="faq-q"
+              type="button"
+            >
+              هل يمكن إضافة عناصر تفاعلية؟
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-a">
+
+              <p>
+                نعم، ممكن إضافة خريطة، عدّ تنازلي،
+                أزرار تواصل وغيرها.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item reveal">
+
+            <button
+              class="faq-q"
+              type="button"
+            >
+              هل يمكن تعديل الألوان والتفاصيل؟
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-a">
+
+              <p>
+                أكيد، نقدر نكيّف التصميم حسب طابع المناسبة
+                والذوق المطلوب.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item reveal">
+
+            <button
+              class="faq-q"
+              type="button"
+            >
+              كيف بيتم الدفع؟
+
+              <span>
+                +
+              </span>
+
+            </button>
+
+            <div class="faq-a">
+
+              <p>
+                بيتم دفع عربون بنسبة 50% عند بدء العمل،
+                وبعد اعتماد التصميم وتجهيز الدعوة النهائية
+                يتم استكمال المبلغ المتبقي عند الاستلام.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section
+      class="cta"
+      id="request"
+    >
+
+      <div class="container">
+
+        <div class="cta-box reveal">
+
+          <span class="eyebrow">
+            Make It Yours
+          </span>
+
+          <h2>
+            دعوتك هي أول حكاية
+          </h2>
+
+          <p>
+            أول انطباع عن المناسبة بيبدأ من هون…
+            بتصميم من AVYRIA.
+          </p>
+
+          <a
+            class="btn btn-primary"
+            id="requestButton"
+            href="#request-form"
+          >
+            التواصل والاستفسار
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BRAND MEANING
+    ========================= -->
+
+    <section
+      class="section brand-story"
+      id="brand-meaning"
+    >
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <span class="eyebrow">
+            Brand Story
+          </span>
+
+          <h2>
+            شو وراء اسم AVYRIA؟
+          </h2>
+
+          <p>
+            AVYRIA مو مجرد اسم،
+            كل حرف فيه يحمل جزء من الفكرة اللي نبني عليها كل دعوة.
+          </p>
+
+        </div>
+
+
+        <div class="brand-story-shell reveal">
+
+
+          <div class="brand-story-top">
+
+
+            <div>
+
+              <span class="eyebrow">
+                AVYRIA — أڤيريا
+              </span>
+
+              <div class="brand-wordmark">
+                AVYRIA
+              </div>
+
+            </div>
+
+
+            <p class="brand-closing">
+              ستة أحرف، وست أفكار تجتمع بشيء واحد:
+              أن تكون كل دعوة مصممة بذوق، راقية بالتفاصيل،
+              وخاصة بصاحب المناسبة.
+            </p>
+
+          </div>
+
+
+          <div class="brand-meaning-grid">
+
+
+            <article class="brand-card">
+
+              <span class="brand-card-letter">
+                A
+              </span>
+
+              <span class="brand-card-number">
+                01
+              </span>
+
+              <h3 class="brand-card-word">
+                Art
+              </h3>
+
+              <div class="brand-card-meaning">
+                فن
+              </div>
+
+              <p class="brand-card-desc">
+                لأن كل دعوة تبدأ من فكرة بصرية تتحول
+                إلى تفاصيل فيها إحساس وذوق.
+              </p>
+
+            </article>
+
+
+            <article class="brand-card">
+
+              <span class="brand-card-letter">
+                V
+              </span>
+
+              <span class="brand-card-number">
+                02
+              </span>
+
+              <h3 class="brand-card-word">
+                Vision
+              </h3>
+
+              <div class="brand-card-meaning">
+                رؤية
+              </div>
+
+              <p class="brand-card-desc">
+                نشوف الصورة الكاملة قبل التفاصيل،
+                لنصنع تجربة متناسقة من أول نظرة.
+              </p>
+
+            </article>
+
+
+            <article class="brand-card">
+
+              <span class="brand-card-letter">
+                Y
+              </span>
+
+              <span class="brand-card-number">
+                03
+              </span>
+
+              <h3 class="brand-card-word">
+                Your
+              </h3>
+
+              <div class="brand-card-meaning">
+                خاص بك
+              </div>
+
+              <p class="brand-card-desc">
+                الدعوة مو قالب جاهز؛
+                هي مساحة مصممة لتشبهك وتشبه مناسبتك.
+              </p>
+
+            </article>
+
+
+            <article class="brand-card">
+
+              <span class="brand-card-letter">
+                R
+              </span>
+
+              <span class="brand-card-number">
+                04
+              </span>
+
+              <h3 class="brand-card-word">
+                Refined
+              </h3>
+
+              <div class="brand-card-meaning">
+                راقٍ · مصقول
+              </div>
+
+              <p class="brand-card-desc">
+                نهتم بالتفاصيل الصغيرة،
+                لأن الرقي الحقيقي يظهر في الأشياء
+                التي قد لا تُلاحظ من أول مرة.
+              </p>
+
+            </article>
+
+
+            <article class="brand-card">
+
+              <span class="brand-card-letter">
+                I
+              </span>
+
+              <span class="brand-card-number">
+                05
+              </span>
+
+              <h3 class="brand-card-word">
+                Invitation
+              </h3>
+
+              <div class="brand-card-meaning">
+                دعوة
+              </div>
+
+              <p class="brand-card-desc">
+                هذا هو جوهر AVYRIA:
+                أن نحول الدعوة من مجرد معلومات
+                إلى بداية حكاية.
+              </p>
+
+            </article>
+
+
+            <article class="brand-card">
+
+              <span class="brand-card-letter">
+                A
+              </span>
+
+              <span class="brand-card-number">
+                06
+              </span>
+
+              <h3 class="brand-card-word">
+                All Occasions
+              </h3>
+
+              <div class="brand-card-meaning">
+                جميع المناسبات
+              </div>
+
+              <p class="brand-card-desc">
+                من الزفاف والخطبة والتخرج إلى أعياد الميلاد
+                والمولود وكل مناسبة تستحق لمستها الخاصة.
+              </p>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="#top"
+            class="brand"
+            aria-label="AVYRIA"
+          >
+
+            <span class="brand-main">
+              AVYRIA
+            </span>
+
+            <span class="brand-ar">
+              أڤيريا
+            </span>
+
+          </a>
+
+          <p>
+            الدعوة هي أول حكاية عن المناسبة 🤍
+            خلّينا نخليها تحكي بذوقها.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Instagram
+          </h4>
+
+          <a
+            href="https://instagram.com/amlail1226"
+            target="_blank"
+            rel="noopener"
+          >
+            @amlail1226
+          </a>
+
+          <a
+            href="https://instagram.com/amlail_1226"
+            target="_blank"
+            rel="noopener"
+          >
+            @amlail_1226
+          </a>
+
+          <a
+            href="https://instagram.com/dramlail_1226"
+            target="_blank"
+            rel="noopener"
+          >
+            @dramlail_1226
+          </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            بيانات التواصل
+          </h4>
+
+          <a
+            id="phoneLink"
+            href="#"
+          >
+            0984123234
+          </a>
+
+          <a href="mailto:ahmad.fidaa2@gmail.com">
+            ahmad.fidaa2@gmail.com
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        ©
+        <span id="year"></span>
+        AVYRIA — Digital Invitations & Moments
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       WHATSAPP
+  ========================= -->
+
+  <div class="floating-stack">
+
+    <a
+      class="float-btn wa-btn"
+      id="waButton"
+      href="#request-form"
+      aria-label="واتساب"
+      title="اطلب دعوتك على واتساب"
+    >
+      ◔
+    </a>
+
+  </div>
+
+
+  <!-- =========================
+       MODAL
+  ========================= -->
+
+  <div
+    class="modal"
+    id="mediaModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="modal-close"
+        type="button"
+        data-close-modal="mediaModal"
+        aria-label="إغلاق"
+      >
+        ×
+      </button>
+
+      <div
+        class="modal-media"
+        id="modalMedia"
+      ></div>
+
+      <div
+        class="website-actions"
+        id="websiteActions"
+        hidden
+      >
+
+        <a
+          class="btn btn-primary"
+          id="openWebsiteButton"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          فتح الموقع في نافذة جديدة ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+  <script>
+
+    /* ==========================================================
+       MULTI-LANGUAGE TEXT
+    ========================================================== */
+
+    const I18N = {
+
+      ar: {
+
+        metaTitle:
+          "AVYRIA — الدعوات الرقمية واللحظات",
+
+        metaDescription:
+          "AVYRIA — تصميم دعوات رقمية أنيقة للزفاف والخطبة والتخرج وأعياد الميلاد والمولود والمناسبات الخاصة.",
+
+        nav: {
+          home: "الرئيسية",
+          occasions: "المناسبات",
+          services: "الخدمات",
+          portfolio: "الأعمال",
+          faq: "الأسئلة",
+          request: "بدء الطلب"
+        },
+
+        hero: {
+
+          eyebrow:
+            "دعوات رقمية ولحظات مميزة",
+
+          tagline:
+            "الدعوة تبدأ من لحظة… وبتحكي ذوق المناسبة.",
+
+          description:
+            "الدعوة هي أول حكاية عن المناسبة 🤍\nخلّينا نخليها تحكي بذوقها، مع تصاميم رقمية أنيقة تعبّر عن خصوصية اللحظة، من الزفاف والخطبة إلى التخرج وأعياد الميلاد والمولود والمناسبات الخاصة.",
+
+          portfolio:
+            "استعراض الأعمال",
+
+          request:
+            "بدء الطلب",
+
+          note1:
+            "أنيقة · هادئة · بتشبه المناسبة",
+
+          note2:
+            "دعوات رقمية"
+        },
+
+        sections: {
+
+          occasionsEyebrow:
+            "المناسبات",
+
+          occasionsTitle:
+            "لكل لحظة أسلوبها",
+
+          occasionsText:
+            "نوع المناسبة هو البداية، ومن هون بتحوّل AVYRIA الفكرة لدعوة بتشبه اللحظة.",
+
+          servicesEyebrow:
+            "شو منقدّم",
+
+          servicesTitle:
+            "أكثر من مجرد بطاقة",
+
+          servicesText:
+            "التجربة كاملة، من أول نظرة حتى لحظة مشاركة الدعوة.",
+
+          momentEyebrow:
+            "لحظة مصممة على قياس المناسبة",
+
+          momentTitle:
+            "اللحظة\nتستحق الأفضل",
+
+          momentText:
+            "لأن التفاصيل الصغيرة بتصنع الانطباع الكبير، الدعوة بتكون أول إحساس يوصل للضيوف قبل بداية المناسبة.",
+
+          momentButton:
+            "خلّينا نخليها تحكي عن المناسبة",
+
+          portfolioEyebrow:
+            "الأعمال",
+
+          portfolioTitle:
+            "أعمال AVYRIA",
+
+          portfolioText:
+            "كل مناسبة إلها أسلوب.\nاختيار الفئة ونوع العمل بيوصل للتفاصيل.",
+
+          processEyebrow:
+            "الخطوات",
+
+          processTitle:
+            "كيف بتمشي الخطوات؟",
+
+          processText:
+            "من الفكرة للرابط النهائي، بطريقة بسيطة وواضحة.",
+
+          requestEyebrow:
+            "تفاصيل الدعوة",
+
+          requestTitle:
+            "تفاصيل الطلب",
+
+          requestText:
+            "نوع المناسبة والتاريخ والإضافات والملاحظات، وبعدها التفاصيل بتوصل مباشرة على واتساب.",
+
+          faqTitle:
+            "أسئلة بتوصلنا كثير",
+
+          ctaEyebrow:
+            "خلّوها على ذوق المناسبة",
+
+          ctaTitle:
+            "الدعوة هي أول حكاية",
+
+          ctaText:
+            "أول انطباع عن المناسبة بيبدأ من هون… بتصميم من AVYRIA.",
+
+          ctaButton:
+            "التواصل والاستفسار"
+        },
+
+        brand: {
+
+          eyebrow:
+            "حكاية البراند",
+
+          title:
+            "شو وراء اسم AVYRIA؟",
+
+          text:
+            "AVYRIA مو مجرد اسم، كل حرف فيه يحمل جزء من الفكرة اللي نبني عليها كل دعوة.",
+
+          closing:
+            "ستة أحرف، وست أفكار تجتمع بشيء واحد: أن تكون كل دعوة مصممة بذوق، راقية بالتفاصيل، وخاصة بصاحب المناسبة.",
+
+          letters: [
+
+            [
+              "A",
+              "Art",
+              "فن",
+              "لأن كل دعوة تبدأ من فكرة بصرية تتحول إلى تفاصيل فيها إحساس وذوق."
+            ],
+
+            [
+              "V",
+              "Vision",
+              "رؤية",
+              "نشوف الصورة الكاملة قبل التفاصيل، لنصنع تجربة متناسقة من أول نظرة."
+            ],
+
+            [
+              "Y",
+              "Your",
+              "خاص بك",
+              "الدعوة مو قالب جاهز؛ هي مساحة مصممة لتشبهك وتشبه مناسبتك."
+            ],
+
+            [
+              "R",
+              "Refined",
+              "راقٍ · مصقول",
+              "نهتم بالتفاصيل الصغيرة، لأن الرقي الحقيقي يظهر في الأشياء التي قد لا تُلاحظ من أول مرة."
+            ],
+
+            [
+              "I",
+              "Invitation",
+              "دعوة",
+              "هذا هو جوهر AVYRIA: أن نحول الدعوة من مجرد معلومات إلى بداية حكاية."
+            ],
+
+            [
+              "A",
+              "All Occasions",
+              "جميع المناسبات",
+              "من الزفاف والخطبة والتخرج إلى أعياد الميلاد والمولود وكل مناسبة تستحق لمستها الخاصة."
+            ]
+
+          ]
+
+        },
+
+        invitation: {
+
+          bismillah:
+            "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+
+          names:
+            "محمد & سارة",
+
+          text:
+            "بكل الحب والفرح\nندعوكم لمشاركتنا\nأجمل ليلة في حياتنا",
+
+          date:
+            "25 نوفمبر 2026"
+        },
+
+        categories: {
+
+          wedding: [
+            "زفاف",
+            "دعوات رقيقة وفخمة، بتفاصيل بتشبه المناسبة."
+          ],
+
+          engagement: [
+            "خطبة",
+            "تفاصيل ناعمة لأول فصل من الحكاية."
+          ],
+
+          graduation: [
+            "تخرج",
+            "احتفال بإنجاز يستحق دعوة مختلفة."
+          ],
+
+          birthday: [
+            "عيد ميلاد",
+            "دعوة مرحة أو أنيقة، حسب طابع المناسبة."
+          ],
+
+          newborn: [
+            "مولود",
+            "استقبال المولود بتفاصيل تليق بهذه اللحظة."
+          ],
+
+          special: [
+            "مناسبات خاصة",
+            "أي لحظة تستحق أن تنصمم بطريقتها الخاصة."
+          ]
+
+        },
+
+        services: [
+
+          [
+            "دعوة رقمية",
+            "صفحة دعوة أنيقة وسريعة، جاهزة للمشاركة من الهاتف ووسائل التواصل."
+          ],
+
+          [
+            "هوية المناسبة",
+            "ألوان وخطوط وتفاصيل بصرية متناغمة تعكس طابع المناسبة."
+          ],
+
+          [
+            "محتوى تفاعلي",
+            "خرائط، أزرار تواصل، عدّ تنازلي وغيرها."
+          ],
+
+          [
+            "تعديلات خاصة",
+            "التصميم والتفاصيل بتتكيّف حسب الذوق المطلوب، بعيداً عن القوالب الجامدة."
+          ],
+
+          [
+            "معاينة الموقع",
+            "معاينة مريحة للدعوة على الهاتف قبل اعتماد النسخة النهائية."
+          ],
+
+          [
+            "مشاركة سهلة",
+            "رابط واحد يمكن مشاركته مباشرة مع المدعوين أينما كانوا."
+          ]
+
+        ],
+
+        steps: [
+
+          [
+            "تفاصيل المناسبة",
+            "النوع، التاريخ، الألوان، الأسلوب، وأي تفاصيل مهمة."
+          ],
+
+          [
+            "اختيار التصميم",
+            "تحديد الاتجاه البصري اللي بيلبق بالمناسبة والذوق المطلوب."
+          ],
+
+          [
+            "التنفيذ والتعديلات",
+            "ترتيب النصوص وباقي التفاصيل التفاعلية."
+          ],
+
+          [
+            "الرابط جاهز",
+            "الرابط بيكون جاهز للمشاركة مباشرة."
+          ],
+
+          [
+            "الدفع والاستلام",
+            "يتم دفع عربون بنسبة 50% عند بدء العمل، ويُستكمل المبلغ المتبقي عند تسليم الدعوة النهائية."
+          ]
+
+        ],
+
+        form: {
+
+          name:
+            "الاسم",
+
+          phone:
+            "رقم التواصل",
+
+          occasion:
+            "المناسبة *",
+
+          date:
+            "تاريخ المناسبة",
+
+          extras:
+            "الإضافات المطلوبة",
+
+          notes:
+            "ملاحظات وتفاصيل إضافية",
+
+          other:
+            "شيء آخر",
+
+          submit:
+            "إرسال التفاصيل على واتساب ↗",
+
+          note:
+            "التفاصيل بتوصل كطلب حتى نجهّز المعاينة. يبدأ العمل بعد دفع عربون 50%، ويُستكمل المبلغ المتبقي عند استلام الدعوة النهائية.",
+
+          namePlaceholder:
+            "الاسم",
+
+          phonePlaceholder:
+            "رقم التواصل",
+
+          otherPlaceholder:
+            "وصف الإضافة المطلوبة",
+
+          notesPlaceholder:
+            "مثلاً: أسماء الأشخاص، عدد الضيوف، النص المطلوب، الألوان، موعد التسليم، أو أي تفاصيل إضافية...",
+
+          occasionPlaceholder:
+            "اختيار المناسبة",
+
+          point1:
+            "نوع المناسبة",
+
+          point2:
+            "تاريخ المناسبة",
+
+          point3:
+            "الإضافات المطلوبة",
+
+          point4:
+            "الملاحظات الخاصة",
+
+          point5:
+            "إرسال التفاصيل على واتساب",
+
+          point6:
+            "عربون 50% عند بدء العمل، وإكمال المبلغ عند الاستلام"
+
+        },
+
+        faq: [
+
+          [
+            "كيف بيتم استلام الدعوة؟",
+            "بعد اعتماد التصميم والتعديلات، بيتم تجهيز رابط الدعوة ومشاركته مباشرة."
+          ],
+
+          [
+            "هل الدعوة بتشتغل على الهاتف؟",
+            "نعم، التصميم متجاوب مع الهاتف والكمبيوتر ومناسب للمشاركة كرابط."
+          ],
+
+          [
+            "هل ممكن إضافة عناصر تفاعلية؟",
+            "نعم، ممكن إضافة خريطة، عدّ تنازلي، أزرار تواصل وغيرها."
+          ],
+
+          [
+            "هل ممكن تعديل الألوان والتفاصيل؟",
+            "أكيد، التصميم بيتكيّف حسب طابع المناسبة والذوق المطلوب."
+          ],
+
+          [
+            "كيف بيتم الدفع؟",
+            "بيتم دفع عربون بنسبة 50% عند بدء العمل، وبعد اعتماد التصميم وتجهيز الدعوة النهائية يتم استكمال المبلغ المتبقي عند الاستلام."
+          ]
+
+        ],
+
+        footer: {
+
+          desc:
+            "الدعوة هي أول حكاية عن المناسبة 🤍\nخلّينا نخليها تحكي بذوقها.",
+
+          instagram:
+            "Instagram",
+
+          contact:
+            "بيانات التواصل",
+
+          phoneAria:
+            "رقم التواصل",
+
+          whatsapp:
+            "التواصل على واتساب",
+
+          websiteOpen:
+            "فتح الموقع في نافذة جديدة ↗"
+
+        },
+
+        toast: {
+
+          ready:
+            "تم تجهيز تفاصيل الطلب على واتساب 🤍",
+
+          invalid:
+            "في بيانات ناقصة أو غير صحيحة. راجع الحقول المحددة.",
+
+          phone:
+            "رقم التواصل غير صحيح.",
+
+          date:
+            "تاريخ المناسبة غير صحيح أو قديم.",
+
+          bot:
+            "تعذر إرسال الطلب."
+
+        },
+
+        portfolio: {
+
+          images:
+            "صور",
+
+          videos:
+            "فيديو",
+
+          websites:
+            "مواقع",
+
+          image:
+            "صورة",
+
+          video:
+            "فيديو",
+
+          website:
+            "موقع",
+
+          design:
+            "تصميم {0}",
+
+          videoTitle:
+            "فيديو {0}",
+
+          websiteTitle:
+            "موقع {0}",
+
+          preview:
+            "فتح المعاينة",
+
+          addWebsiteLink:
+            "أضف رابط الموقع في websiteLinks",
+
+          missingFile:
+            "الملف غير موجود: {0}",
+
+          missingImage:
+            "مكان الصورة: {0}",
+
+          missingVideo:
+            "مكان الفيديو: {0}",
+
+          missingLink:
+            "مكان الرابط: websiteLinks.{0}[{1}]",
+
+          count:
+            "15 مساحة جاهزة في كل فئة"
+
+        },
+
+        validation: {
+
+          name:
+            "الاسم لازم يكون بين حرفين و80 حرفاً.",
+
+          phone:
+            "رقم التواصل غير صحيح.",
+
+          other:
+            "أضف وصفاً للإضافة المطلوبة.",
+
+          required:
+            "هذا الحقل مطلوب."
+
+        },
+
+        theme: {
+
+          light:
+            "فاتح",
+
+          dark:
+            "داكن",
+
+          switchToLight:
+            "التبديل للوضع الفاتح",
+
+          switchToDark:
+            "التبديل للوضع الداكن"
+
+        }
+
+      },
+
+
+      en: {
+
+        metaTitle:
+          "AVYRIA — Digital Invitations & Moments",
+
+        metaDescription:
+          "AVYRIA — Elegant digital invitations for weddings, engagements, graduations, birthdays, newborns and special occasions.",
+
+        nav: {
+
+          home:
+            "Home",
+
+          occasions:
+            "Occasions",
+
+          services:
+            "Services",
+
+          portfolio:
+            "Portfolio",
+
+          faq:
+            "FAQ",
+
+          request:
+            "Start a Request"
+
+        },
+
+        hero: {
+
+          eyebrow:
+            "Digital Invitations & Moments",
+
+          tagline:
+            "Every invitation starts with a moment… and reflects its style.",
+
+          description:
+            "An invitation is the first story of an occasion 🤍\nElegant digital designs that reflect the character of the moment, from weddings and engagements to graduations, birthdays, newborns and special occasions.",
+
+          portfolio:
+            "View Portfolio",
+
+          request:
+            "Start a Request",
+
+          note1:
+            "Elegant · Calm · Personal",
+
+          note2:
+            "Digital Invitations"
+
+        },
+
+        sections: {
+
+          occasionsEyebrow:
+            "Occasions",
+
+          occasionsTitle:
+            "A style for every moment",
+
+          occasionsText:
+            "The occasion comes first, then AVYRIA turns the idea into an invitation that feels like the moment.",
+
+          servicesEyebrow:
+            "What We Create",
+
+          servicesTitle:
+            "More than a card",
+
+          servicesText:
+            "The full experience, from the first look to sharing the invitation.",
+
+          momentEyebrow:
+            "A Moment Made Yours",
+
+          momentTitle:
+            "The moment\ndeserves more",
+
+          momentText:
+            "Small details create the big impression. The invitation becomes the first feeling your guests receive before the occasion begins.",
+
+          momentButton:
+            "Make it tell the story",
+
+          portfolioEyebrow:
+            "Portfolio",
+
+          portfolioTitle:
+            "AVYRIA Portfolio",
+
+          portfolioText:
+            "Every occasion has its style.\nChoose a category and a work type to explore details.",
+
+          processEyebrow:
+            "The Process",
+
+          processTitle:
+            "How it works",
+
+          processText:
+            "From idea to final link, in a simple and clear flow.",
+
+          requestEyebrow:
+            "Your Invitation",
+
+          requestTitle:
+            "Request Details",
+
+          requestText:
+            "Add the occasion, date, extras and notes, then send the details directly on WhatsApp.",
+
+          faqTitle:
+            "Questions we get often",
+
+          ctaEyebrow:
+            "Made for the occasion",
+
+          ctaTitle:
+            "The invitation is the first story",
+
+          ctaText:
+            "The first impression starts here… with an AVYRIA design.",
+
+          ctaButton:
+            "Contact & Ask"
+
+        },
+
+        brand: {
+
+          eyebrow:
+            "Brand Story",
+
+          title:
+            "What's behind AVYRIA?",
+
+          text:
+            "AVYRIA is more than a name. Each letter carries part of the idea behind every invitation we create.",
+
+          closing:
+            "Six letters, six ideas, brought together around one thought: every invitation should feel refined, personal and made for its occasion.",
+
+          letters: [
+
+            [
+              "A",
+              "Art",
+              "Art",
+              "Every invitation begins with a visual idea shaped into details with feeling and style."
+            ],
+
+            [
+              "V",
+              "Vision",
+              "Vision",
+              "We see the full picture before the details, creating a cohesive experience from the first glance."
+            ],
+
+            [
+              "Y",
+              "Your",
+              "Made for You",
+              "The invitation is not a fixed template; it is designed to feel personal and true to your occasion."
+            ],
+
+            [
+              "R",
+              "Refined",
+              "Refined",
+              "We care about the small details, because true elegance often lives in what you notice slowly."
+            ],
+
+            [
+              "I",
+              "Invitation",
+              "Invitation",
+              "At the heart of AVYRIA is the idea of turning an invitation from information into the beginning of a story."
+            ],
+
+            [
+              "A",
+              "All Occasions",
+              "All Occasions",
+              "From weddings and engagements to graduations, birthdays, newborns and every special occasion in between."
+            ]
+
+          ]
+
+        },
+
+        invitation: {
+
+          bismillah:
+            "In the name of God, the Most Gracious, the Most Merciful",
+
+          names:
+            "Mohammad & Sara",
+
+          text:
+            "With love and joy\nwe invite you to share\nour most beautiful night",
+
+          date:
+            "November 25, 2026"
+
+        },
+
+        categories: {
+
+          wedding: [
+            "Wedding",
+            "Soft, elegant invitations shaped around the occasion."
+          ],
+
+          engagement: [
+            "Engagement",
+            "Gentle details for the first chapter of the story."
+          ],
+
+          graduation: [
+            "Graduation",
+            "A celebration of an achievement that deserves a different invitation."
+          ],
+
+          birthday: [
+            "Birthday",
+            "Playful or elegant, depending on the occasion."
+          ],
+
+          newborn: [
+            "Newborn",
+            "A warm welcome designed for this special arrival."
+          ],
+
+          special: [
+            "Special Occasions",
+            "Any moment can have a design of its own."
+          ]
+
+        },
+
+        services: [
+
+          [
+            "Digital Invitation",
+            "An elegant, fast invitation page ready to share from phones and social platforms."
+          ],
+
+          [
+            "Occasion Identity",
+            "Coordinated colors, typography and visual details that reflect the occasion."
+          ],
+
+          [
+            "Interactive Content",
+            "Maps, contact buttons, countdowns and more."
+          ],
+
+          [
+            "Custom Adjustments",
+            "The design and details adapt to the requested style rather than rigid templates."
+          ],
+
+          [
+            "Website Preview",
+            "A comfortable phone preview before approving the final version."
+          ],
+
+          [
+            "Easy Sharing",
+            "One link that can be shared directly with guests anywhere."
+          ]
+
+        ],
+
+        steps: [
+
+          [
+            "Occasion Details",
+            "Type, date, colors, style and any important details."
+          ],
+
+          [
+            "Design Direction",
+            "Set the visual direction that fits the occasion and requested style."
+          ],
+
+          [
+            "Build & Adjust",
+            "Arrange the text and remaining interactive details."
+          ],
+
+          [
+            "Link Ready",
+            "The invitation link is ready to share."
+          ],
+
+          [
+            "Payment & Delivery",
+            "A 50% deposit is paid to start the work, and the remaining balance is paid upon final delivery."
+          ]
+
+        ],
+
+        form: {
+
+          name:
+            "Name",
+
+          phone:
+            "Contact number",
+
+          occasion:
+            "Occasion *",
+
+          date:
+            "Occasion date",
+
+          extras:
+            "Requested extras",
+
+          notes:
+            "Notes & extra details",
+
+          other:
+            "Other",
+
+          submit:
+            "Send details on WhatsApp ↗",
+
+          note:
+            "Your details arrive as a request so we can prepare a preview. Work begins after a 50% deposit, and the remaining balance is completed upon final delivery.",
+
+          namePlaceholder:
+            "Name",
+
+          phonePlaceholder:
+            "Contact number",
+
+          otherPlaceholder:
+            "Describe the requested extra",
+
+          notesPlaceholder:
+            "For example: names, guest count, requested text, colors, delivery date, or any extra details...",
+
+          occasionPlaceholder:
+            "Choose an occasion",
+
+          point1:
+            "Occasion type",
+
+          point2:
+            "Occasion date",
+
+          point3:
+            "Requested extras",
+
+          point4:
+            "Special notes",
+
+          point5:
+            "Send details on WhatsApp",
+
+          point6:
+            "50% deposit to start, remaining balance upon delivery"
+
+        },
+
+        faq: [
+
+          [
+            "How do I receive the invitation?",
+            "After the design and edits are approved, the invitation link is prepared and shared directly."
+          ],
+
+          [
+            "Does the invitation work on phones?",
+            "Yes. The design is responsive on phones and computers and works well as a shared link."
+          ],
+
+          [
+            "Can interactive elements be added?",
+            "Yes. A map, countdown, contact buttons and more can be added."
+          ],
+
+          [
+            "Can colors and details be adjusted?",
+            "Yes. The design can be adapted to the occasion and requested style."
+          ],
+
+          [
+            "How does payment work?",
+            "A 50% deposit is paid when the work begins, and the remaining balance is completed upon final delivery."
+          ]
+
+        ],
+
+        footer: {
+
+          desc:
+            "The invitation is the first story of the occasion 🤍\nMade to reflect its style.",
+
+          instagram:
+            "Instagram",
+
+          contact:
+            "Contact Details",
+
+          phoneAria:
+            "Contact number",
+
+          whatsapp:
+            "Contact on WhatsApp",
+
+          websiteOpen:
+            "Open website in a new window ↗"
+
+        },
+
+        toast: {
+
+          ready:
+            "Your request details are ready on WhatsApp 🤍",
+
+          invalid:
+            "Some fields are missing or invalid. Please review the highlighted fields.",
+
+          phone:
+            "The contact number is not valid.",
+
+          date:
+            "The occasion date is invalid or in the past.",
+
+          bot:
+            "The request could not be sent."
+
+        },
+
+        portfolio: {
+
+          images:
+            "Images",
+
+          videos:
+            "Video",
+
+          websites:
+            "Websites",
+
+          image:
+            "Image",
+
+          video:
+            "Video",
+
+          website:
+            "Website",
+
+          design:
+            "Design {0}",
+
+          videoTitle:
+            "Video {0}",
+
+          websiteTitle:
+            "Website {0}",
+
+          preview:
+            "Open preview",
+
+          addWebsiteLink:
+            "Add the website link in websiteLinks",
+
+          missingFile:
+            "File not found: {0}",
+
+          missingImage:
+            "Image location: {0}",
+
+          missingVideo:
+            "Video location: {0}",
+
+          missingLink:
+            "Link location: websiteLinks.{0}[{1}]",
+
+          count:
+            "15 ready slots in each category"
+
+        },
+
+        validation: {
+
+          name:
+            "Name must be between 2 and 80 characters.",
+
+          phone:
+            "Contact number is not valid.",
+
+          other:
+            "Please describe the requested extra.",
+
+          required:
+            "This field is required."
+
+        },
+
+        theme: {
+
+          light:
+            "Light",
+
+          dark:
+            "Dark",
+
+          switchToLight:
+            "Switch to light mode",
+
+          switchToDark:
+            "Switch to dark mode"
+
+        }
+
+      },
+
+
+      tr: {
+
+        metaTitle:
+          "AVYRIA — Dijital Davetler ve Anlar",
+
+        metaDescription:
+          "AVYRIA — Düğün, nişan, mezuniyet, doğum günü, yeni doğan ve özel günler için zarif dijital davetler.",
+
+        nav: {
+
+          home:
+            "Ana Sayfa",
+
+          occasions:
+            "Etkinlikler",
+
+          services:
+            "Hizmetler",
+
+          portfolio:
+            "Çalışmalar",
+
+          faq:
+            "SSS",
+
+          request:
+            "Talep Başlat"
+
+        },
+
+        hero: {
+
+          eyebrow:
+            "Dijital Davetler ve Anlar",
+
+          tagline:
+            "Her davet bir anla başlar… ve tarzını yansıtır.",
+
+          description:
+            "Davet, özel günün ilk hikâyesidir 🤍\nDüğün, nişan, mezuniyet, doğum günü, yeni doğan ve özel günler için zarif dijital tasarımlar.",
+
+          portfolio:
+            "Çalışmaları Gör",
+
+          request:
+            "Talep Başlat",
+
+          note1:
+            "Zarif · Sakin · Kişisel",
+
+          note2:
+            "Dijital Davetler"
+
+        },
+
+        sections: {
+
+          occasionsEyebrow:
+            "Etkinlikler",
+
+          occasionsTitle:
+            "Her anın kendine ait bir tarzı var",
+
+          occasionsText:
+            "Etkinlik türü başlangıçtır; AVYRIA fikri ana uygun bir davete dönüştürür.",
+
+          servicesEyebrow:
+            "Neler Yapıyoruz",
+
+          servicesTitle:
+            "Sadece bir karttan fazlası",
+
+          servicesText:
+            "İlk bakıştan davetin paylaşılmasına kadar tüm deneyimi tasarlıyoruz.",
+
+          momentEyebrow:
+            "Size Özel Bir An",
+
+          momentTitle:
+            "An\nözeli hak eder",
+
+          momentText:
+            "Küçük detaylar büyük izlenimi oluşturur. Davet, etkinlik başlamadan önce konuklara ulaşan ilk his olur.",
+
+          momentButton:
+            "Hikâyeyi anlatsın",
+
+          portfolioEyebrow:
+            "Çalışmalar",
+
+          portfolioTitle:
+            "AVYRIA Çalışmaları",
+
+          portfolioText:
+            "Her etkinliğin bir tarzı var.\nDetayları görmek için kategori ve çalışma türünü seçin.",
+
+          processEyebrow:
+            "Süreç",
+
+          processTitle:
+            "Süreç nasıl ilerliyor?",
+
+          processText:
+            "Fikirden son bağlantıya, basit ve net bir akışla.",
+
+          requestEyebrow:
+            "Davetiniz",
+
+          requestTitle:
+            "Talep Detayları",
+
+          requestText:
+            "Etkinlik, tarih, ek özellikler ve notları ekleyin; ardından detayları WhatsApp üzerinden gönderin.",
+
+          faqTitle:
+            "Sık gelen sorular",
+
+          ctaEyebrow:
+            "Etkinliğe özel",
+
+          ctaTitle:
+            "Davet ilk hikâyedir",
+
+          ctaText:
+            "İlk izlenim burada başlar… AVYRIA tasarımıyla.",
+
+          ctaButton:
+            "İletişim & Soru"
+
+        },
+
+        brand: {
+
+          eyebrow:
+            "Marka Hikâyesi",
+
+          title:
+            "AVYRIA'nın arkasında ne var?",
+
+          text:
+            "AVYRIA sadece bir isim değil; her harfi, tasarladığımız davetlerin arkasındaki fikrin bir parçasını taşır.",
+
+          closing:
+            "Altı harf, altı fikir ve tek bir yaklaşım: her davet zarif, kişisel ve kendi etkinliğine özel hissettirmeli.",
+
+          letters: [
+
+            [
+              "A",
+              "Art",
+              "Sanat",
+              "Her davet, duygu ve tarz taşıyan görsel bir fikirle başlar."
+            ],
+
+            [
+              "V",
+              "Vision",
+              "Vizyon",
+              "Detaylardan önce bütün resmi görür, ilk bakıştan itibaren uyumlu bir deneyim oluştururuz."
+            ],
+
+            [
+              "Y",
+              "Your",
+              "Size Özel",
+              "Davet hazır bir şablon değildir; size ve etkinliğinize özel tasarlanır."
+            ],
+
+            [
+              "R",
+              "Refined",
+              "Zarif · İşlenmiş",
+              "Küçük detaylara önem veririz; gerçek zarafet bazen yavaş fark edilen ayrıntılarda saklıdır."
+            ],
+
+            [
+              "I",
+              "Invitation",
+              "Davet",
+              "AVYRIA'nın merkezinde daveti sadece bilgi olmaktan çıkarıp hikâyenin başlangıcına dönüştürme fikri vardır."
+            ],
+
+            [
+              "A",
+              "All Occasions",
+              "Tüm Etkinlikler",
+              "Düğün ve nişandan mezuniyet, doğum günü, yeni doğan ve diğer özel günlere kadar."
+            ]
+
+          ]
+
+        },
+
+        invitation: {
+
+          bismillah:
+            "Rahman ve Rahim olan Allah'ın adıyla",
+
+          names:
+            "Muhammed & Sara",
+
+          text:
+            "Sevgi ve mutlulukla\nsizleri paylaşmaya davet ediyoruz\nhayatımızın en güzel gecesini",
+
+          date:
+            "25 Kasım 2026"
+
+        },
+
+        categories: {
+
+          wedding: [
+            "Düğün",
+            "Etkinliğe özel, zarif ve şık davetler."
+          ],
+
+          engagement: [
+            "Nişan",
+            "Hikâyenin ilk bölümü için yumuşak detaylar."
+          ],
+
+          graduation: [
+            "Mezuniyet",
+            "Farklı bir daveti hak eden bir başarı kutlaması."
+          ],
+
+          birthday: [
+            "Doğum Günü",
+            "Etkinliğin tarzına göre eğlenceli veya zarif."
+          ],
+
+          newborn: [
+            "Yeni Doğan",
+            "Bu özel gelişe yakışan sıcak karşılama tasarımı."
+          ],
+
+          special: [
+            "Özel Günler",
+            "Her anın kendine özel bir tasarımı olabilir."
+          ]
+
+        },
+
+        services: [
+
+          [
+            "Dijital Davet",
+            "Telefonlardan ve sosyal platformlardan paylaşılmaya hazır zarif ve hızlı davet sayfası."
+          ],
+
+          [
+            "Etkinlik Kimliği",
+            "Etkinliğin karakterini yansıtan uyumlu renk, tipografi ve görsel detaylar."
+          ],
+
+          [
+            "Etkileşimli İçerik",
+            "Harita, iletişim butonları, geri sayım ve daha fazlası."
+          ],
+
+          [
+            "Özel Düzenlemeler",
+            "Tasarım ve detaylar katı şablonlar yerine istenen stile göre uyarlanır."
+          ],
+
+          [
+            "Site Önizleme",
+            "Son sürüm onaylanmadan önce telefonda rahat bir önizleme."
+          ],
+
+          [
+            "Kolay Paylaşım",
+            "Konuklarla doğrudan paylaşılabilecek tek bir bağlantı."
+          ]
+
+        ],
+
+        steps: [
+
+          [
+            "Etkinlik Detayları",
+            "Tür, tarih, renkler, tarz ve önemli diğer detaylar."
+          ],
+
+          [
+            "Tasarım Yönü",
+            "Etkinliğe ve istenen stile uygun görsel yönü belirleme."
+          ],
+
+          [
+            "Uygulama & Düzenleme",
+            "Metinleri ve kalan etkileşimli detayları düzenleme."
+          ],
+
+          [
+            "Bağlantı Hazır",
+            "Davet bağlantısı doğrudan paylaşılmaya hazır."
+          ],
+
+          [
+            "Ödeme & Teslim",
+            "Çalışmaya başlamak için %50 ön ödeme yapılır, kalan tutar final tesliminde tamamlanır."
+          ]
+
+        ],
+
+        form: {
+
+          name:
+            "Ad",
+
+          phone:
+            "İletişim numarası",
+
+          occasion:
+            "Etkinlik *",
+
+          date:
+            "Etkinlik tarihi",
+
+          extras:
+            "İstenen ek özellikler",
+
+          notes:
+            "Notlar & ek detaylar",
+
+          other:
+            "Diğer",
+
+          submit:
+            "Detayları WhatsApp'tan gönder ↗",
+
+          note:
+            "Detaylar, önizleme hazırlamamız için talep olarak ulaşır. Çalışma %50 ön ödeme sonrası başlar, kalan tutar final tesliminde tamamlanır.",
+
+          namePlaceholder:
+            "Ad",
+
+          phonePlaceholder:
+            "İletişim numarası",
+
+          otherPlaceholder:
+            "İstenen ek özelliği açıklayın",
+
+          notesPlaceholder:
+            "Örneğin: isimler, konuk sayısı, istenen metin, renkler, teslim tarihi veya diğer detaylar...",
+
+          occasionPlaceholder:
+            "Etkinlik seçin",
+
+          point1:
+            "Etkinlik türü",
+
+          point2:
+            "Etkinlik tarihi",
+
+          point3:
+            "İstenen ekler",
+
+          point4:
+            "Özel notlar",
+
+          point5:
+            "Detayları WhatsApp'tan gönder",
+
+          point6:
+            "Başlangıçta %50 ön ödeme, teslimde kalan tutar"
+
+        },
+
+        faq: [
+
+          [
+            "Daveti nasıl teslim alırım?",
+            "Tasarım ve düzenlemeler onaylandıktan sonra davet bağlantısı hazırlanır ve doğrudan paylaşılır."
+          ],
+
+          [
+            "Davet telefonlarda çalışıyor mu?",
+            "Evet. Tasarım telefon ve bilgisayarlara uyumludur ve bağlantı olarak paylaşılabilir."
+          ],
+
+          [
+            "Etkileşimli öğeler eklenebilir mi?",
+            "Evet. Harita, geri sayım, iletişim butonları ve daha fazlası eklenebilir."
+          ],
+
+          [
+            "Renkler ve detaylar değiştirilebilir mi?",
+            "Evet. Tasarım etkinliğin karakterine ve istenen stile göre uyarlanabilir."
+          ],
+
+          [
+            "Ödeme nasıl yapılır?",
+            "Çalışma başladığında %50 ön ödeme yapılır ve kalan tutar final tesliminde tamamlanır."
+          ]
+
+        ],
+
+        footer: {
+
+          desc:
+            "Davet, etkinliğin ilk hikâyesidir 🤍\nTarzını yansıtacak şekilde.",
+
+          instagram:
+            "Instagram",
+
+          contact:
+            "İletişim Bilgileri",
+
+          phoneAria:
+            "İletişim numarası",
+
+          whatsapp:
+            "WhatsApp'tan iletişim",
+
+          websiteOpen:
+            "Siteyi yeni pencerede aç ↗"
+
+        },
+
+        toast: {
+
+          ready:
+            "Talep detayları WhatsApp'ta hazır 🤍",
+
+          invalid:
+            "Bazı alanlar eksik veya hatalı. İşaretli alanları kontrol edin.",
+
+          phone:
+            "İletişim numarası geçerli değil.",
+
+          date:
+            "Etkinlik tarihi geçersiz veya geçmişte.",
+
+          bot:
+            "Talep gönderilemedi."
+
+        },
+
+        portfolio: {
+
+          images:
+            "Görseller",
+
+          videos:
+            "Video",
+
+          websites:
+            "Siteler",
+
+          image:
+            "Görsel",
+
+          video:
+            "Video",
+
+          website:
+            "Site",
+
+          design:
+            "Tasarım {0}",
+
+          videoTitle:
+            "Video {0}",
+
+          websiteTitle:
+            "Site {0}",
+
+          preview:
+            "Önizlemeyi Aç",
+
+          addWebsiteLink:
+            "websiteLinks içine site bağlantısı ekleyin",
+
+          missingFile:
+            "Dosya bulunamadı: {0}",
+
+          missingImage:
+            "Görsel konumu: {0}",
+
+          missingVideo:
+            "Video konumu: {0}",
+
+          missingLink:
+            "Bağlantı konumu: websiteLinks.{0}[{1}]",
+
+          count:
+            "Her kategoride 15 hazır alan"
+
+        },
+
+        validation: {
+
+          name:
+            "Ad 2 ile 80 karakter arasında olmalı.",
+
+          phone:
+            "İletişim numarası geçerli değil.",
+
+          other:
+            "Lütfen istenen ek özelliği açıklayın.",
+
+          required:
+            "Bu alan zorunludur."
+
+        },
+
+        theme: {
+
+          light:
+            "Açık",
+
+          dark:
+            "Koyu",
+
+          switchToLight:
+            "Açık moda geç",
+
+          switchToDark:
+            "Koyu moda geç"
+
+        }
+
+      }
+
+    };
+
+
+    /* ==========================================================
+       GLOBAL STATE
+    ========================================================== */
+
+    let currentLanguage =
+      localStorage.getItem("avyria-language") || "ar";
+
+
+    let currentTheme =
+      localStorage.getItem("avyria-theme") ||
+      (
+        window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches
+          ? "dark"
+          : "light"
+      );
+
+
+    /* ==========================================================
+       HELPERS
+    ========================================================== */
+
+    function T(key, ...args) {
+
+      let value =
+        key
+          .split(".")
+          .reduce(
+            (obj, part) =>
+              obj?.[part],
+            I18N[currentLanguage]
+          );
+
+
+      if (value === undefined) {
+        return key;
+      }
+
+
+      if (typeof value === "string") {
+
+        return value.replace(
+          /\{(\d+)\}/g,
+          (_, i) =>
+            args[Number(i)] ?? ""
+        );
+
+      }
+
+
+      return value;
+
+    }
+
+
+    function getCategoryLabel(key) {
+
+      return (
+        categories[key]?.labels?.[currentLanguage] ||
+        categories[key]?.labels?.ar ||
+        key
+      );
+
+    }
+
+
+    function getTypeLabel(type) {
+
+      return T(
+        `portfolio.${type}`
+      );
+
+    }
+
+
+    function getSubtitleLabel(type) {
+
+      return T(
+        `portfolio.${
+          type === "images"
+            ? "image"
+            : type === "videos"
+              ? "video"
+              : "website"
+        }`
+      );
+
+    }
+
+
+    function getItemTitle(
+      type,
+      index
+    ) {
+
+      const n =
+        String(index + 1)
+          .padStart(2, "0");
+
+
+      if (type === "images") {
+
+        return T(
+          "portfolio.design",
+          n
+        );
+
+      }
+
+
+      if (type === "videos") {
+
+        return T(
+          "portfolio.videoTitle",
+          n
+        );
+
+      }
+
+
+      return T(
+        "portfolio.websiteTitle",
+        n
+      );
+
+    }
+
+
+    function setMultiline(
+      el,
+      value
+    ) {
+
+      if (!el) return;
+
+      el.textContent =
+        value;
+
+      el.style.whiteSpace =
+        "pre-line";
+
+    }
+
+
+    function setText(
+      selector,
+      value,
+      scope = document
+    ) {
+
+      const el =
+        $(selector, scope);
+
+      if (el) {
+
+        el.textContent =
+          value;
+
+      }
+
+    }
+
+
+    /* ==========================================================
+       THEME
+    ========================================================== */
+
+    function applyTheme(theme) {
+
+      currentTheme =
+        theme === "dark"
+          ? "dark"
+          : "light";
+
+
+      localStorage.setItem(
+        "avyria-theme",
+        currentTheme
+      );
+
+
+      const root =
+        document.documentElement;
+
+
+      root.dataset.theme =
+        currentTheme;
+
+
+      const metaTheme =
+        document.querySelector(
+          'meta[name="theme-color"]'
+        );
+
+
+      if (metaTheme) {
+
+        metaTheme.content =
+          currentTheme === "dark"
+            ? "#171512"
+            : "#f7f3ed";
+
+      }
+
+
+      const icon =
+        $("#themeIcon");
+
+
+      const text =
+        $("#themeText");
+
+
+      const button =
+        $("#themeToggle");
+
+
+      const isDark =
+        currentTheme === "dark";
+
+
+      if (icon) {
+
+        icon.textContent =
+          isDark
+            ? "☀"
+            : "☾";
+
+      }
+
+
+      if (text) {
+
+        text.textContent =
+          isDark
+            ? T("theme.light")
+            : T("theme.dark");
+
+      }
+
+
+      if (button) {
+
+        const label =
+          isDark
+            ? T("theme.switchToLight")
+            : T("theme.switchToDark");
+
+
+        button.setAttribute(
+          "aria-label",
+          label
+        );
+
+
+        button.title =
+          label;
+
+      }
+
+    }
+
+
+    /* ==========================================================
+       LANGUAGE
+    ========================================================== */
+
+    function applyLanguage(lang) {
+
+      currentLanguage =
+        I18N[lang]
+          ? lang
+          : "ar";
+
+
+      localStorage.setItem(
+        "avyria-language",
+        currentLanguage
+      );
+
+
+      const root =
+        document.documentElement;
+
+
+      root.lang =
+        currentLanguage;
+
+
+      root.dir =
+        currentLanguage === "ar"
+          ? "rtl"
+          : "ltr";
+
+
+      document.title =
+        T("metaTitle");
+
+
+      const meta =
+        document.querySelector(
+          'meta[name="description"]'
+        );
+
+
+      if (meta) {
+
+        meta.content =
+          T("metaDescription");
+
+      }
+
+
+      /* HEADER */
+
+      const navMap = [
+
+        [
+          ".nav-links a[href='#home']",
+          "nav.home"
+        ],
+
+        [
+          ".nav-links a[href='#categories']",
+          "nav.occasions"
+        ],
+
+        [
+          ".nav-links a[href='#services']",
+          "nav.services"
+        ],
+
+        [
+          ".nav-links a[href='#portfolio']",
+          "nav.portfolio"
+        ],
+
+        [
+          ".nav-links a[href='#faq']",
+          "nav.faq"
+        ]
+
+      ];
+
+
+      navMap.forEach(
+        ([selector, key]) => {
+
+          const el =
+            $(selector);
+
+          if (el) {
+
+            el.textContent =
+              T(key);
+
+          }
+
+        }
+      );
+
+
+      const navCta =
+        $(".nav-cta");
+
+
+      if (navCta) {
+
+        navCta.firstChild.textContent =
+          `\n        ${T("nav.request")}\n        `;
+
+      }
+
+
+      const select =
+        $("#languageSelect");
+
+
+      if (select) {
+
+        select.value =
+          currentLanguage;
+
+      }
+
+
+      applyTheme(
+        currentTheme
+      );
+
+
+      /* HERO */
+
+      setText(
+        ".hero-copy .eyebrow",
+        T("hero.eyebrow")
+      );
+
+
+      const h1 =
+        $(".hero-copy h1");
+
+
+      if (h1) {
+
+        h1.innerHTML =
+          `AVYRIA<small>${escapeHtml(
+            T("hero.tagline")
+          )}</small>`;
+
+      }
+
+
+      setMultiline(
+        $(".hero-copy > p"),
+        T("hero.description")
+      );
+
+
+      setText(
+        ".hero-actions .btn-primary",
+        T("hero.portfolio")
+      );
+
+
+      setText(
+        ".hero-actions .btn-ghost",
+        T("hero.request")
+      );
+
+
+      setText(
+        ".hero-note.one",
+        T("hero.note1")
+      );
+
+
+      setText(
+        ".hero-note.two",
+        T("hero.note2")
+      );
+
+
+      setText(
+        ".invitation-bismillah",
+        T("invitation.bismillah")
+      );
+
+
+      setText(
+        ".hero-invitation h3",
+        T("invitation.names")
+      );
+
+
+      setMultiline(
+        $(".hero-invitation p:not(.invitation-date)"),
+        T("invitation.text")
+      );
+
+
+      setText(
+        ".invitation-date",
+        T("invitation.date")
+      );
+
+
+      /* CATEGORIES */
+
+      setText(
+        "#categories .section-head .eyebrow",
+        T("sections.occasionsEyebrow")
+      );
+
+
+      setText(
+        "#categories .section-head h2",
+        T("sections.occasionsTitle")
+      );
+
+
+      setMultiline(
+        $("#categories .section-head p"),
+        T("sections.occasionsText")
+      );
+
+
+      $$(".category-card")
+        .forEach(
+          card => {
+
+            const pair =
+              T(
+                `categories.${card.dataset.goCategory}`
+              );
+
+
+            if (Array.isArray(pair)) {
+
+              $("h3", card).textContent =
+                pair[0];
+
+              $("p", card).textContent =
+                pair[1];
+
+            }
+
+          }
+        );
+
+
+      /* SERVICES */
+
+      setText(
+        "#services .section-head .eyebrow",
+        T("sections.servicesEyebrow")
+      );
+
+
+      setText(
+        "#services .section-head h2",
+        T("sections.servicesTitle")
+      );
+
+
+      setMultiline(
+        $("#services .section-head p"),
+        T("sections.servicesText")
+      );
+
+
+      $$(".service")
+        .forEach(
+          (card, index) => {
+
+            const pair =
+              I18N[currentLanguage].services[index];
+
+
+            if (pair) {
+
+              $("h3", card).textContent =
+                pair[0];
+
+              $("p", card).textContent =
+                pair[1];
+
+            }
+
+          }
+        );
+
+
+      /* MOMENT */
+
+      setText(
+        ".moment-copy .eyebrow",
+        T("sections.momentEyebrow")
+      );
+
+
+      const momentTitle =
+        T("sections.momentTitle");
+
+
+      const momentH2 =
+        $(".moment-copy h2");
+
+
+      if (momentH2) {
+
+        momentH2.innerHTML =
+          escapeHtml(
+            momentTitle
+          )
+            .replace(
+              /\n/g,
+              "<br>"
+            );
+
+      }
+
+
+      setMultiline(
+        $(".moment-copy p"),
+        T("sections.momentText")
+      );
+
+
+      setText(
+        ".moment-copy .btn",
+        T("sections.momentButton")
+      );
+
+
+      const innerH3 =
+        $(".moment-inner h3");
+
+
+      if (innerH3) {
+
+        innerH3.innerHTML =
+          escapeHtml(
+            momentTitle
+          )
+            .replace(
+              /\n/g,
+              "<br>"
+            );
+
+      }
+
+
+      const innerP =
+        $(".moment-inner p");
+
+
+      if (innerP) {
+
+        setMultiline(
+
+          innerP,
+
+          currentLanguage === "ar"
+
+            ? "تصميم أنيق، تفاصيل خاصة، وتجربة رقمية بتشبه المناسبة."
+
+            : currentLanguage === "tr"
+
+              ? "Zarif tasarım, özel detaylar ve etkinliğe benzeyen dijital bir deneyim."
+
+              : "Elegant design, custom details and a digital experience that feels like the occasion."
+
+        );
+
+      }
+
+
+      /* PORTFOLIO */
+
+      setText(
+        "#portfolio .section-head .eyebrow",
+        T("sections.portfolioEyebrow")
+      );
+
+
+      setText(
+        "#portfolio .section-head h2",
+        T("sections.portfolioTitle")
+      );
+
+
+      setMultiline(
+        $("#portfolio .section-head p"),
+        T("sections.portfolioText")
+      );
+
+
+      const tf =
+        $$("#typeFilters [data-type]");
+
+
+      if (tf[0]) {
+
+        tf[0].textContent =
+          T("portfolio.images");
+
+      }
+
+
+      if (tf[1]) {
+
+        tf[1].textContent =
+          T("portfolio.videos");
+
+      }
+
+
+      if (tf[2]) {
+
+        tf[2].textContent =
+          T("portfolio.websites");
+
+      }
+
+
+      const count =
+        $(".portfolio-meta span");
+
+
+      if (count) {
+
+        count.textContent =
+          T("portfolio.count");
+
+      }
+
+
+      /* PROCESS */
+
+      const stepsBox =
+        $(".steps");
+
+
+      if (stepsBox) {
+
+        const section =
+          stepsBox.closest(
+            ".section"
+          );
+
+
+        if (section) {
+
+          const processHead =
+            $(".section-head", section);
+
+
+          if (processHead) {
+
+            const eyebrow =
+              $(".eyebrow", processHead);
+
+            const title =
+              $("h2", processHead);
+
+            const desc =
+              $("p", processHead);
+
+
+            if (eyebrow) {
+
+              eyebrow.textContent =
+                T("sections.processEyebrow");
+
+            }
+
+
+            if (title) {
+
+              title.textContent =
+                T("sections.processTitle");
+
+            }
+
+
+            if (desc) {
+
+              setMultiline(
+                desc,
+                T("sections.processText")
+              );
+
+            }
+
+          }
+
+
+          $$(".step", section)
+            .forEach(
+              (step, index) => {
+
+                const pair =
+                  I18N[currentLanguage].steps[index];
+
+
+                if (pair) {
+
+                  $("h3", step).textContent =
+                    pair[0];
+
+                  $("p", step).textContent =
+                    pair[1];
+
+                }
+
+              }
+            );
+
+        }
+
+      }
+
+
+      /* REQUEST */
+
+      const req =
+        $("#request-form");
+
+
+      if (req) {
+
+        const requestHead =
+          $(".section-head", req);
+
+
+        if (requestHead) {
+
+          const eyebrow =
+            $(".eyebrow", requestHead);
+
+          const title =
+            $("h2", requestHead);
+
+          const desc =
+            $("p", requestHead);
+
+
+          if (eyebrow) {
+
+            eyebrow.textContent =
+              T("sections.requestEyebrow");
+
+          }
+
+
+          if (title) {
+
+            title.textContent =
+              T("sections.requestTitle");
+
+          }
+
+
+          if (desc) {
+
+            setMultiline(
+              desc,
+              T("sections.requestText")
+            );
+
+          }
+
+        }
+
+
+        const introH3 =
+          $(".request-intro h3");
+
+
+        if (introH3) {
+
+          introH3.innerHTML =
+            currentLanguage === "ar"
+              ? "من الفكرة<br />للدعوة."
+
+              : currentLanguage === "tr"
+                ? "Fikirden<br />davete."
+
+                : "From idea<br />to invitation.";
+
+        }
+
+
+        setMultiline(
+          $(".request-intro > p"),
+
+          currentLanguage === "ar"
+
+            ? "النموذج بيساعدنا نفهم الطلب من البداية حتى تكون المعاينة أقرب لذوق المناسبة."
+
+            : currentLanguage === "tr"
+
+              ? "Bu form, talebi baştan anlamamıza ve önizlemeyi etkinliğin tarzına yaklaştırmamıza yardımcı olur."
+
+              : "This form helps us understand the request from the start so the preview can match the occasion."
+        );
+
+
+        const f =
+          I18N[currentLanguage].form;
+
+
+        setText(
+          '[data-i18n="form.name"]',
+          f.name
+        );
+
+
+        setText(
+          '[data-i18n="form.phone"]',
+          f.phone
+        );
+
+
+        setText(
+          '[data-i18n="form.occasion"]',
+          f.occasion
+        );
+
+
+        setText(
+          '[data-i18n="form.date"]',
+          f.date
+        );
+
+
+        setText(
+          '[data-i18n="form.extras"]',
+          f.extras
+        );
+
+
+        setText(
+          '[data-i18n="form.notes"]',
+          f.notes
+        );
+
+
+        setText(
+          ".request-point:nth-child(1) span",
+          f.point1
+        );
+
+
+        setText(
+          ".request-point:nth-child(2) span",
+          f.point2
+        );
+
+
+        setText(
+          ".request-point:nth-child(3) span",
+          f.point3
+        );
+
+
+        setText(
+          ".request-point:nth-child(4) span",
+          f.point4
+        );
+
+
+        setText(
+          ".request-point:nth-child(5) span",
+          f.point5
+        );
+
+
+        setText(
+          ".request-point:nth-child(6) span",
+          f.point6
+        );
+
+
+        $("#clientName")
+          ?.setAttribute(
+            "placeholder",
+            f.namePlaceholder
+          );
+
+
+        $("#clientPhone")
+          ?.setAttribute(
+            "placeholder",
+            f.phonePlaceholder
+          );
+
+
+        $("#otherExtraText")
+          ?.setAttribute(
+            "placeholder",
+            f.otherPlaceholder
+          );
+
+
+        $("#notes")
+          ?.setAttribute(
+            "placeholder",
+            f.notesPlaceholder
+          );
+
+
+        const submit =
+          $("#invitationForm button[type='submit']");
+
+
+        if (submit) {
+
+          submit.textContent =
+            f.submit;
+
+        }
+
+
+        setText(
+          ".form-note",
+          f.note
+        );
+
+
+        const extrasLabels =
+
+          currentLanguage === "ar"
+
+            ? [
+                "خريطة وموقع",
+                "عدّ تنازلي",
+                "تأكيد حضور",
+                "شيء آخر"
+              ]
+
+            : currentLanguage === "tr"
+
+              ? [
+                  "Harita & Konum",
+                  "Geri Sayım",
+                  "RSVP",
+                  "Diğer"
+                ]
+
+              : [
+                  "Map & Location",
+                  "Countdown",
+                  "RSVP",
+                  "Other"
+                ];
+
+
+        $$(".check", $("#invitationForm"))
+          .forEach(
+            (label, i) => {
+
+              const input =
+                $("input", label);
+
+              const span =
+                $("span", label);
+
+
+              if (
+                input?.id ===
+                "otherExtraCheck"
+              ) {
+
+                span.textContent =
+                  f.other;
+
+              }
+
+              else if (
+                span &&
+                extrasLabels[i]
+              ) {
+
+                span.textContent =
+                  extrasLabels[i];
+
+              }
+
+            }
+          );
+
+
+        const opts =
+          $$("#occasion option");
+
+
+        if (opts[0]) {
+
+          opts[0].textContent =
+            f.occasionPlaceholder;
+
+        }
+
+
+        const values =
+
+          currentLanguage === "ar"
+
+            ? [
+                "زفاف",
+                "خطبة",
+                "تخرج",
+                "عيد ميلاد",
+                "مولود",
+                "مناسبة خاصة"
+              ]
+
+            : currentLanguage === "tr"
+
+              ? [
+                  "Düğün",
+                  "Nişan",
+                  "Mezuniyet",
+                  "Doğum Günü",
+                  "Yeni Doğan",
+                  "Özel Gün"
+                ]
+
+              : [
+                  "Wedding",
+                  "Engagement",
+                  "Graduation",
+                  "Birthday",
+                  "Newborn",
+                  "Special Occasion"
+                ];
+
+
+        opts
+          .slice(1)
+          .forEach(
+            (opt, i) => {
+
+              if (values[i]) {
+
+                opt.textContent =
+                  values[i];
+
+              }
+
+            }
+          );
+
+      }
+
+
+      /* FAQ */
+
+      setText(
+        "#faq .section-head h2",
+        T("sections.faqTitle")
+      );
+
+
+      $$(".faq-item")
+        .forEach(
+          (item, index) => {
+
+            const pair =
+              I18N[currentLanguage].faq[index];
+
+
+            if (!pair) return;
+
+
+            const q =
+              $(".faq-q", item);
+
+
+            const plus =
+              q?.querySelector("span");
+
+
+            if (q) {
+
+              q.childNodes[0].textContent =
+                ` ${pair[0]} `;
+
+
+              if (!plus) {
+
+                q.insertAdjacentHTML(
+                  "beforeend",
+                  "<span>+</span>"
+                );
+
+              }
+
+            }
+
+
+            setText(
+              ".faq-a p",
+              pair[1],
+              item
+            );
+
+          }
+        );
+
+
+      /* CTA */
+
+      setText(
+        "#request .cta-box .eyebrow",
+        T("sections.ctaEyebrow")
+      );
+
+
+      setText(
+        "#request .cta-box h2",
+        T("sections.ctaTitle")
+      );
+
+
+      setMultiline(
+        $("#request .cta-box p"),
+        T("sections.ctaText")
+      );
+
+
+      setText(
+        "#requestButton",
+        T("sections.ctaButton")
+      );
+
+
+      /* BRAND MEANING */
+
+      const brandSection =
+        $("#brand-meaning");
+
+
+      if (brandSection) {
+
+        const brand =
+          I18N[currentLanguage].brand;
+
+
+        const brandHead =
+          $(".section-head", brandSection);
+
+
+        if (brandHead) {
+
+          const eyebrow =
+            $(".eyebrow", brandHead);
+
+          const title =
+            $("h2", brandHead);
+
+          const desc =
+            $("p", brandHead);
+
+
+          if (eyebrow) {
+
+            eyebrow.textContent =
+              brand.eyebrow;
+
+          }
+
+
+          if (title) {
+
+            title.textContent =
+              brand.title;
+
+          }
+
+
+          if (desc) {
+
+            setMultiline(
+              desc,
+              brand.text
+            );
+
+          }
+
+        }
+
+
+        setMultiline(
+          $(".brand-closing", brandSection),
+          brand.closing
+        );
+
+
+        $$(".brand-card", brandSection)
+          .forEach(
+            (card, index) => {
+
+              const item =
+                brand.letters[index];
+
+
+              if (!item) return;
+
+
+              const letter =
+                $(".brand-card-letter", card);
+
+              const number =
+                $(".brand-card-number", card);
+
+              const word =
+                $(".brand-card-word", card);
+
+              const meaning =
+                $(".brand-card-meaning", card);
+
+              const desc =
+                $(".brand-card-desc", card);
+
+
+              if (letter) {
+
+                letter.textContent =
+                  item[0];
+
+              }
+
+
+              if (number) {
+
+                number.textContent =
+                  String(
+                    index + 1
+                  )
+                    .padStart(
+                      2,
+                      "0"
+                    );
+
+              }
+
+
+              if (word) {
+
+                word.textContent =
+                  item[1];
+
+              }
+
+
+              if (meaning) {
+
+                meaning.textContent =
+                  item[2];
+
+              }
+
+
+              if (desc) {
+
+                setMultiline(
+                  desc,
+                  item[3]
+                );
+
+              }
+
+            }
+          );
+
+      }
+
+
+      /* FOOTER / MODAL */
+
+      setMultiline(
+        $(".footer-brand p"),
+        T("footer.desc")
+      );
+
+
+      setText(
+        ".footer-col:nth-child(2) h4",
+        T("footer.instagram")
+      );
+
+
+      setText(
+        ".footer-col:nth-child(3) h4",
+        T("footer.contact")
+      );
+
+
+      $("#phoneLink")
+        ?.setAttribute(
+          "aria-label",
+          T("footer.phoneAria")
+        );
+
+
+      $("#waButton")
+        ?.setAttribute(
+          "aria-label",
+          T("footer.whatsapp")
+        );
+
+
+      if ($("#waButton")) {
+
+        $("#waButton").title =
+          T("footer.whatsapp");
+
+      }
+
+
+      setText(
+        "#openWebsiteButton",
+        T("footer.websiteOpen")
+      );
+
+
+      $(".modal-close")
+        ?.setAttribute(
+          "aria-label",
+          currentLanguage === "ar"
+            ? "إغلاق"
+
+            : currentLanguage === "tr"
+              ? "Kapat"
+
+              : "Close"
+        );
+
+
+      $$("#categoryFilters .filter-btn")
+        .forEach(
+          btn => {
+
+            btn.textContent =
+              getCategoryLabel(
+                btn.dataset.category
+              );
+
+          }
+        );
+
+
+      renderPortfolio();
+
+    }
+
+
+    /* ==========================================================
+       PORTFOLIO
+    ========================================================== */
+
+    const categories = {
+
+      wedding: {
+
+        folder:
+          "wedding",
+
+        labels: {
+
+          ar:
+            "زفاف",
+
+          en:
+            "Wedding",
+
+          tr:
+            "Düğün"
+
+        }
+
+      },
+
+      engagement: {
+
+        folder:
+          "engagement",
+
+        labels: {
+
+          ar:
+            "خطبة",
+
+          en:
+            "Engagement",
+
+          tr:
+            "Nişan"
+
+        }
+
+      },
+
+      graduation: {
+
+        folder:
+          "graduation",
+
+        labels: {
+
+          ar:
+            "تخرج",
+
+          en:
+            "Graduation",
+
+          tr:
+            "Mezuniyet"
+
+        }
+
+      },
+
+      birthday: {
+
+        folder:
+          "birthday",
+
+        labels: {
+
+          ar:
+            "عيد ميلاد",
+
+          en:
+            "Birthday",
+
+          tr:
+            "Doğum Günü"
+
+        }
+
+      },
+
+      newborn: {
+
+        folder:
+          "newborn",
+
+        labels: {
+
+          ar:
+            "مولود",
+
+          en:
+            "Newborn",
+
+          tr:
+            "Yeni Doğan"
+
+        }
+
+      },
+
+      special: {
+
+        folder:
+          "special",
+
+        labels: {
+
+          ar:
+            "مناسبات خاصة",
+
+          en:
+            "Special Occasions",
+
+          tr:
+            "Özel Günler"
+
+        }
+
+      }
+
+    };
+
+
+    const makeImageSlots =
+      folder => {
+
+        return Array.from(
+          { length: 15 },
+          (_, i) => {
+
+            const n =
+              String(
+                i + 1
+              )
+                .padStart(
+                  2,
+                  "0"
+                );
+
+
+            return {
+
+              index:
+                i + 1,
+
+              src:
+                `assets/portfolio/${folder}/images/${n}.jpg`
+
+            };
+
+          }
+        );
+
+      };
+
+
+    const makeVideoSlots =
+      folder => {
+
+        return Array.from(
+          { length: 15 },
+          (_, i) => {
+
+            const n =
+              String(
+                i + 1
+              )
+                .padStart(
+                  2,
+                  "0"
+                );
+
+
+            return {
+
+              index:
+                i + 1,
+
+              src:
+                `assets/portfolio/${folder}/videos/${n}.mp4`
+
+            };
+
+          }
+        );
+
+      };
+
+
+    const websiteLinks = {
+
+      wedding: [
+        "", "", "", "", "", "",
+        "", "", "", "", "", "",
+        "", "", "", ""
+      ],
+
+      engagement: [
+        "", "", "", "", "", "",
+        "", "", "", "", "", "",
+        "", "", "", ""
+      ],
+
+      graduation: [
+        "", "", "", "", "", "",
+        "", "", "", "", "", "",
+        "", "", "", ""
+      ],
+
+      birthday: [
+        "", "", "", "", "", "",
+        "", "", "", "", "", "",
+        "", "", "", ""
+      ],
+
+      newborn: [
+        "", "", "", "", "", "",
+        "", "", "", "", "", "",
+        "", "", "", ""
+      ],
+
+      special: [
+        "", "", "", "", "", "",
+        "", "", "", "", "", "",
+        "", "", "", ""
+      ]
+
+    };
+
+
+    const makeWebsiteSlots =
+      folder => {
+
+        return (
+          websiteLinks[folder] ||
+          []
+        ).map(
+          (url, i) => {
+
+            return {
+
+              index:
+                i + 1,
+
+              url
+
+            };
+
+          }
+        );
+
+      };
+
+
+    const portfolioData =
+      Object.fromEntries(
+
+        Object.entries(
+          categories
+        )
+
+          .map(
+            ([key, meta]) => [
+
+              key,
+
+              {
+
+                images:
+                  makeImageSlots(
+                    meta.folder
+                  ),
+
+                videos:
+                  makeVideoSlots(
+                    meta.folder
+                  ),
+
+                websites:
+                  makeWebsiteSlots(
+                    meta.folder
+                  )
+
+              }
+
+            ]
+          )
+
+      );
+
+
+    let currentCategory =
+      "wedding";
+
+
+    let currentType =
+      "images";
+
+
+    const $ =
+      (
+        selector,
+        scope = document
+      ) =>
+        scope.querySelector(
+          selector
+        );
+
+
+    const $$ =
+      (
+        selector,
+        scope = document
+      ) =>
+        [
+          ...scope.querySelectorAll(
+            selector
+          )
+        ];
+
+
+    /* LANGUAGE */
+
+    $("#languageSelect")
+      ?.addEventListener(
+        "change",
+        event =>
+          applyLanguage(
+            event.target.value
+          )
+      );
+
+
+    /* THEME */
+
+    $("#themeToggle")
+      ?.addEventListener(
+        "click",
+        () => {
+
+          applyTheme(
+            currentTheme === "dark"
+              ? "light"
+              : "dark"
+          );
+
+        }
+      );
+
+
+    applyTheme(
+      currentTheme
+    );
+
+
+    /* ==========================================================
+       CATEGORY FILTERS
+    ========================================================== */
+
+    const categoryFilters =
+      $("#categoryFilters");
+
+
+    Object.entries(categories)
+      .forEach(
+        ([key, meta], index) => {
+
+          const btn =
+            document.createElement(
+              "button"
+            );
+
+
+          btn.type =
+            "button";
+
+
+          btn.className =
+            `filter-btn ${
+              index === 0
+                ? "active"
+                : ""
+            }`;
+
+
+          btn.dataset.category =
+            key;
+
+
+          btn.textContent =
+            getCategoryLabel(
+              key
+            );
+
+
+          categoryFilters.appendChild(
+            btn
+          );
+
+        }
+      );
+
+
+    /* ==========================================================
+       RENDER PORTFOLIO
+    ========================================================== */
+
+    function renderPortfolio() {
+
+      const grid =
+        $("#portfolioGrid");
+
+
+      const items =
+        portfolioData
+          [currentCategory]
+          [currentType];
+
+
+      const typeLabel =
+        getTypeLabel(
+          currentType
+        );
+
+
+      $("#portfolioTitle")
+        .textContent =
+          `${getCategoryLabel(
+            currentCategory
+          )} · ${typeLabel}`;
+
+
+      grid.innerHTML =
+        "";
+
+
+      items.forEach(
+        (item, index) => {
+
+          const card =
+            document.createElement(
+              "article"
+            );
+
+
+          card.className =
+            "portfolio-item";
+
+
+          card.dataset.index =
+            index;
+
+
+          const number =
+            String(
+              index + 1
+            )
+              .padStart(
+                2,
+                "0"
+              );
+
+
+          const title =
+            getItemTitle(
+              currentType,
+              index
+            );
+
+
+          const subtitle =
+            getSubtitleLabel(
+              currentType
+            );
+
+
+          /* IMAGE */
+
+          if (
+            currentType ===
+            "images"
+          ) {
+
+            const img =
+              document.createElement(
+                "img"
+              );
+
+
+            img.className =
+              "media";
+
+
+            img.loading =
+              "lazy";
+
+
+            img.decoding =
+              "async";
+
+
+            img.alt =
+              `${getCategoryLabel(
+                currentCategory
+              )} — ${title}`;
+
+
+            img.dataset.src =
+              item.src;
+
+
+            img.addEventListener(
+              "error",
+              () => {
+
+                card.innerHTML =
+                  placeholderMarkup(
+                    title,
+                    T(
+                      "portfolio.missingFile",
+                      item.src
+                    )
+                  );
+
+
+                card.addEventListener(
+                  "click",
+                  () =>
+                    showToast(
+                      T(
+                        "portfolio.missingImage",
+                        item.src
+                      )
+                    ),
+                  {
+                    once:
+                      true
+                  }
+                );
+
+              },
+              {
+                once:
+                  true
+              }
+            );
+
+
+            card.appendChild(
+              img
+            );
+
+
+            card.insertAdjacentHTML(
+              "beforeend",
+              overlayMarkup(
+                title,
+                `${number} · ${subtitle}`
+              )
+            );
+
+
+            card.addEventListener(
+              "click",
+              () =>
+                openImage(
+                  item.src,
+                  `${getCategoryLabel(
+                    currentCategory
+                  )} — ${title}`
+                )
+            );
+
+          }
+
+
+          /* VIDEO */
+
+          if (
+            currentType ===
+            "videos"
+          ) {
+
+            const video =
+              document.createElement(
+                "video"
+              );
+
+
+            video.className =
+              "media";
+
+
+            video.muted =
+              true;
+
+
+            video.playsInline =
+              true;
+
+
+            video.loop =
+              true;
+
+
+            video.preload =
+              "none";
+
+
+            video.dataset.src =
+              item.src;
+
+
+            video.addEventListener(
+              "mouseenter",
+              () => {
+
+                if (!video.src) {
+
+                  video.src =
+                    item.src;
+
+                }
+
+
+                video
+                  .play()
+                  .catch(
+                    () => {}
+                  );
+
+              }
+            );
+
+
+            video.addEventListener(
+              "mouseleave",
+              () => {
+
+                video.pause();
+
+              }
+            );
+
+
+            video.addEventListener(
+              "error",
+              () => {
+
+                card.innerHTML =
+                  placeholderMarkup(
+                    title,
+                    T(
+                      "portfolio.missingFile",
+                      item.src
+                    )
+                  );
+
+
+                card.addEventListener(
+                  "click",
+                  () =>
+                    showToast(
+                      T(
+                        "portfolio.missingVideo",
+                        item.src
+                      )
+                    ),
+                  {
+                    once:
+                      true
+                  }
+                );
+
+              },
+              {
+                once:
+                  true
+              }
+            );
+
+
+            card.appendChild(
+              video
+            );
+
+
+            card.insertAdjacentHTML(
+              "beforeend",
+              overlayMarkup(
+                title,
+                `${number} · ${subtitle}`
+              )
+            );
+
+
+            card.addEventListener(
+              "click",
+              () =>
+                openVideo(
+                  item.src,
+                  `${getCategoryLabel(
+                    currentCategory
+                  )} — ${title}`
+                )
+            );
+
+          }
+
+
+          /* WEBSITE */
+
+          if (
+            currentType ===
+            "websites"
+          ) {
+
+            const hasUrl =
+              Boolean(
+                item.url
+              );
+
+
+            card.innerHTML =
+              hasUrl
+
+                ? `
+
+                  <div class="portfolio-placeholder">
+
+                    <div>
+
+                      <strong>
+                        ${escapeHtml(
+                          title
+                        )}
+                      </strong>
+
+                      <div>
+                        ${T(
+                          "portfolio.preview"
+                        )}
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  ${overlayMarkup(
+                    title,
+                    `${number} · ${subtitle}`
+                  )}
+
+                `
+
+                : placeholderMarkup(
+                    title,
+                    T(
+                      "portfolio.addWebsiteLink"
+                    )
+                  );
+
+
+            card.addEventListener(
+              "click",
+              () => {
+
+                if (hasUrl) {
+
+                  openWebsite(
+                    item.url,
+                    `${getCategoryLabel(
+                      currentCategory
+                    )} — ${title}`
+                  );
+
+                }
+
+                else {
+
+                  showToast(
+                    T(
+                      "portfolio.missingLink",
+                      currentCategory,
+                      index
+                    )
+                  );
+
+                }
+
+              }
+            );
+
+          }
+
+
+          grid.appendChild(
+            card
+          );
+
+        }
+      );
+
+
+      setupPortfolioLazyLoading();
+
+    }
+
+
+    function overlayMarkup(
+      title,
+      subtitle
+    ) {
+
+      return `
+
+        <div class="portfolio-overlay">
+
+          <strong>
+            ${escapeHtml(
+              title
+            )}
+          </strong>
+
+          <span>
+            ${escapeHtml(
+              subtitle
+            )}
+          </span>
+
+        </div>
+
+      `;
+
+    }
+
+
+    function placeholderMarkup(
+      title,
+      subtitle
+    ) {
+
+      return `
+
+        <div class="portfolio-placeholder">
+
+          <div>
+
+            <strong>
+              ${escapeHtml(
+                title
+              )}
+            </strong>
+
+            <div>
+              ${escapeHtml(
+                subtitle
+              )}
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    function escapeHtml(
+      value
+    ) {
+
+      return String(
+        value
+      ).replace(
+        /[&<>"']/g,
+        char =>
+          ({
+
+            "&":
+              "&amp;",
+
+            "<":
+              "&lt;",
+
+            ">":
+              "&gt;",
+
+            '"':
+              "&quot;",
+
+            "'":
+              "&#039;"
+
+          }[char])
+      );
+
+    }
+
+
+    /* ==========================================================
+       LAZY PORTFOLIO LOADING
+    ========================================================== */
+
+    let portfolioMediaObserver =
+      null;
+
+
+    function setupPortfolioLazyLoading() {
+
+      if (
+        portfolioMediaObserver
+      ) {
+
+        portfolioMediaObserver.disconnect();
+
+      }
+
+
+      if (
+        !(
+          "IntersectionObserver"
+          in window
+        )
+      ) {
+
+        $$("#portfolioGrid img[data-src]")
+          .forEach(
+            img => {
+
+              img.src =
+                img.dataset.src;
+
+              delete img.dataset.src;
+
+            }
+          );
+
+        return;
+
+      }
+
+
+      portfolioMediaObserver =
+        new IntersectionObserver(
+
+          entries => {
+
+            entries.forEach(
+              entry => {
+
+                if (
+                  !entry.isIntersecting
+                ) {
+
+                  return;
+
+                }
+
+
+                const element =
+                  entry.target;
+
+
+                if (
+                  element.tagName === "IMG" &&
+                  element.dataset.src
+                ) {
+
+                  element.src =
+                    element.dataset.src;
+
+
+                  delete element.dataset.src;
+
+                }
+
+
+                if (
+                  element.tagName === "VIDEO" &&
+                  element.dataset.src &&
+                  window.innerWidth <= 720
+                ) {
+
+                  /* الفيديو لا يتحمل تلقائياً
+                     على الموبايل */
+
+                }
+
+
+                portfolioMediaObserver
+                  .unobserve(
+                    element
+                  );
+
+              }
+            );
+
+          },
+
+          {
+            rootMargin:
+              "250px"
+          }
+
+        );
+
+
+      $$("#portfolioGrid img")
+        .forEach(
+          img =>
+            portfolioMediaObserver.observe(
+              img
+            )
+        );
+
+    }
+
+
+    /* ==========================================================
+       FILTERS
+    ========================================================== */
+
+    categoryFilters
+      .addEventListener(
+        "click",
+        event => {
+
+          const button =
+            event.target.closest(
+              "[data-category]"
+            );
+
+
+          if (!button) {
+            return;
+          }
+
+
+          currentCategory =
+            button.dataset.category;
+
+
+          $$("#categoryFilters .filter-btn")
+            .forEach(
+              btn =>
+                btn.classList.toggle(
+                  "active",
+                  btn === button
+                )
+            );
+
+
+          renderPortfolio();
+
+        }
+      );
+
+
+    $("#typeFilters")
+      .addEventListener(
+        "click",
+        event => {
+
+          const button =
+            event.target.closest(
+              "[data-type]"
+            );
+
+
+          if (!button) {
+            return;
+          }
+
+
+          currentType =
+            button.dataset.type;
+
+
+          $$("#typeFilters .filter-btn")
+            .forEach(
+              btn =>
+                btn.classList.toggle(
+                  "active",
+                  btn === button
+                )
+            );
+
+
+          renderPortfolio();
+
+        }
+      );
+
+
+    $$("[data-go-category]")
+      .forEach(
+        card => {
+
+          card.addEventListener(
+            "click",
+            () => {
+
+              currentCategory =
+                card.dataset.goCategory;
+
+
+              const button =
+                $(
+                  `#categoryFilters [data-category="${currentCategory}"]`
+                );
+
+
+              if (button) {
+
+                button.click();
+
+              }
+
+
+              document
+                .querySelector(
+                  "#portfolio"
+                )
+                .scrollIntoView({
+                  behavior:
+                    "smooth"
+                });
+
+            }
+          );
+
+        }
+      );
+
+
+    /* ==========================================================
+       MODALS
+    ========================================================== */
+
+    const mediaModal =
+      $("#mediaModal");
+
+
+    const modalMedia =
+      $("#modalMedia");
+
+
+    const websiteActions =
+      $("#websiteActions");
+
+
+    const openWebsiteButton =
+      $("#openWebsiteButton");
+
+
+    function openModal(
+      content,
+      websiteUrl = ""
+    ) {
+
+      modalMedia.innerHTML =
+        content;
+
+
+      websiteActions.hidden =
+        !websiteUrl;
+
+
+      if (websiteUrl) {
+
+        openWebsiteButton.href =
+          websiteUrl;
+
+      }
+
+
+      mediaModal.classList.add(
+        "open"
+      );
+
+
+      mediaModal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+
+      document.body.classList.add(
+        "locked"
+      );
+
+    }
+
+
+    function closeModal() {
+
+      mediaModal.classList.remove(
+        "open"
+      );
+
+
+      mediaModal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+
+      modalMedia.innerHTML =
+        "";
+
+
+      websiteActions.hidden =
+        true;
+
+
+      openWebsiteButton.removeAttribute(
+        "href"
+      );
+
+
+      document.body.classList.remove(
+        "locked"
+      );
+
+    }
+
+
+    function openImage(
+      src,
+      alt
+    ) {
+
+      openModal(
+        `
+
+          <img
+            src="${escapeHtml(src)}"
+            alt="${escapeHtml(alt)}"
+          />
+
+        `
+      );
+
+    }
+
+
+    function openVideo(
+      src,
+      title
+    ) {
+
+      openModal(
+        `
+
+          <video
+            src="${escapeHtml(src)}"
+            controls
+            autoplay
+            playsinline
+            preload="metadata"
+            title="${escapeHtml(title)}"
+          ></video>
+
+        `
+      );
+
+    }
+
+
+    function openWebsite(
+      url,
+      title
+    ) {
+
+      openModal(
+
+        `
+
+          <iframe
+            src="${escapeHtml(url)}"
+            title="${escapeHtml(title)}"
+            loading="lazy"
+          ></iframe>
+
+        `,
+
+        url
+
+      );
+
+    }
+
+
+    $$(
+      '[data-close-modal="mediaModal"]'
+    )
+      .forEach(
+        btn =>
+          btn.addEventListener(
+            "click",
+            closeModal
+          )
+      );
+
+
+    mediaModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          mediaModal
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key ===
+          "Escape"
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    /* ==========================================================
+       FAQ
+    ========================================================== */
+
+    $$(".faq-q")
+      .forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              const item =
+                button.closest(
+                  ".faq-item"
+                );
+
+
+              const isOpen =
+                item.classList.contains(
+                  "open"
+                );
+
+
+              $$(".faq-item")
+                .forEach(
+                  i =>
+                    i.classList.remove(
+                      "open"
+                    )
+                );
+
+
+              if (!isOpen) {
+
+                item.classList.add(
+                  "open"
+                );
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+    /* ==========================================================
+       HEADER
+    ========================================================== */
+
+    const header =
+      $("#siteHeader");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        header.classList.toggle(
+          "scrolled",
+          window.scrollY > 10
+        );
+
+      },
+      {
+        passive:
+          true
+      }
+    );
+
+
+    /* ==========================================================
+       REVEAL
+    ========================================================== */
+
+    const revealObserver =
+      new IntersectionObserver(
+
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.classList.add(
+                  "visible"
+                );
+
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+
+        {
+          threshold:
+            0.08
+        }
+
+      );
+
+
+    $$(".reveal")
+      .forEach(
+        el =>
+          revealObserver.observe(
+            el
+          )
+      );
+
+
+    /* ==========================================================
+       FOOTER / CONTACT
+    ========================================================== */
+
+    $("#year").textContent =
+      new Date()
+        .getFullYear();
+
+
+    $("#phoneLink").href =
+      `tel:${AVYRIA_SETTINGS.phone}`;
+
+
+    const requestButton =
+      $("#requestButton");
+
+
+    const waButton =
+      $("#waButton");
+
+
+    const waUrlBase =
+      `https://wa.me/${AVYRIA_SETTINGS.whatsappInternational}`;
+
+
+    /* WhatsApp button */
+
+    waButton.href =
+      `${waUrlBase}?text=${encodeURIComponent(
+        "مرحباً AVYRIA 🤍 أريد الاستفسار عن تصميم دعوة رقمية."
+      )}`;
+
+
+    waButton.target =
+      "_blank";
+
+
+    waButton.rel =
+      "noopener";
+
+
+    /* Request button */
+
+    requestButton.href =
+      `${waUrlBase}?text=${encodeURIComponent(
+        "مرحباً AVYRIA 🤍 أريد الاستفسار عن تصميم دعوة رقمية."
+      )}`;
+
+
+    requestButton.target =
+      "_blank";
+
+
+    requestButton.rel =
+      "noopener";
+
+
+    /* ==========================================================
+       OTHER EXTRA
+    ========================================================== */
+
+    const otherExtraCheck =
+      $("#otherExtraCheck");
+
+
+    const otherExtraWrap =
+      $("#otherExtraWrap");
+
+
+    const otherExtraText =
+      $("#otherExtraText");
+
+
+    otherExtraCheck.addEventListener(
+      "change",
+      () => {
+
+        otherExtraWrap.hidden =
+          !otherExtraCheck.checked;
+
+
+        otherExtraText.required =
+          otherExtraCheck.checked;
+
+
+        if (
+          !otherExtraCheck.checked
+        ) {
+
+          otherExtraText.value =
+            "";
+
+
+          otherExtraText.setCustomValidity(
+            ""
+          );
+
+
+          otherExtraText.classList.remove(
+            "invalid"
+          );
+
+        }
+
+        else {
+
+          otherExtraText.focus();
+
+        }
+
+      }
+    );
+
+
+    /* ==========================================================
+       FORM SAFETY / VALIDATION
+    ========================================================== */
+
+    const VALIDATION_LIMITS = {
+
+      name:
+        80,
+
+      phone:
+        20,
+
+      other:
+        300,
+
+      notes:
+        1000
+
+    };
+
+
+    function normalizeDigits(
+      value
+    ) {
+
+      return String(
+        value || ""
+      )
+
+        .replace(
+          /[٠-٩]/g,
+          d =>
+            String(
+              "٠١٢٣٤٥٦٧٨٩"
+                .indexOf(d)
+            )
+        );
+
+    }
+
+
+    function sanitizeText(
+      value,
+      maxLength
+    ) {
+
+      return String(
+        value || ""
+      )
+
+        .replace(
+          /[\u0000-\u001F\u007F]/g,
+          ""
+        )
+
+        .replace(
+          /[<>]/g,
+          ""
+        )
+
+        .replace(
+          /\s+/g,
+          " "
+        )
+
+        .trim()
+
+        .slice(
+          0,
+          maxLength
+        );
+
+    }
+
+
+    function normalizePhone(
+      value
+    ) {
+
+      return normalizeDigits(
+        value
+      )
+
+        .replace(
+          /[^\d+()\-\s]/g,
+          ""
+        )
+
+        .replace(
+          /\s+/g,
+          " "
+        )
+
+        .trim()
+
+        .slice(
+          0,
+          VALIDATION_LIMITS.phone
+        );
+
+    }
+
+
+    function validDate(
+      value
+    ) {
+
+      if (
+        !/^\d{4}-\d{2}-\d{2}$/.test(
+          value
+        )
+      ) {
+
+        return false;
+
+      }
+
+
+      const d =
+        new Date(
+          `${value}T12:00:00`
+        );
+
+
+      const [
+        y,
+        m,
+        day
+      ] =
+        value
+          .split("-")
+          .map(Number);
+
+
+      return (
+
+        !Number.isNaN(
+          d.getTime()
+        ) &&
+
+        d.getFullYear() === y &&
+
+        d.getMonth() + 1 === m &&
+
+        d.getDate() === day
+
+      );
+
+    }
+
+
+    function todayISO() {
+
+      const d =
+        new Date();
+
+
+      return `${d.getFullYear()}-${String(
+        d.getMonth() + 1
+      ).padStart(
+        2,
+        "0"
+      )}-${String(
+        d.getDate()
+      ).padStart(
+        2,
+        "0"
+      )}`;
+
+    }
+
+
+    function setInvalid(
+      field,
+      invalid,
+      message = ""
+    ) {
+
+      const wrap =
+        field.closest(
+          ".field"
+        ) ||
+        field.parentElement;
+
+
+      wrap?.classList.toggle(
+        "invalid",
+        invalid
+      );
+
+
+      field.setCustomValidity(
+        invalid
+          ? message
+          : ""
+      );
+
+    }
+
+
+    function validateRequestForm() {
+
+      const form =
+        $("#invitationForm");
+
+
+      const name =
+        $("#clientName");
+
+
+      const phone =
+        $("#clientPhone");
+
+
+      const occasion =
+        $("#occasion");
+
+
+      const date =
+        $("#eventDate");
+
+
+      const otherCheck =
+        $("#otherExtraCheck");
+
+
+      const other =
+        $("#otherExtraText");
+
+
+      const bot =
+        $("#websiteField");
+
+
+      if (
+        bot?.value.trim()
+      ) {
+
+        return false;
+
+      }
+
+
+      name.value =
+        sanitizeText(
+          name.value,
+          VALIDATION_LIMITS.name
+        );
+
+
+      phone.value =
+        normalizePhone(
+          phone.value
+        );
+
+
+      other.value =
+        sanitizeText(
+          other.value,
+          VALIDATION_LIMITS.other
+        );
+
+
+      const nameOk =
+        !name.value ||
+        (
+          name.value.length >= 2 &&
+          name.value.length <=
+            VALIDATION_LIMITS.name
+        );
+
+
+      const phoneDigits =
+        phone.value.replace(
+          /\D/g,
+          ""
+        );
+
+
+      const phoneOk =
+        !phone.value ||
+        (
+          phoneDigits.length >= 7 &&
+          phoneDigits.length <= 15
+        );
+
+
+      const occasionOk =
+        Boolean(
+          occasion.value
+        );
+
+
+      const dateOk =
+        validDate(
+          date.value
+        ) &&
+        date.value >=
+          todayISO();
+
+
+      const otherOk =
+        !otherCheck.checked ||
+        (
+          other.value.length >= 2 &&
+          other.value.length <=
+            VALIDATION_LIMITS.other
+        );
+
+
+      setInvalid(
+        name,
+        !nameOk,
+        T("validation.name")
+      );
+
+
+      setInvalid(
+        phone,
+        !phoneOk,
+        T("validation.phone")
+      );
+
+
+      setInvalid(
+        occasion,
+        !occasionOk,
+        T("validation.required")
+      );
+
+
+      setInvalid(
+        date,
+        !dateOk,
+        T("toast.date")
+      );
+
+
+      other.required =
+        otherCheck.checked;
+
+
+      other.classList.toggle(
+        "invalid",
+        !otherOk
+      );
+
+
+      other.setCustomValidity(
+        otherOk
+          ? ""
+          : T("validation.other")
+      );
+
+
+      return (
+
+        form.checkValidity() &&
+        nameOk &&
+        phoneOk &&
+        occasionOk &&
+        dateOk &&
+        otherOk
+
+      );
+
+    }
+
+
+    [
+      "input",
+      "change",
+      "blur"
+    ]
+      .forEach(
+        eventName => {
+
+          document.addEventListener(
+            eventName,
+            event => {
+
+              const el =
+                event.target;
+
+
+              if (
+                !el?.matches?.(
+                  "#clientName,#clientPhone,#otherExtraText"
+                )
+              ) {
+
+                return;
+
+              }
+
+
+              if (
+                el.id ===
+                "clientName"
+              ) {
+
+                el.value =
+                  sanitizeText(
+                    el.value,
+                    VALIDATION_LIMITS.name
+                  );
+
+              }
+
+
+              if (
+                el.id ===
+                "clientPhone"
+              ) {
+
+                el.value =
+                  normalizePhone(
+                    el.value
+                  );
+
+              }
+
+
+              if (
+                el.id ===
+                "otherExtraText"
+              ) {
+
+                el.value =
+                  sanitizeText(
+                    el.value,
+                    VALIDATION_LIMITS.other
+                  );
+
+              }
+
+            },
+
+            {
+              passive:
+                true
+            }
+
+          );
+
+        }
+      );
+
+
+    /* ==========================================================
+       REQUEST FORM → WHATSAPP
+    ========================================================== */
+
+    const invitationForm =
+      $("#invitationForm");
+
+
+    invitationForm.addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+
+        if (
+          !validateRequestForm()
+        ) {
+
+          showToast(
+            T("toast.invalid")
+          );
+
+
+          invitationForm
+            .querySelector(
+              ":invalid"
+            )
+            ?.focus();
+
+
+          return;
+
+        }
+
+
+        const formData =
+          new FormData(
+            invitationForm
+          );
+
+
+        const extras =
+          [
+            ...invitationForm
+              .querySelectorAll(
+                'input[name="extras"]:checked'
+              )
+          ]
+
+            .map(
+              input =>
+                input.value
+            )
+
+            .filter(
+              value =>
+                value !==
+                "شيء آخر"
+            );
+
+
+        const otherExtra =
+          $("#otherExtraCheck")
+            .checked
+
+            ? sanitizeText(
+                $("#otherExtraText")
+                  .value,
+                VALIDATION_LIMITS.other
+              )
+
+            : "";
+
+
+        if (otherExtra) {
+
+          extras.push(
+
+            currentLanguage ===
+              "ar"
+
+              ? `شيء آخر: ${otherExtra}`
+
+              : currentLanguage ===
+                "tr"
+
+                ? `Diğer: ${otherExtra}`
+
+                : `Other: ${otherExtra}`
+
+          );
+
+        }
+
+
+        const clientName =
+          sanitizeText(
+            formData.get(
+              "clientName"
+            ),
+            VALIDATION_LIMITS.name
+          ) || "—";
+
+
+        const clientPhone =
+          normalizePhone(
+            formData.get(
+              "clientPhone"
+            )
+          ) || "—";
+
+
+        const occasion =
+          formData.get(
+            "occasion"
+          ) || "—";
+
+
+        const eventDateRaw =
+          formData.get(
+            "eventDate"
+          ) || "—";
+
+
+        const notes =
+          sanitizeText(
+            formData.get(
+              "notes"
+            ),
+            VALIDATION_LIMITS.notes
+          ) || "—";
+
+
+        const dateText =
+          eventDateRaw === "—"
+
+            ? eventDateRaw
+
+            : new Date(
+                `${eventDateRaw}T12:00:00`
+              )
+
+                .toLocaleDateString(
+
+                  currentLanguage ===
+                    "ar"
+
+                    ? "ar-EG"
+
+                    : currentLanguage ===
+                      "tr"
+
+                      ? "tr-TR"
+
+                      : "en-US",
+
+                  {
+
+                    year:
+                      "numeric",
+
+                    month:
+                      "long",
+
+                    day:
+                      "numeric"
+
+                  }
+
+                );
+
+
+        const message =
+
+          currentLanguage === "ar"
+
+            ? [
+
+                "مرحباً AVYRIA 🤍",
+
+                "طلب تصميم دعوة رقمية.",
+
+                "",
+
+                `الاسم: ${clientName}`,
+
+                `رقم التواصل: ${clientPhone}`,
+
+                `المناسبة: ${occasion}`,
+
+                `تاريخ المناسبة: ${dateText}`,
+
+                `الإضافات: ${
+                  extras.length
+                    ? extras.join("، ")
+                    : "لا يوجد"
+                }`,
+
+                `الملاحظات: ${notes}`,
+
+                "",
+
+                "نظام الدفع: عربون 50% عند بدء العمل، وإكمال المبلغ المتبقي عند الاستلام النهائي."
+
+              ].join("\n")
+
+
+            : currentLanguage === "tr"
+
+              ? [
+
+                  "Merhaba AVYRIA 🤍",
+
+                  "Dijital davet tasarımı talebi.",
+
+                  "",
+
+                  `Ad: ${clientName}`,
+
+                  `İletişim: ${clientPhone}`,
+
+                  `Etkinlik: ${occasion}`,
+
+                  `Etkinlik tarihi: ${dateText}`,
+
+                  `Ek özellikler: ${
+                    extras.length
+                      ? extras.join(", ")
+                      : "Yok"
+                  }`,
+
+                  `Notlar: ${notes}`,
+
+                  "",
+
+                  "Ödeme: Çalışma başında %50 ön ödeme, final tesliminde kalan tutar."
+
+                ].join("\n")
+
+
+              : [
+
+                  "Hello AVYRIA 🤍",
+
+                  "Digital invitation design request.",
+
+                  "",
+
+                  `Name: ${clientName}`,
+
+                  `Contact: ${clientPhone}`,
+
+                  `Occasion: ${occasion}`,
+
+                  `Occasion date: ${dateText}`,
+
+                  `Extras: ${
+                    extras.length
+                      ? extras.join(", ")
+                      : "None"
+                  }`,
+
+                  `Notes: ${notes}`,
+
+                  "",
+
+                  "Payment: 50% deposit to start, remaining balance upon final delivery."
+
+                ].join("\n");
+
+
+        const finalWaUrl =
+          `${waUrlBase}?text=${encodeURIComponent(
+            message
+          )}`;
+
+
+        const popup =
+          window.open(
+            finalWaUrl,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+
+        if (!popup) {
+
+          window.location.href =
+            finalWaUrl;
+
+          return;
+
+        }
+
+
+        showToast(
+          T("toast.ready")
+        );
+
+      }
+    );
+
+
+    /* ==========================================================
+       TOAST
+    ========================================================== */
+
+    let toastTimer;
+
+
+    function showToast(
+      message
+    ) {
+
+      const toast =
+        $("#toast");
+
+
+      toast.textContent =
+        message;
+
+
+      toast.classList.add(
+        "show"
+      );
+
+
+      clearTimeout(
+        toastTimer
+      );
+
+
+      toastTimer =
+        setTimeout(
+          () =>
+            toast.classList.remove(
+              "show"
+            ),
+          2800
+        );
+
+    }
+
+
+    /* ==========================================================
+       DATE
+    ========================================================== */
+
+    const eventDateInput =
+      $("#eventDate");
+
+
+    if (eventDateInput) {
+
+      eventDateInput.min =
+        todayISO();
+
+    }
+
+
+    /* ==========================================================
+       INITIALIZE
+    ========================================================== */
+
+    applyLanguage(
+      currentLanguage
+    );
+
+
+    renderPortfolio();
+
+
+    /* ==========================================================
+       START
+    ========================================================== */
+
+    window.addEventListener(
+      "load",
+      () => {
+
+        setTimeout(
+          () =>
+            document.body.classList.remove(
+              "locked"
+            ),
+          40
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
