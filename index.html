@@ -1335,6 +1335,68 @@
       box-shadow: 0 0 0 4px rgba(184, 148, 90, 0.08);
     }
 
+    .language-switcher {
+      position: relative;
+    }
+
+    .language-toggle {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(184, 148, 90, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.86);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      transition: 0.2s ease;
+    }
+
+    .language-toggle:hover,
+    .language-toggle[aria-expanded="true"] {
+      border-color: rgba(184, 148, 90, 0.55);
+      box-shadow: 0 0 0 4px rgba(184, 148, 90, 0.08);
+    }
+
+    .language-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      inset-inline-end: 0;
+      width: 132px;
+      padding: 6px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      z-index: 220;
+    }
+
+    .language-menu[hidden] {
+      display: none;
+    }
+
+    .language-menu button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      border-radius: 11px;
+      padding: 9px 10px;
+      cursor: pointer;
+      text-align: right;
+      font-size: 12px;
+    }
+
+    .language-menu button:hover,
+    .language-menu button.active {
+      background: #faf4ea;
+    }
+
     .sr-only {
       position: absolute !important;
       width: 1px !important;
@@ -1636,6 +1698,22 @@
       color: var(--ink);
     }
 
+    html[data-theme="dark"] .language-toggle {
+      background: #28231d;
+      color: var(--ink);
+      border-color: rgba(212, 180, 119, 0.3);
+    }
+
+    html[data-theme="dark"] .language-menu {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    html[data-theme="dark"] .language-menu button:hover,
+    html[data-theme="dark"] .language-menu button.active {
+      background: #2b251e;
+    }
+
     html[data-theme="dark"] .field input::placeholder,
     html[data-theme="dark"] .field textarea::placeholder,
     html[data-theme="dark"] .other-extra-input::placeholder {
@@ -1749,6 +1827,12 @@ html[data-theme="dark"] .filter-btn.active {
 }
 
 html[data-theme="dark"] .language-switcher select {
+  background: #28231d;
+  color: var(--ink);
+  border-color: rgba(212, 180, 119, 0.3);
+}
+
+html[data-theme="dark"] .language-toggle {
   background: #28231d;
   color: var(--ink);
   border-color: rgba(212, 180, 119, 0.3);
@@ -1944,11 +2028,10 @@ html[data-theme="dark"] .theme-toggle {
         font-size: 12px;
       }
 
-      .language-switcher select {
-        min-height: 36px;
-        max-width: 104px;
-        font-size: 11px;
-        padding: 6px 24px 6px 9px;
+      .language-toggle {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
       }
 
       .floating-stack {
@@ -2023,12 +2106,20 @@ html[data-theme="dark"] .theme-toggle {
         flex: 0 0 auto;
       }
 
-      .language-switcher select {
-        width: 72px;
-        max-width: 72px;
-        min-height: 34px;
-        padding: 5px 18px 5px 6px;
+      .language-toggle {
+        width: 31px;
+        height: 31px;
         font-size: 10px;
+      }
+
+      .language-menu {
+        width: 118px;
+        top: calc(100% + 6px);
+      }
+
+      .language-menu button {
+        padding: 8px 9px;
+        font-size: 11px;
       }
 
       .theme-toggle {
@@ -2066,7 +2157,7 @@ html[data-theme="dark"] .theme-toggle {
       }
 
       .section {
-        padding: 58px 0;
+        padding: 46px 0;
       }
 
       .section-head {
@@ -2087,7 +2178,13 @@ html[data-theme="dark"] .theme-toggle {
 
       .hero {
         min-height: auto;
-        padding: 36px 0 55px;
+        padding: 28px 0 38px;
+      }
+
+      .hero-grid {
+        width: 100%;
+        justify-items: center;
+        text-align: center;
       }
 
       .hero-grid {
@@ -2095,8 +2192,9 @@ html[data-theme="dark"] .theme-toggle {
       }
 
       .hero-copy h1 {
-        font-size: clamp(48px, 15vw, 72px);
+        font-size: clamp(42px, 13vw, 62px);
         line-height: 0.9;
+        white-space: nowrap;
       }
 
       .hero-copy h1 small {
@@ -2104,12 +2202,17 @@ html[data-theme="dark"] .theme-toggle {
       }
 
       .hero-copy p {
-        font-size: 14px;
+        max-width: 520px;
+        margin-inline: auto;
+        font-size: 12px;
+        line-height: 1.7;
+        text-align: center;
       }
 
       .hero-actions {
-        gap: 8px;
-        margin-top: 22px;
+        justify-content: center;
+        gap: 7px;
+        margin-top: 18px;
       }
 
       .btn {
@@ -2119,16 +2222,17 @@ html[data-theme="dark"] .theme-toggle {
       }
 
       .hero-card {
-        min-height: 390px;
+        min-height: 330px;
+        width: 100%;
       }
 
       .hero-invitation {
-        width: min(300px, 86vw);
-        padding: 28px 18px;
+        width: min(270px, 82vw);
+        padding: 23px 15px;
       }
 
       .hero-invitation h3 {
-        font-size: 34px;
+        font-size: 29px;
       }
 
       .invitation-ring {
@@ -2290,6 +2394,200 @@ html[data-theme="dark"] .theme-toggle {
         height: 48px;
         font-size: 20px;
       }
+
+      /* Compact mobile layout: shorter page, smaller titles, denser grids. */
+      .section-head {
+        max-width: 100%;
+        margin-bottom: 22px;
+        text-align: center;
+      }
+
+      .section-head h2,
+      .moment-copy h2,
+      .request-intro h3,
+      .cta-box h2 {
+        font-size: clamp(23px, 7vw, 36px);
+        line-height: 1.05;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        letter-spacing: -0.01em;
+      }
+
+      .moment-copy h2 br.moment-break {
+        display: none;
+      }
+
+      .section-head p,
+      .moment-copy p,
+      .request-intro p,
+      .cta-box p,
+      .brand-closing {
+        font-size: 12px;
+        line-height: 1.75;
+      }
+
+      .category-grid,
+      .services-grid,
+      .steps,
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .category-card {
+        min-height: 138px;
+        padding: 15px;
+        border-radius: 18px;
+      }
+
+      .category-card .num {
+        font-size: 14px;
+      }
+
+      .category-card h3 {
+        margin: 14px 0 2px;
+        font-size: 21px;
+        line-height: 1.05;
+        white-space: nowrap;
+      }
+
+      .category-card p {
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .service {
+        padding: 15px;
+        border-radius: 18px;
+      }
+
+      .service-icon {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 12px;
+      }
+
+      .service h3 {
+        font-size: 19px;
+        line-height: 1.05;
+        white-space: nowrap;
+      }
+
+      .service p,
+      .step p {
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .step {
+        padding: 15px;
+        border-radius: 18px;
+      }
+
+      .step h3 {
+        margin: 10px 0 4px;
+        font-size: 15px;
+        line-height: 1.05;
+        white-space: nowrap;
+      }
+
+      .moment-copy {
+        text-align: center;
+      }
+
+      .moment-copy h2 {
+        margin: 8px 0 10px;
+      }
+
+      .moment-copy .btn {
+        margin-inline: auto;
+      }
+
+      .portfolio-meta {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .filter-row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: center;
+        scrollbar-width: none;
+      }
+
+      .filter-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-btn {
+        flex: 0 0 auto;
+        padding: 6px 9px;
+        font-size: 10px;
+      }
+
+      .portfolio-item,
+      .portfolio-item .media,
+      .portfolio-item iframe,
+      .portfolio-placeholder {
+        min-height: 170px;
+      }
+
+      .request-intro,
+      .request-form {
+        padding: 16px;
+      }
+
+      .request-intro {
+        text-align: center;
+      }
+
+      .request-points {
+        text-align: right;
+      }
+
+      .brand-wordmark {
+        font-size: clamp(42px, 12vw, 58px);
+        white-space: nowrap;
+      }
+
+      .brand-meaning-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .brand-card {
+        min-height: 145px;
+        padding: 14px;
+        border-radius: 17px;
+      }
+
+      .brand-card-word {
+        margin-top: 14px;
+        font-size: 20px;
+        white-space: nowrap;
+      }
+
+      .brand-card-meaning {
+        font-size: 10px;
+      }
+
+      .brand-card-desc {
+        font-size: 10px;
+        line-height: 1.6;
+      }
+
+      .cta-box {
+        padding: 28px 15px;
+      }
+
+      footer .footer-grid {
+        gap: 15px;
+      }
+
+      footer {
+        text-align: center;
+      }
     }
 
     @media (max-width: 360px) {
@@ -2307,10 +2605,9 @@ html[data-theme="dark"] .theme-toggle {
         display: none;
       }
 
-      .language-switcher select {
-        width: 66px;
-        max-width: 66px;
-        padding-inline-end: 15px;
+      .language-toggle {
+        width: 29px;
+        height: 29px;
         font-size: 9px;
       }
 
@@ -2325,15 +2622,34 @@ html[data-theme="dark"] .theme-toggle {
       }
 
       .hero-copy h1 {
-        font-size: 47px;
+        font-size: 41px;
       }
 
       .hero-card {
-        min-height: 360px;
+        min-height: 315px;
       }
 
       .hero-invitation {
-        width: min(280px, 88vw);
+        width: min(260px, 84vw);
+      }
+
+      .section-head h2,
+      .moment-copy h2,
+      .request-intro h3,
+      .cta-box h2 {
+        font-size: 22px;
+      }
+
+      .category-card h3 {
+        font-size: 19px;
+      }
+
+      .service h3 {
+        font-size: 17px;
+      }
+
+      .step h3 {
+        font-size: 14px;
       }
     }
 
@@ -2412,22 +2728,33 @@ html[data-theme="dark"] .theme-toggle {
         aria-label="اختيار اللغة"
       >
 
-        <label
-          class="sr-only"
-          for="languageSelect"
+        <button
+          class="language-toggle"
+          id="languageToggle"
+          type="button"
+          aria-label="اختيار اللغة"
+          aria-expanded="false"
+          aria-haspopup="true"
         >
-          اللغة
-        </label>
+          <span aria-hidden="true">文A</span>
+        </button>
 
-        <select
-          id="languageSelect"
-          aria-label="اللغة"
+        <div
+          class="language-menu"
+          id="languageMenu"
+          role="menu"
+          aria-label="اللغات المتاحة"
+          hidden
         >
+          <button type="button" role="menuitem" data-language="ar">العربية</button>
+          <button type="button" role="menuitem" data-language="en">English</button>
+          <button type="button" role="menuitem" data-language="tr">Türkçe</button>
+        </div>
 
+        <select id="languageSelect" class="sr-only" aria-hidden="true" tabindex="-1">
           <option value="ar">العربية</option>
           <option value="en">English</option>
           <option value="tr">Türkçe</option>
-
         </select>
 
       </div>
@@ -6133,6 +6460,10 @@ html[data-theme="dark"] .theme-toggle {
 
       }
 
+      if (typeof syncLanguageMenu === "function") {
+        syncLanguageMenu();
+      }
+
 
       applyTheme(
         currentTheme
@@ -6325,7 +6656,7 @@ html[data-theme="dark"] .theme-toggle {
           )
             .replace(
               /\n/g,
-              "<br>"
+              " <br class=\"moment-break\"> "
             );
 
       }
@@ -6355,7 +6686,7 @@ html[data-theme="dark"] .theme-toggle {
           )
             .replace(
               /\n/g,
-              "<br>"
+              " <br class=\"moment-break\"> "
             );
 
       }
@@ -7497,14 +7828,66 @@ html[data-theme="dark"] .theme-toggle {
 
     /* LANGUAGE */
 
-    $("#languageSelect")
+    const languageSelect = $("#languageSelect");
+    const languageToggle = $("#languageToggle");
+    const languageMenu = $("#languageMenu");
+    const languageOptions = languageMenu
+      ? $$('[data-language]', languageMenu)
+      : [];
+
+    function closeLanguageMenu() {
+      if (!languageMenu || !languageToggle) return;
+      languageMenu.hidden = true;
+      languageToggle.setAttribute("aria-expanded", "false");
+    }
+
+    function syncLanguageMenu() {
+      const current = languageSelect?.value || currentLanguage;
+      languageOptions.forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.language === current);
+      });
+    }
+
+    languageSelect
       ?.addEventListener(
         "change",
-        event =>
-          applyLanguage(
-            event.target.value
-          )
+        event => {
+          applyLanguage(event.target.value);
+          syncLanguageMenu();
+        }
       );
+
+    languageToggle
+      ?.addEventListener(
+        "click",
+        event => {
+          event.stopPropagation();
+          if (!languageMenu) return;
+          const opening = languageMenu.hidden;
+          languageMenu.hidden = !opening;
+          languageToggle.setAttribute("aria-expanded", String(opening));
+          if (opening) syncLanguageMenu();
+        }
+      );
+
+    languageOptions.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const lang = btn.dataset.language;
+        if (languageSelect && lang) languageSelect.value = lang;
+        if (lang) applyLanguage(lang);
+        syncLanguageMenu();
+        closeLanguageMenu();
+      });
+    });
+
+    document.addEventListener("click", event => {
+      if (!languageMenu || !languageToggle) return;
+      if (!languageMenu.contains(event.target) && !languageToggle.contains(event.target)) {
+        closeLanguageMenu();
+      }
+    });
+
+    syncLanguageMenu();
 
 
     /* THEME */
