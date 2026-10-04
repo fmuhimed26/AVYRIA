@@ -3776,20 +3776,14 @@ html[data-theme="dark"] .theme-toggle {
           </h2>
 
           <p>
-            كل مناسبة إلها أسلوب.
-            اختيار الفئة ونوع العمل بيوصل للتفاصيل.
+            مجموعة من الأعمال والتصاميم المنفذة بعناية،
+            مرتبة حسب نوع العمل.
           </p>
 
         </div>
 
 
         <div class="portfolio-shell reveal">
-
-          <div
-            class="filter-row"
-            id="categoryFilters"
-          ></div>
-
 
           <div
             class="filter-row"
@@ -3826,12 +3820,8 @@ html[data-theme="dark"] .theme-toggle {
           <div class="portfolio-meta">
 
             <strong id="portfolioTitle">
-              زفاف · صور
+              صور
             </strong>
-
-            <span>
-              15 مساحة جاهزة في كل فئة ونوع
-            </span>
 
           </div>
 
@@ -5094,7 +5084,7 @@ html[data-theme="dark"] .theme-toggle {
             "أعمال AVYRIA",
 
           portfolioText:
-            "كل مناسبة إلها أسلوب.\nاختيار الفئة ونوع العمل بيوصل للتفاصيل.",
+            "كل مناسبة إلها أسلوب.\n اختار نوع الدعوة  ",
 
           processEyebrow:
             "الخطوات",
@@ -8009,19 +7999,6 @@ html[data-theme="dark"] .theme-toggle {
         );
 
 
-      $$("#categoryFilters .filter-btn")
-        .forEach(
-          btn => {
-
-            btn.textContent =
-              getCategoryLabel(
-                btn.dataset.category
-              );
-
-          }
-        );
-
-
       renderPortfolio();
 
       fitMobileHeadings();
@@ -8204,176 +8181,37 @@ html[data-theme="dark"] .theme-toggle {
     };
 
 
-    const makeImageSlots =
-      folder => {
+    /* ==========================================================
+       PORTFOLIO DATA
+       فقط أضيفي العناصر التي نفذتيها فعلاً.
+       لا يوجد عدد ثابت، والعناصر غير المضافة لن تظهر.
+    ========================================================== */
 
-        return Array.from(
-          { length: 15 },
-          (_, i) => {
+    const portfolioData = {
 
-            const n =
-              String(
-                i + 1
-              )
-                .padStart(
-                  2,
-                  "0"
-                );
-
-
-            return {
-
-              index:
-                i + 1,
-
-              src:
-                `assets/portfolio/${folder}/images/${n}.jpg`
-
-            };
-
-          }
-        );
-
-      };
-
-
-    const makeVideoSlots =
-      folder => {
-
-        return Array.from(
-          { length: 15 },
-          (_, i) => {
-
-            const n =
-              String(
-                i + 1
-              )
-                .padStart(
-                  2,
-                  "0"
-                );
-
-
-            return {
-
-              index:
-                i + 1,
-
-              src:
-                `assets/portfolio/${folder}/videos/${n}.mp4`
-
-            };
-
-          }
-        );
-
-      };
-
-
-    const websiteLinks = {
-
-      wedding: [
-        "", "", "", "", "", "",
-        "", "", "", "", "", "",
-        "", "", "", ""
+      images: [
+        { src: "1.jpg" },
+        { src: "2.jpg" },
+        { src: "3.jpg" },
+        { src: "4.jpg" },
+        { src: "5.jpg" },
+         
       ],
 
-      engagement: [
-        "", "", "", "", "", "",
-        "", "", "", "", "", "",
-        "", "", "", ""
+      videos: [
+        { src: "01.mp4" },
+        { src: "02.mp4" },
+        { src: "03.mp4" },
       ],
 
-      graduation: [
-        "", "", "", "", "", "",
-        "", "", "", "", "", "",
-        "", "", "", ""
-      ],
-
-      birthday: [
-        "", "", "", "", "", "",
-        "", "", "", "", "", "",
-        "", "", "", ""
-      ],
-
-      newborn: [
-        "", "", "", "", "", "",
-        "", "", "", "", "", "",
-        "", "", "", ""
-      ],
-
-      special: [
-        "", "", "", "", "", "",
-        "", "", "", "", "", "",
-        "", "", "", ""
+      websites: [
+        { url: "https://fmuhimed26.github.io/wedding/" },
+        { url: "https://fmuhimed26.github.io/wedding1/" },
+        { url: "https://fmuhimed26.github.io/wedding2/" },
+        { url: "https://fmuhimed26.github.io/wedding3/" },
       ]
 
     };
-
-
-    const makeWebsiteSlots =
-      folder => {
-
-        return (
-          websiteLinks[folder] ||
-          []
-        ).map(
-          (url, i) => {
-
-            return {
-
-              index:
-                i + 1,
-
-              url
-
-            };
-
-          }
-        );
-
-      };
-
-
-    const portfolioData =
-      Object.fromEntries(
-
-        Object.entries(
-          categories
-        )
-
-          .map(
-            ([key, meta]) => [
-
-              key,
-
-              {
-
-                images:
-                  makeImageSlots(
-                    meta.folder
-                  ),
-
-                videos:
-                  makeVideoSlots(
-                    meta.folder
-                  ),
-
-                websites:
-                  makeWebsiteSlots(
-                    meta.folder
-                  )
-
-              }
-
-            ]
-          )
-
-      );
-
-
-    let currentCategory =
-      "wedding";
 
 
     let currentType =
@@ -8492,55 +8330,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
     /* ==========================================================
-       CATEGORY FILTERS
-    ========================================================== */
-
-    const categoryFilters =
-      $("#categoryFilters");
-
-
-    Object.entries(categories)
-      .forEach(
-        ([key, meta], index) => {
-
-          const btn =
-            document.createElement(
-              "button"
-            );
-
-
-          btn.type =
-            "button";
-
-
-          btn.className =
-            `filter-btn ${
-              index === 0
-                ? "active"
-                : ""
-            }`;
-
-
-          btn.dataset.category =
-            key;
-
-
-          btn.textContent =
-            getCategoryLabel(
-              key
-            );
-
-
-          categoryFilters.appendChild(
-            btn
-          );
-
-        }
-      );
-
-
-    /* ==========================================================
-       RENDER PORTFOLIO
+       PORTFOLIO FILTERS
     ========================================================== */
 
     function renderPortfolio() {
@@ -8550,9 +8340,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
       const items =
-        portfolioData
-          [currentCategory]
-          [currentType];
+        portfolioData[currentType] || [];
 
 
       const typeLabel =
@@ -8563,13 +8351,28 @@ html[data-theme="dark"] .theme-toggle {
 
       $("#portfolioTitle")
         .textContent =
-          `${getCategoryLabel(
-            currentCategory
-          )} · ${typeLabel}`;
+          typeLabel;
 
 
       grid.innerHTML =
         "";
+
+
+      if (!items.length) {
+
+        grid.innerHTML =
+          placeholderMarkup(
+            typeLabel,
+            currentType === "images"
+              ? "أضيفي أول صورة إلى قائمة الصور في portfolioData"
+              : currentType === "videos"
+                ? "أضيفي أول فيديو إلى قائمة الفيديوهات في portfolioData"
+                : "أضيفي أول رابط موقع إلى قائمة المواقع في portfolioData"
+          );
+
+        return;
+
+      }
 
 
       items.forEach(
@@ -8638,9 +8441,7 @@ html[data-theme="dark"] .theme-toggle {
 
 
             img.alt =
-              `${getCategoryLabel(
-                currentCategory
-              )} — ${title}`;
+              title;
 
 
             img.dataset.src =
@@ -8660,34 +8461,12 @@ html[data-theme="dark"] .theme-toggle {
                     )
                   );
 
-
-                card.addEventListener(
-                  "click",
-                  () =>
-                    showToast(
-                      T(
-                        "portfolio.missingImage",
-                        item.src
-                      )
-                    ),
-                  {
-                    once:
-                      true
-                  }
-                );
-
               },
-              {
-                once:
-                  true
-              }
+              { once: true }
             );
 
 
-            card.appendChild(
-              img
-            );
-
+            card.appendChild(img);
 
             card.insertAdjacentHTML(
               "beforeend",
@@ -8703,9 +8482,7 @@ html[data-theme="dark"] .theme-toggle {
               () =>
                 openImage(
                   item.src,
-                  `${getCategoryLabel(
-                    currentCategory
-                  )} — ${title}`
+                  title
                 )
             );
 
@@ -8728,100 +8505,38 @@ html[data-theme="dark"] .theme-toggle {
             video.className =
               "media";
 
-
-            video.muted =
-              true;
-
-
-            video.playsInline =
-              true;
-
-
-            video.loop =
-              true;
-
-
-            video.preload =
-              "none";
-
-
-            video.dataset.src =
-              item.src;
-
+            video.muted = true;
+            video.playsInline = true;
+            video.loop = true;
+            video.preload = "none";
+            video.dataset.src = item.src;
 
             video.addEventListener(
               "mouseenter",
               () => {
-
-                if (!video.src) {
-
-                  video.src =
-                    item.src;
-
-                }
-
-
-                video
-                  .play()
-                  .catch(
-                    () => {}
-                  );
-
+                if (!video.src) video.src = item.src;
+                video.play().catch(() => {});
               }
             );
-
 
             video.addEventListener(
               "mouseleave",
-              () => {
-
-                video.pause();
-
-              }
+              () => video.pause()
             );
-
 
             video.addEventListener(
               "error",
               () => {
-
                 card.innerHTML =
                   placeholderMarkup(
                     title,
-                    T(
-                      "portfolio.missingFile",
-                      item.src
-                    )
+                    T("portfolio.missingFile", item.src)
                   );
-
-
-                card.addEventListener(
-                  "click",
-                  () =>
-                    showToast(
-                      T(
-                        "portfolio.missingVideo",
-                        item.src
-                      )
-                    ),
-                  {
-                    once:
-                      true
-                  }
-                );
-
               },
-              {
-                once:
-                  true
-              }
+              { once: true }
             );
 
-
-            card.appendChild(
-              video
-            );
-
+            card.appendChild(video);
 
             card.insertAdjacentHTML(
               "beforeend",
@@ -8831,15 +8546,12 @@ html[data-theme="dark"] .theme-toggle {
               )
             );
 
-
             card.addEventListener(
               "click",
               () =>
                 openVideo(
                   item.src,
-                  `${getCategoryLabel(
-                    currentCategory
-                  )} — ${title}`
+                  title
                 )
             );
 
@@ -8854,91 +8566,39 @@ html[data-theme="dark"] .theme-toggle {
           ) {
 
             const hasUrl =
-              Boolean(
-                item.url
-              );
-
+              Boolean(item.url);
 
             card.innerHTML =
               hasUrl
-
                 ? `
-
                   <div class="portfolio-placeholder">
-
                     <div>
-
-                      <strong>
-                        ${escapeHtml(
-                          title
-                        )}
-                      </strong>
-
-                      <div>
-                        ${T(
-                          "portfolio.preview"
-                        )}
-                      </div>
-
+                      <strong>${escapeHtml(title)}</strong>
+                      <div>${T("portfolio.preview")}</div>
                     </div>
-
                   </div>
-
-                  ${overlayMarkup(
-                    title,
-                    `${number} · ${subtitle}`
-                  )}
-
+                  ${overlayMarkup(title, `${number} · ${subtitle}`)}
                 `
-
                 : placeholderMarkup(
                     title,
-                    T(
-                      "portfolio.addWebsiteLink"
-                    )
+                    T("portfolio.addWebsiteLink")
                   );
-
 
             card.addEventListener(
               "click",
               () => {
-
                 if (hasUrl) {
-
-                  openWebsite(
-                    item.url,
-                    `${getCategoryLabel(
-                      currentCategory
-                    )} — ${title}`
-                  );
-
+                  openWebsite(item.url, title);
                 }
-
-                else {
-
-                  showToast(
-                    T(
-                      "portfolio.missingLink",
-                      currentCategory,
-                      index
-                    )
-                  );
-
-                }
-
               }
             );
 
           }
 
-
-          grid.appendChild(
-            card
-          );
+          grid.appendChild(card);
 
         }
       );
-
 
       setupPortfolioLazyLoading();
 
@@ -9157,43 +8817,8 @@ html[data-theme="dark"] .theme-toggle {
 
 
     /* ==========================================================
-       FILTERS
+       PORTFOLIO TYPE FILTERS
     ========================================================== */
-
-    categoryFilters
-      .addEventListener(
-        "click",
-        event => {
-
-          const button =
-            event.target.closest(
-              "[data-category]"
-            );
-
-
-          if (!button) {
-            return;
-          }
-
-
-          currentCategory =
-            button.dataset.category;
-
-
-          $$("#categoryFilters .filter-btn")
-            .forEach(
-              btn =>
-                btn.classList.toggle(
-                  "active",
-                  btn === button
-                )
-            );
-
-
-          renderPortfolio();
-
-        }
-      );
 
 
     $("#typeFilters")
@@ -9227,47 +8852,6 @@ html[data-theme="dark"] .theme-toggle {
 
 
           renderPortfolio();
-
-        }
-      );
-
-
-    $$("[data-go-category]")
-      .forEach(
-        card => {
-
-          card.addEventListener(
-            "click",
-            () => {
-
-              currentCategory =
-                card.dataset.goCategory;
-
-
-              const button =
-                $(
-                  `#categoryFilters [data-category="${currentCategory}"]`
-                );
-
-
-              if (button) {
-
-                button.click();
-
-              }
-
-
-              document
-                .querySelector(
-                  "#portfolio"
-                )
-                .scrollIntoView({
-                  behavior:
-                    "smooth"
-                });
-
-            }
-          );
 
         }
       );
